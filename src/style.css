@@ -2647,3 +2647,61 @@ body {
   color: #ffffff;
   padding: 14px 18px;
 }
+
+.vl-preset {
+  width: min(1500px, 100%);
+  display: grid;
+  gap: 26px;
+  color: #ffffff;
+}
+
+.vl-preset-header {
+  text-align: center;
+}
+
+.vl-preset-header span {
+  display: inline-flex;
+  border: 2px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 18px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.vl-preset-header h3 {
+  margin: 14px 0 8px;
+  color: #ffffff;
+  font-size: 52px;
+  font-weight: 950;
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.vl-preset-header p {
+  max-width: 860px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.vl-preset-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vl-preset-single,
+.vl-preset-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 46px;
+}
+
+.vl-gallery {
+  display: grid;
+  gap: 80px;
+}

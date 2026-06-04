@@ -8,6 +8,7 @@ This catalog is future-facing. It names reusable visual layouts that can be used
 - Prefer one idea per beat; split crowded explanations into companion beats.
 - Keep all layouts monochrome, high-contrast, and caption-safe.
 - Use reusable primitives from `src/components/visual-library/` when a generic layout fits.
+- Use `VisualLayoutPreset` to preview or start from any catalog `kind`.
 - Use topic-specific custom visuals only when the catalog shape is not expressive enough.
 
 ## Row 1 - Boards & Cards
@@ -156,6 +157,7 @@ Use these to sharpen a lesson, correct misunderstandings, or bridge to the next 
 
 ## Implementation Notes
 
+- Catalog kinds are renderable as reusable presets through `VisualLayoutPreset`.
 - Catalog kinds are not automatically active video kinds.
 - The implementation layer should prefer reusable primitives before custom one-off layouts.
 - A future beat can say `kind: "queue-flow"` only after that `kind` is added to `VisualKind` and mapped to a visual renderer.

@@ -9,6 +9,7 @@ export {
   VisualCardGrid,
   VisualLibraryCheck,
 } from './VisualLibrary';
+export {VisualLayoutFamilyGallery, VisualLayoutPreset} from './LayoutPresets';
 export type {
   ArchitectureMapProps,
   ArchitectureNode,
