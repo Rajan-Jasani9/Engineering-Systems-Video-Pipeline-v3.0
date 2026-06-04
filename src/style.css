@@ -2705,3 +2705,11 @@ body {
   display: grid;
   gap: 80px;
 }
+
+.vl-preview-stage {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 78px 96px;
+}
