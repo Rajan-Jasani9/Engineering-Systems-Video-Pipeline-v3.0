@@ -42,10 +42,13 @@ src/components/LessonVisuals.tsx
 src/components/DoodleBackground.tsx
 src/components/WordChunk.tsx
 src/components/Word.tsx
+src/components/visual-library/
 src/style.css
 ```
 
 When adding topic-specific visuals, add new `VisualKind` values in `src/types.ts`, new render cases in `LessonVisuals.tsx`, and scoped CSS classes in `src/style.css`.
+
+Use `VISUAL_LAYOUT_CATALOG.md` for future reusable layout names and the matching primitive family. Catalog entries are planning vocabulary until a specific video beat adopts them.
 
 ## Layout System
 
@@ -123,6 +126,8 @@ Reusable comparison matrix:
 - Avoid filling every cell with full sentences. Prefer terse labels like `fast`, `costly`, `simple`, `risky`, `strong`, or `best for reads`.
 - Good fits: sync vs async, cache vs database, single region vs multi-region, redundancy vs replication vs failover, or pros/cons of a design choice.
 - Do not use it by default. Use it only when comparison is clearer than a diagram, flow, or checklist.
+
+For the broader reusable layout list, see `VISUAL_LAYOUT_CATALOG.md`.
 
 ## Pacing Rule
 
