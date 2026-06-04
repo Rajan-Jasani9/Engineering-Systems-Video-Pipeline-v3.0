@@ -1,0 +1,30 @@
+{
+  "name": "engineering-systems-kinetic-video",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "remotion studio src/index.tsx",
+    "render": "npm run render:consistency",
+    "render:gpu": "npm run render:consistency:gpu",
+    "render:consistency": "remotion render src/index.tsx ConsistencyInPractice out/videos/consistency-in-practice.mp4 --codec=h264 --audio-codec=aac",
+    "render:consistency:gpu": "remotion render src/index.tsx ConsistencyInPractice out/videos/consistency-in-practice.mp4 --codec=h264 --audio-codec=aac --hardware-acceleration=if-possible --chrome-mode=chrome-for-testing --gl=angle --concurrency=50%",
+    "render:availability": "remotion render src/index.tsx AvailabilityPatternsWhatIsAvailability out/availability-patterns-1-what-is-availability-why-some-systems-never-sleep.mp4 --codec=h264 --audio-codec=aac",
+    "render:availability:gpu": "remotion render src/index.tsx AvailabilityPatternsWhatIsAvailability out/availability-patterns-1-what-is-availability-why-some-systems-never-sleep.mp4 --codec=h264 --audio-codec=aac --hardware-acceleration=if-possible --chrome-mode=chrome-for-testing --gl=angle --concurrency=50%",
+    "extract:words": "node scripts/extract-words.mjs",
+    "check:pacing": "node scripts/check-lesson-pacing.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.471",
+    "@remotion/media-utils": "4.0.471",
+    "lucide-react": "1.17.0",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "remotion": "4.0.471"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.9.3"
+  }
+}
