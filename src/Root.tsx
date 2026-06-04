@@ -2,6 +2,7 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {MainVideo} from './MainVideo';
+import {Thumbnail} from './Thumbnail';
 import {VisualLayoutPreview} from './VisualLayoutPreview';
 import type {LayoutKind} from './components/visual-library';
 import {getLastWordEnd} from './utils/chunker';
@@ -55,6 +56,20 @@ const visualPreviewCompositions: Array<{
   },
 ];
 
+const thumbnailCompositions: Array<{
+  id: string;
+  topic: 'consistency' | 'availability';
+}> = [
+  {
+    id: 'ThumbnailConsistencyInPractice',
+    topic: 'consistency',
+  },
+  {
+    id: 'ThumbnailAvailabilityPatternsWhatIsAvailability',
+    topic: 'availability',
+  },
+];
+
 export const RemotionRoot: React.FC = () => {
   return (
     <>
@@ -89,6 +104,18 @@ export const RemotionRoot: React.FC = () => {
           fps={FPS}
           durationInFrames={90}
           defaultProps={preview}
+        />
+      ))}
+      {thumbnailCompositions.map((thumbnail) => (
+        <Composition
+          key={thumbnail.id}
+          id={thumbnail.id}
+          component={Thumbnail}
+          width={WIDTH}
+          height={HEIGHT}
+          fps={FPS}
+          durationInFrames={30}
+          defaultProps={{topic: thumbnail.topic}}
         />
       ))}
     </>
