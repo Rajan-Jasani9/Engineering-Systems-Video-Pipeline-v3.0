@@ -1902,6 +1902,26 @@ body {
   color: #000000;
 }
 
+.lesson-kind-recap-availability .decision-checklist-board {
+  width: min(980px, 100%);
+  gap: 12px;
+}
+
+.lesson-kind-recap-availability .checklist-row {
+  grid-template-columns: 54px 1fr;
+  gap: 16px;
+  padding: 16px 22px;
+}
+
+.lesson-kind-recap-availability .checklist-row strong {
+  font-size: 30px;
+}
+
+.lesson-kind-recap-availability .checklist-row p {
+  margin-top: 5px;
+  font-size: 19px;
+}
+
 .lesson-kind-closing {
   position: relative;
   color: #ffffff;

@@ -105,6 +105,7 @@ Use these recurring visual types across videos:
 - Race diagram: multiple users/requests competing for a resource.
 - Spectrum: correctness to availability, latency to throughput, consistency to cost.
 - Checklist: 3-step or 4-step decision model.
+- Comparison matrix: subtle table for trade-offs, pros/cons, option scoring, or constraint comparison.
 - System flow: API, queue, worker, database, cache, region.
 - Failure path: detect, reroute, retry, recover.
 - Recap bridge: current topic connected to the next topic.
@@ -113,6 +114,15 @@ When a beat lasts too long, split it into a companion scene:
 
 - First scene introduces the concept.
 - Second scene shows the consequence, example, or decision rule.
+
+Reusable comparison matrix:
+
+- Use when the lesson needs a compact comparison across multiple dimensions.
+- It can be a trade-off table, pros/cons table, decision matrix, or lightweight scoring grid.
+- Keep it subtle: thin white grid lines, black background, one highlighted row or column, and short cell labels.
+- Avoid filling every cell with full sentences. Prefer terse labels like `fast`, `costly`, `simple`, `risky`, `strong`, or `best for reads`.
+- Good fits: sync vs async, cache vs database, single region vs multi-region, redundancy vs replication vs failover, or pros/cons of a design choice.
+- Do not use it by default. Use it only when comparison is clearer than a diagram, flow, or checklist.
 
 ## Pacing Rule
 
