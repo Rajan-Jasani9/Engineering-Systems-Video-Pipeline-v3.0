@@ -7,10 +7,18 @@ import {chunkWords} from './utils/chunker';
 import type {LessonBeat, MainVideoProps} from './types';
 
 const getActiveBeat = (lessonPlan: LessonBeat[], currentTime: number): LessonBeat => {
-  return (
-    lessonPlan.find((beat) => currentTime >= beat.start && currentTime < beat.end) ??
-    lessonPlan[lessonPlan.length - 1]
-  );
+  const activeBeat = lessonPlan.find((beat) => currentTime >= beat.start && currentTime < beat.end);
+  if (activeBeat) {
+    return activeBeat;
+  }
+
+  for (let index = lessonPlan.length - 1; index >= 0; index -= 1) {
+    if (currentTime >= lessonPlan[index].start) {
+      return lessonPlan[index];
+    }
+  }
+
+  return lessonPlan[0];
 };
 
 export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan}) => {
@@ -21,6 +29,11 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
   const activeBeat = getActiveBeat(lessonPlan, currentTime);
   const activeChunk = chunks.find((chunk) => currentTime >= chunk.start && currentTime <= chunk.end);
   const showCaptions = activeBeat.kind !== 'closing';
+  const footerLabels = lessonPlan.some((beat) => beat.kind.startsWith('spof-'))
+    ? ['Availability', 'SPOFs', 'FoodDash', 'High availability']
+    : lessonPlan.some((beat) => beat.kind === 'hc-screen')
+      ? ['Health checks', 'Failover', 'Load balancers', 'Chaos engineering']
+      : ['Strong consistency', 'Queues', 'Retries', 'Eventual consistency'];
 
   return (
     <AbsoluteFill className="video-root">
@@ -49,10 +62,9 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
         </div>
 
         <div className="footer-row">
-          <span>Strong consistency</span>
-          <span>Queues</span>
-          <span>Retries</span>
-          <span>Eventual consistency</span>
+          {footerLabels.map((label) => (
+            <span key={label}>{label}</span>
+          ))}
         </div>
       </AbsoluteFill>
     </AbsoluteFill>

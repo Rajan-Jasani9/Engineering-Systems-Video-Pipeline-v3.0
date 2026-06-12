@@ -4,6 +4,7 @@ import path from 'node:path';
 const WARN_SECONDS = 8;
 const MAX_SECONDS = 12;
 const videosDir = path.resolve('src/videos');
+const targetSlug = process.env.VIDEO_SLUG;
 
 const readBeats = (lessonPlanPath) => {
   const source = fs.readFileSync(lessonPlanPath, 'utf8');
@@ -38,7 +39,8 @@ const videoDirs = fs
   .readdirSync(videosDir, {withFileTypes: true})
   .filter((entry) => entry.isDirectory())
   .map((entry) => path.join(videosDir, entry.name))
-  .filter((videoDir) => fs.existsSync(path.join(videoDir, 'lessonPlan.ts')));
+  .filter((videoDir) => fs.existsSync(path.join(videoDir, 'lessonPlan.ts')))
+  .filter((videoDir) => !targetSlug || path.basename(videoDir) === targetSlug);
 
 let hasError = false;
 
