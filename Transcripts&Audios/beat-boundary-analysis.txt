@@ -1,0 +1,976 @@
+========================================================================================================================
+BEAT BOUNDARY VERIFICATION REPORT: Health Checks & Failover
+========================================================================================================================
+
+Beat boundaries: 0, 8, 18, 28, 36, 48, 60, 72, 84, 95, 105, 115, 125, 140, 152, 162, 172, 182, 195, 205, 218, 232, 245, 255, 268, 278, 290, 302, 312, 328, 342, 355, 370, 378, 390, 403
+Total words in words.json: 1145
+Last word index: 1144, end time: 403s
+
+
+--- BOUNDARY: 0s (beat 1 of 36) ---
+  Word at boundary: [0] "Welcome" start=0.000 end=0.333
+  Dist from word start: 0.000, from end: 0.333
+  Next word: [1] "back" start=0.333
+  Words +/-2s:
+    [0] "Welcome" 0.000-0.333 <-- BOUNDARY
+    [1] "back" 0.333-0.667
+    [2] "to" 0.667-1.000
+    [3] "the" 1.000-1.333
+    [4] "Engineering" 1.333-1.667
+    [5] "Systems" 1.667-2.000
+    [6] "Explainer" 2.000-2.333
+  Transcript markers near 0s:
+    (0:00) Welcome back to the Engineering Systems Explainer series. Let's pick right back
+    (0:04) up with our availability patterns and our fictional food delivery app, FoodDash.
+
+--- BOUNDARY: 8s (beat 2 of 36) ---
+  Word at boundary: [23] "FoodDash." start=7.667 end=8.000
+  Dist from word start: 0.333, from end: 0.000
+  Previous word: [22] "app," end=7.667
+  Gap: 0ms
+  Next word: [24] "In" start=8.000
+  Words +/-2s:
+    [18] "our" 6.000-6.333
+    [19] "fictional" 6.333-6.667
+    [20] "food" 6.667-7.000
+    [21] "delivery" 7.000-7.333
+    [22] "app," 7.333-7.667
+    [23] "FoodDash." 7.667-8.000 <-- BOUNDARY
+    [24] "In" 8.000-8.333 <-- BOUNDARY
+    [25] "our" 8.333-8.667
+    [26] "last" 8.667-9.000
+    [27] "explainer," 9.000-9.333
+    [28] "we" 9.333-9.667
+    [29] "successfully" 9.667-10.000
+    [30] "eliminated" 10.000-10.333
+  Transcript markers near 8s:
+    (0:04) up with our availability patterns and our fictional food delivery app, FoodDash.
+    (0:08) In our last explainer, we successfully eliminated our single point of failure
+    (0:12) using redundancy and replication.
+
+--- BOUNDARY: 18s (beat 3 of 36) ---
+  Word at boundary: [49] "two," start=17.571 end=18.000
+  Dist from word start: 0.429, from end: 0.000
+  Previous word: [48] "has" end=17.571
+  Gap: 0ms
+  Next word: [50] "a" start=18.000
+  Words +/-2s:
+    [46] "FoodDash" 16.286-16.714
+    [47] "now" 16.714-17.143
+    [48] "has" 17.143-17.571
+    [49] "two," 17.571-18.000 <-- BOUNDARY
+    [50] "a" 18.000-18.308 <-- BOUNDARY
+    [51] "primary" 18.308-18.615
+    [52] "database" 18.615-18.923
+    [53] "handling" 18.923-19.231
+    [54] "all" 19.231-19.538
+    [55] "the" 19.538-19.846
+    [56] "live" 19.846-20.154
+  Transcript markers near 18s:
+    (0:18) a primary database handling all the live production traffic and a secondary data
+    (0:22) continuously receiving replicated data. It kind of looks like we've solved the p
+
+--- BOUNDARY: 28s (beat 4 of 36) ---
+  Word at boundary: [80] "Okay," start=27.667 end=28.222
+  Dist from word start: 0.333, from end: 0.222
+  Previous word: [79] "we?" end=27.667
+  Gap: 0ms
+  ** SENTENCE END **
+  Next word: [81] "let's" start=28.222
+  Words +/-2s:
+    [77] "Well," 26.000-26.556
+    [78] "have" 26.556-27.111
+    [79] "we?" 27.111-27.667
+    [80] "Okay," 27.667-28.222 <-- BOUNDARY
+    [81] "let's" 28.222-28.778
+    [82] "really" 28.778-29.333
+    [83] "dive" 29.333-29.889
+    [84] "into" 29.889-30.444
+  Transcript markers near 28s:
+    (0:26) Well, have we? Okay, let's really dive into this.
+    (0:31) Imagine the primary database suddenly crashes.
+
+--- BOUNDARY: 36s (beat 5 of 36) ---
+  Word at boundary: [97] "sitting" start=35.714 end=36.143
+  Dist from word start: 0.286, from end: 0.143
+  Previous word: [96] "is" end=35.714
+  Gap: 0ms
+  Next word: [98] "right" start=36.143
+  Words +/-2s:
+    [93] "the" 34.000-34.429
+    [94] "backup" 34.429-34.857
+    [95] "database" 34.857-35.286
+    [96] "is" 35.286-35.714
+    [97] "sitting" 35.714-36.143 <-- BOUNDARY
+    [98] "right" 36.143-36.571
+    [99] "there." 36.571-37.000
+    [100] "It's" 37.000-37.364
+    [101] "fully" 37.364-37.727
+    [102] "replicated," 37.727-38.091
+  Transcript markers near 36s:
+    (0:31) Imagine the primary database suddenly crashes.
+    (0:37) It's fully replicated, totally synchronized, and completely ready to jump in.
+    (0:41) But here's the massive, million-dollar question.
+
+--- BOUNDARY: 48s (beat 6 of 36) ---
+  Word at boundary: [130] "actually" start=47.875 end=48.188
+  Dist from word start: 0.125, from end: 0.188
+  Previous word: [129] "system" end=47.875
+  Gap: 0ms
+  Next word: [131] "know" start=48.188
+  Words +/-2s:
+    [124] "their" 46.000-46.313
+    [125] "food," 46.313-46.625
+    [126] "how" 46.625-46.938
+    [127] "does" 46.938-47.250
+    [128] "the" 47.250-47.563
+    [129] "system" 47.563-47.875
+    [130] "actually" 47.875-48.188 <-- BOUNDARY
+    [131] "know" 48.188-48.500
+    [132] "the" 48.500-48.813
+    [133] "primary" 48.813-49.125
+    [134] "failed?" 49.125-49.438
+    [135] "That" 49.438-49.750
+    [136] "shiny" 49.750-50.063
+  Transcript markers near 48s:
+    (0:46) their food, how does the system actually know the primary failed? That shiny new
+    (0:51) literally useless if nobody knows when to switch over to it. And that brings us 
+
+--- BOUNDARY: 60s (beat 7 of 36) ---
+  Word at boundary: [170] "automated" start=59.714 end=60.143
+  Dist from word start: 0.286, from end: 0.143
+  Previous word: [169] "simple" end=59.714
+  Gap: 0ms
+  Next word: [171] "digital" start=60.143
+  Words +/-2s:
+    [166] "check" 58.000-58.429
+    [167] "as" 58.429-58.857
+    [168] "a" 58.857-59.286
+    [169] "simple" 59.286-59.714
+    [170] "automated" 59.714-60.143 <-- BOUNDARY
+    [171] "digital" 60.143-60.571
+    [172] "pulse." 60.571-61.000
+    [173] "The" 61.000-61.308
+    [174] "system" 61.308-61.615
+    [175] "is" 61.615-61.923
+    [176] "continuously" 61.923-62.231
+  Transcript markers near 60s:
+    (0:55) concept, health checks. Think of a health check as a simple automated digital pu
+    (1:01) The system is continuously asking, hey, are you still alive? Every few seconds,
+    (1:05) FoodDash sends this tiny request in the background directly to the primary datab
+
+--- BOUNDARY: 72s (beat 8 of 36) ---
+  Word at boundary: [206] "few" start=72.000 end=72.286
+  Dist from word start: 0.000, from end: 0.286
+  Previous word: [205] "A" end=72.000
+  Gap: 0ms
+  Next word: [207] "seconds" start=72.286
+  Words +/-2s:
+    [199] "The" 70.000-70.286
+    [200] "database" 70.286-70.571
+    [201] "responds," 70.571-70.857
+    [202] "confirming" 70.857-71.143
+    [203] "it's" 71.143-71.429
+    [204] "healthy." 71.429-71.714
+    [205] "A" 71.714-72.000 <-- BOUNDARY
+    [206] "few" 72.000-72.286 <-- BOUNDARY
+    [207] "seconds" 72.286-72.571
+    [208] "later," 72.571-72.857
+    [209] "another" 72.857-73.143
+    [210] "check," 73.143-73.429
+    [211] "still" 73.429-73.714
+    [212] "healthy." 73.714-74.000
+    [213] "Then" 74.000-74.375
+  Transcript markers near 72s:
+    (1:10) The database responds, confirming it's healthy. A few seconds later, another che
+    (1:14) Then another, still good. These tiny requests run on a constant loop. And honest
+
+--- BOUNDARY: 84s (beat 9 of 36) ---
+  Word at boundary: [242] "watch" start=83.714 end=84.000
+  Dist from word start: 0.286, from end: 0.000
+  Previous word: [241] "and" end=83.714
+  Gap: 0ms
+  Next word: [243] "what" start=84.000
+  Words +/-2s:
+    [236] "happening." 82.000-82.286
+    [237] "Now" 82.286-82.571
+    [238] "let's" 82.571-82.857
+    [239] "break" 82.857-83.143
+    [240] "something" 83.143-83.429
+    [241] "and" 83.429-83.714
+    [242] "watch" 83.714-84.000 <-- BOUNDARY
+    [243] "what" 84.000-84.375 <-- BOUNDARY
+    [244] "happens." 84.375-84.750
+    [245] "Bam," 84.750-85.125
+    [246] "the" 85.125-85.500
+    [247] "primary" 85.500-85.875
+    [248] "database" 85.875-86.250
+  Transcript markers near 84s:
+    (1:20) ordering their lunch never even know they're happening.
+    (1:24) what happens. Bam, the primary database suddenly crashes. The very next health c
+
+--- BOUNDARY: 95s (beat 10 of 36) ---
+  Word at boundary: [271] "still" start=94.800 end=95.200
+  Dist from word start: 0.200, from end: 0.200
+  Previous word: [270] "sent," end=94.800
+  Gap: 0ms
+  Next word: [272] "nothing." start=95.200
+  Words +/-2s:
+    [267] "another" 93.200-93.600
+    [268] "check" 93.600-94.000
+    [269] "is" 94.000-94.400
+    [270] "sent," 94.400-94.800
+    [271] "still" 94.800-95.200 <-- BOUNDARY
+    [272] "nothing." 95.200-95.600
+    [273] "Then" 95.600-96.000
+    [274] "another," 96.000-96.400
+    [275] "silence" 96.400-96.800
+    [276] "again." 96.800-97.200
+  Transcript markers near 95s:
+    (1:30) total silence, no response.
+    (1:36) another, silence again. At this exact moment, FoodDash finally has the hard evid
+
+--- BOUNDARY: 105s (beat 11 of 36) ---
+  Word at boundary: [297] "down." start=104.824 end=105.176
+  Dist from word start: 0.176, from end: 0.176
+  Previous word: [296] "undeniably" end=104.824
+  Gap: 0ms
+  Next word: [298] "And" start=105.176
+  Words +/-2s:
+    [292] "the" 103.059-103.412
+    [293] "primary" 103.412-103.765
+    [294] "database" 103.765-104.118
+    [295] "is" 104.118-104.471
+    [296] "undeniably" 104.471-104.824
+    [297] "down." 104.824-105.176 <-- BOUNDARY
+    [298] "And" 105.176-105.529
+    [299] "this" 105.529-105.882
+    [300] "is" 105.882-106.235
+    [301] "where" 106.235-106.588
+    [302] "the" 106.588-106.941
+    [303] "absolute" 106.941-107.294
+  Transcript markers near 105s:
+    (1:42) to conclude that the primary database is undeniably down.
+    (1:48) failover kicks in. Failover just means moving traffic away from a broken compone
+
+--- BOUNDARY: 115s (beat 12 of 36) ---
+  Word at boundary: [326] "follow" start=114.667 end=115.000
+  Dist from word start: 0.333, from end: 0.000
+  Previous word: [325] "we" end=114.667
+  Gap: 0ms
+  Next word: [327] "an" start=115.000
+  Words +/-2s:
+    [321] "a" 113.000-113.333
+    [322] "healthy" 113.333-113.667
+    [323] "one." 113.667-114.000
+    [324] "And" 114.000-114.333
+    [325] "we" 114.333-114.667
+    [326] "follow" 114.667-115.000 <-- BOUNDARY
+    [327] "an" 115.000-115.333 <-- BOUNDARY
+    [328] "exact" 115.333-115.667
+    [329] "automated" 115.667-116.000
+    [330] "sequence" 116.000-116.333
+    [331] "to" 116.333-116.667
+    [332] "do" 116.667-117.000
+    [333] "this." 117.000-117.333
+  Transcript markers near 115s:
+    (1:53) a healthy one. And we follow an exact automated sequence to do this.
+    (1:59) failure. Second, that perfectly synchronized backup database, it's officially pr
+
+--- BOUNDARY: 125s (beat 13 of 36) ---
+  Word at boundary: [355] "the" start=124.800 end=125.200
+  Dist from word start: 0.200, from end: 0.200
+  Previous word: [354] "Third," end=124.800
+  Gap: 0ms
+  Next word: [356] "live" start=125.200
+  Words +/-2s:
+    [351] "the" 123.286-123.643
+    [352] "new" 123.643-124.000
+    [353] "primary." 124.000-124.400
+    [354] "Third," 124.400-124.800
+    [355] "the" 124.800-125.200 <-- BOUNDARY
+    [356] "live" 125.200-125.600
+    [357] "traffic" 125.600-126.000
+    [358] "is" 126.000-126.400
+    [359] "seamlessly" 126.400-126.800
+    [360] "redirected" 126.800-127.200
+  Transcript markers near 125s:
+    (2:04) primary. Third, the live traffic is seamlessly redirected over to it.
+    (2:10) servers reconnect. Just like that, FoodDash keeps running and the food keeps get
+
+--- BOUNDARY: 140s (beat 14 of 36) ---
+  Word at boundary: [397] "up" start=139.737 end=140.053
+  Dist from word start: 0.263, from end: 0.053
+  Previous word: [396] "wake" end=139.737
+  Gap: 0ms
+  Next word: [398] "a" start=140.053
+  Words +/-2s:
+    [392] "how" 138.158-138.474
+    [393] "nobody" 138.474-138.789
+    [394] "had" 138.789-139.105
+    [395] "to" 139.105-139.421
+    [396] "wake" 139.421-139.737
+    [397] "up" 139.737-140.053 <-- BOUNDARY
+    [398] "a" 140.053-140.368
+    [399] "panicked" 140.368-140.684
+    [400] "on-call" 140.684-141.000
+    [401] "engineer" 141.000-141.294
+    [402] "at" 141.294-141.588
+    [403] "3" 141.588-141.882
+    [404] "a.m.," 141.882-142.176
+  Transcript markers near 140s:
+    (2:15) So the crucial point here is what didn't happen.
+    (2:21) engineer at 3 a.m., nobody had to manually log into a server, and nobody was fra
+
+--- BOUNDARY: 152s (beat 15 of 36) ---
+  Word at boundary: [432] "on" start=151.765 end=152.176
+  Dist from word start: 0.235, from end: 0.176
+  Previous word: [431] "entirely" end=151.765
+  Gap: 0ms
+  Next word: [433] "its" start=152.176
+  Words +/-2s:
+    [428] "and" 150.118-150.529
+    [429] "fixed" 150.529-150.941
+    [430] "itself" 150.941-151.353
+    [431] "entirely" 151.353-151.765
+    [432] "on" 151.765-152.176 <-- BOUNDARY
+    [433] "its" 152.176-152.588
+    [434] "own." 152.588-153.000
+    [435] "That's" 153.000-153.333
+    [436] "the" 153.333-153.667
+    [437] "real" 153.667-154.000
+    [438] "power" 154.000-154.333
+  Transcript markers near 152s:
+    (2:33) That's the real power of automatic failover.
+
+--- BOUNDARY: 162s (beat 16 of 36) ---
+  Word at boundary: [460] "just" start=161.846 end=162.231
+  Dist from word start: 0.154, from end: 0.231
+  Previous word: [459] "is" end=161.846
+  Gap: 0ms
+  Next word: [461] "temporarily" start=162.231
+  Words +/-2s:
+    [456] "Sometimes" 160.308-160.692
+    [457] "a" 160.692-161.077
+    [458] "server" 161.077-161.462
+    [459] "is" 161.462-161.846
+    [460] "just" 161.846-162.231 <-- BOUNDARY
+    [461] "temporarily" 162.231-162.615
+    [462] "choking" 162.615-163.000
+    [463] "on" 163.000-163.250
+    [464] "a" 163.250-163.500
+    [465] "heavy" 163.500-163.750
+    [466] "query," 163.750-164.000
+    [467] "or" 164.000-164.250
+  Transcript markers near 162s:
+    (2:38) systems aren't always quite that perfect. Sometimes a server is just temporarily
+    (2:43) on a heavy query, or maybe a network package just gets lost in the void. What if
+
+--- BOUNDARY: 172s (beat 17 of 36) ---
+  Word at boundary: [497] "failover" start=172.000 end=172.333
+  Dist from word start: 0.000, from end: 0.333
+  Previous word: [496] "massive" end=172.000
+  Gap: 0ms
+  Next word: [498] "after" start=172.333
+  Words +/-2s:
+    [490] "fine?" 170.000-170.286
+    [491] "If" 170.286-170.571
+    [492] "FoodDash" 170.571-170.857
+    [493] "immediately" 170.857-171.143
+    [494] "triggered" 171.143-171.429
+    [495] "a" 171.429-171.714
+    [496] "massive" 171.714-172.000 <-- BOUNDARY
+    [497] "failover" 172.000-172.333 <-- BOUNDARY
+    [498] "after" 172.333-172.667
+    [499] "just" 172.667-173.000
+    [500] "one" 173.000-173.333
+    [501] "missed" 173.333-173.667
+    [502] "check," 173.667-174.000
+    [503] "the" 174.000-174.333
+  Transcript markers near 172s:
+    (2:48) fails but the database is actually totally fine? If FoodDash immediately trigger
+    (2:52) failover after just one missed check, the entire platform would become incredibl
+    (2:57) these false positives, when the system gets jumpy and incorrectly assumes someth
+
+--- BOUNDARY: 182s (beat 18 of 36) ---
+  Word at boundary: [527] "really" start=182.000 end=182.400
+  Dist from word start: 0.000, from end: 0.400
+  Previous word: [526] "it" end=182.000
+  Gap: 0ms
+  Next word: [528] "hasn't." start=182.400
+  Words +/-2s:
+    [521] "incorrectly" 180.000-180.333
+    [522] "assumes" 180.333-180.667
+    [523] "something" 180.667-181.000
+    [524] "died" 181.000-181.333
+    [525] "when" 181.333-181.667
+    [526] "it" 181.667-182.000 <-- BOUNDARY
+    [527] "really" 182.000-182.400 <-- BOUNDARY
+    [528] "hasn't." 182.400-182.800
+    [529] "And" 182.800-183.200
+    [530] "this" 183.200-183.600
+    [531] "brilliantly" 183.600-184.000
+    [532] "illustrates" 184.000-184.400
+  Transcript markers near 182s:
+    (2:57) these false positives, when the system gets jumpy and incorrectly assumes someth
+    (3:02) really hasn't. And this brilliantly illustrates why we never, ever trust a singl
+
+--- BOUNDARY: 195s (beat 19 of 36) ---
+  Word at boundary: [559] "action." start=194.900 end=195.200
+  Dist from word start: 0.100, from end: 0.200
+  Previous word: [558] "drastic" end=194.900
+  Gap: 0ms
+  Next word: [560] "So" start=195.200
+  Words +/-2s:
+    [554] "time" 193.143-193.571
+    [555] "before" 193.571-194.000
+    [556] "taking" 194.000-194.300
+    [557] "any" 194.300-194.600
+    [558] "drastic" 194.600-194.900
+    [559] "action." 194.900-195.200 <-- BOUNDARY
+    [560] "So" 195.200-195.500
+    [561] "a" 195.500-195.800
+    [562] "check" 195.800-196.100
+    [563] "fails" 196.100-196.400
+    [564] "at" 196.400-196.700
+    [565] "t0." 196.700-197.000
+    [566] "Okay," 197.000-197.300
+  Transcript markers near 195s:
+    (3:14) taking any drastic action. So a check fails at t0. Okay, wait.
+    (3:20) seconds. Hmm. Then again at t plus 10 seconds.
+
+--- BOUNDARY: 205s (beat 20 of 36) ---
+  Word at boundary: [589] "consecutive" start=204.875 end=205.250
+  Dist from word start: 0.125, from end: 0.250
+  Previous word: [588] "three" end=204.875
+  Gap: 0ms
+  Next word: [590] "failed" start=205.250
+  Words +/-2s:
+    [584] "seconds." 203.000-203.375
+    [585] "Only" 203.375-203.750
+    [586] "after," 203.750-204.125
+    [587] "say," 204.125-204.500
+    [588] "three" 204.500-204.875
+    [589] "consecutive" 204.875-205.250 <-- BOUNDARY
+    [590] "failed" 205.250-205.625
+    [591] "checks" 205.625-206.000
+    [592] "do" 206.000-206.267
+    [593] "we" 206.267-206.533
+    [594] "officially" 206.533-206.800
+    [595] "declare" 206.800-207.067
+  Transcript markers near 205s:
+    (3:20) seconds. Hmm. Then again at t plus 10 seconds.
+    (3:26) do we officially declare that component dead. It's the perfect balance, really. 
+    (3:30) failures fast, but we completely avoid those unnecessary chaotic failovers.
+
+--- BOUNDARY: 218s (beat 21 of 36) ---
+  Word at boundary: [624] "same" start=217.750 end=218.188
+  Dist from word start: 0.250, from end: 0.188
+  Previous word: [623] "exact" end=217.750
+  Gap: 0ms
+  Next word: [625] "pattern" start=218.188
+  Words +/-2s:
+    [620] "cool" 216.000-216.438
+    [621] "part." 216.438-216.875
+    [622] "This" 216.875-217.313
+    [623] "exact" 217.313-217.750
+    [624] "same" 217.750-218.188 <-- BOUNDARY
+    [625] "pattern" 218.188-218.625
+    [626] "isn't" 218.625-219.063
+    [627] "just" 219.063-219.500
+    [628] "for" 219.500-219.938
+    [629] "databases." 219.938-220.375
+  Transcript markers near 218s:
+    (3:36) cool part. This exact same pattern isn't just for databases. It's used everywher
+    (3:43) Let's actually shift our focus up the stack for a second, away from the database
+
+--- BOUNDARY: 232s (beat 22 of 36) ---
+  Word at boundary: [667] "the" start=232.000 end=232.333
+  Dist from word start: 0.000, from end: 0.333
+  Previous word: [666] "on" end=232.000
+  Gap: 0ms
+  Next word: [668] "FoodDash" start=232.333
+  Words +/-2s:
+    [661] "see" 230.000-230.333
+    [662] "how" 230.333-230.667
+    [663] "this" 230.667-231.000
+    [664] "plays" 231.000-231.333
+    [665] "out" 231.333-231.667
+    [666] "on" 231.667-232.000 <-- BOUNDARY
+    [667] "the" 232.000-232.333 <-- BOUNDARY
+    [668] "FoodDash" 232.333-232.667
+    [669] "backend." 232.667-233.000
+    [670] "Imagine" 233.000-233.429
+    [671] "FoodDash" 233.429-233.857
+    [672] "has" 233.857-234.286
+  Transcript markers near 232s:
+    (3:48) application servers and load balancers to see how this plays out on the FoodDash
+    (3:53) Imagine FoodDash has a cluster of four backend application servers sitting direc
+
+--- BOUNDARY: 245s (beat 23 of 36) ---
+  Word at boundary: [699] "single" start=245.000 end=245.400
+  Dist from word start: 0.000, from end: 0.400
+  Previous word: [698] "every" end=245.000
+  Gap: 0ms
+  Next word: [700] "machine." start=245.400
+  Words +/-2s:
+    [694] "checking" 243.000-243.400
+    [695] "the" 243.400-243.800
+    [696] "health" 243.800-244.200
+    [697] "of" 244.200-244.600
+    [698] "every" 244.600-245.000 <-- BOUNDARY
+    [699] "single" 245.000-245.400 <-- BOUNDARY
+    [700] "machine." 245.400-245.800
+    [701] "Right" 245.800-246.200
+    [702] "now," 246.200-246.600
+    [703] "looking" 246.600-247.000
+    [704] "at" 247.000-247.400
+  Transcript markers near 245s:
+    (4:05) single machine.
+
+--- BOUNDARY: 255s (beat 24 of 36) ---
+  Word at boundary: [721] "But" start=254.500 end=255.000
+  Dist from word start: 0.500, from end: 0.000
+  Previous word: [720] "orders." end=254.500
+  Gap: 0ms
+  ** SENTENCE END **
+  Next word: [722] "suddenly," start=255.000
+  Words +/-2s:
+    [718] "routing" 253.000-253.500
+    [719] "food" 253.500-254.000
+    [720] "orders." 254.000-254.500
+    [721] "But" 254.500-255.000 <-- BOUNDARY
+    [722] "suddenly," 255.000-255.500 <-- BOUNDARY
+    [723] "server" 255.500-256.000
+    [724] "three" 256.000-256.500
+    [725] "completely" 256.500-257.000
+    [726] "crashes" 257.000-257.400
+  Transcript markers near 255s:
+    (4:11) happily crunching numbers and routing food orders. But suddenly, server three co
+    (4:17) crashes out.
+
+--- BOUNDARY: 268s (beat 25 of 36) ---
+  Word at boundary: [756] "new" start=268.000 end=268.267
+  Dist from word start: 0.000, from end: 0.267
+  Previous word: [755] "the" end=268.000
+  Gap: 0ms
+  Next word: [757] "incoming" start=268.267
+  Words +/-2s:
+    [750] "from" 266.000-266.333
+    [751] "the" 266.333-266.667
+    [752] "active" 266.667-267.000
+    [753] "rotation." 267.000-267.333
+    [754] "All" 267.333-267.667
+    [755] "the" 267.667-268.000 <-- BOUNDARY
+    [756] "new" 268.000-268.267 <-- BOUNDARY
+    [757] "incoming" 268.267-268.533
+    [758] "orders" 268.533-268.800
+    [759] "are" 268.800-269.067
+    [760] "instantly" 269.067-269.333
+    [761] "routed" 269.333-269.600
+    [762] "to" 269.600-269.867
+    [763] "the" 269.867-270.133
+  Transcript markers near 268s:
+    (4:23) human lifting a finger, it seamlessly removes server three from the active rotat
+    (4:28) new incoming orders are instantly routed to the remaining three healthy servers.
+    (4:32) absolute beauty of load balancing.
+
+--- BOUNDARY: 278s (beat 26 of 36) ---
+  Word at boundary: [788] "just" start=277.833 end=278.111
+  Dist from word start: 0.167, from end: 0.111
+  Previous word: [787] "server" end=277.833
+  Gap: 0ms
+  Next word: [789] "died" start=278.111
+  Words +/-2s:
+    [783] "to" 276.286-276.643
+    [784] "the" 276.643-277.000
+    [785] "that" 277.000-277.278
+    [786] "a" 277.278-277.556
+    [787] "server" 277.556-277.833
+    [788] "just" 277.833-278.111 <-- BOUNDARY
+    [789] "died" 278.111-278.389
+    [790] "in" 278.389-278.667
+    [791] "the" 278.667-278.944
+    [792] "background." 278.944-279.222
+    [793] "And" 279.222-279.500
+    [794] "better" 279.500-279.778
+    [795] "yet," 279.778-280.056
+  Transcript markers near 278s:
+    (4:37) that a server just died in the background. And better yet, the system is smart e
+    (4:42) itself. Let's say server three reboots and finally comes back online.
+
+--- BOUNDARY: 290s (beat 27 of 36) ---
+  Word at boundary: [826] "marks" start=289.857 end=290.214
+  Dist from word start: 0.143, from end: 0.214
+  Previous word: [825] "immediately" end=289.857
+  Gap: 0ms
+  Next word: [827] "the" start=290.214
+  Words +/-2s:
+    [821] "successful" 288.071-288.429
+    [822] "responses" 288.429-288.786
+    [823] "again." 288.786-289.143
+    [824] "It" 289.143-289.500
+    [825] "immediately" 289.500-289.857
+    [826] "marks" 289.857-290.214 <-- BOUNDARY
+    [827] "the" 290.214-290.571
+    [828] "server" 290.571-290.929
+    [829] "as" 290.929-291.286
+    [830] "healthy" 291.286-291.643
+    [831] "and" 291.643-292.000
+    [832] "drops" 292.000-292.267
+  Transcript markers near 290s:
+    (4:47) checks start getting successful responses again. It immediately marks the server
+    (4:52) drops it right back into the active rotation. So automatic recovery works flawle
+
+--- BOUNDARY: 302s (beat 28 of 36) ---
+  Word at boundary: [865] "to" start=301.923 end=302.231
+  Dist from word start: 0.077, from end: 0.231
+  Previous word: [864] "us" end=301.923
+  Gap: 0ms
+  Next word: [866] "a" start=302.231
+  Words +/-2s:
+    [859] "right" 300.000-300.333
+    [860] "back" 300.333-300.667
+    [861] "in." 300.667-301.000
+    [862] "Which" 301.000-301.308
+    [863] "leads" 301.308-301.615
+    [864] "us" 301.615-301.923
+    [865] "to" 301.923-302.231 <-- BOUNDARY
+    [866] "a" 302.231-302.538
+    [867] "critical" 302.538-302.846
+    [868] "engineering" 302.846-303.154
+    [869] "mantra" 303.154-303.462
+    [870] "you" 303.462-303.769
+    [871] "absolutely" 303.769-304.077
+  Transcript markers near 302s:
+    (5:01) Which leads us to a critical engineering mantra you absolutely have to remember.
+    (5:05) Never assume failover works.
+
+--- BOUNDARY: 312s (beat 29 of 36) ---
+  Word at boundary: [890] "in" start=311.727 end=312.091
+  Dist from word start: 0.273, from end: 0.091
+  Previous word: [889] "servers" end=311.727
+  Gap: 0ms
+  Next word: [891] "controlled" start=312.091
+  Words +/-2s:
+    [886] "intentionally" 310.077-310.538
+    [887] "shut" 310.538-311.000
+    [888] "down" 311.000-311.364
+    [889] "servers" 311.364-311.727
+    [890] "in" 311.727-312.091 <-- BOUNDARY
+    [891] "controlled" 312.091-312.455
+    [892] "environments." 312.455-312.818
+    [893] "We" 312.818-313.182
+    [894] "actively" 313.182-313.545
+    [895] "simulate" 313.545-313.909
+    [896] "these" 313.909-314.273
+  Transcript markers near 312s:
+    (5:11) down servers in controlled environments. We actively simulate these complex outa
+    (5:15) just to validate our recovery mechanisms long before a real incident strikes.
+
+--- BOUNDARY: 328s (beat 30 of 36) ---
+  Word at boundary: [936] "let's" start=327.875 end=328.188
+  Dist from word start: 0.125, from end: 0.188
+  Previous word: [935] "So" end=327.875
+  Gap: 0ms
+  Next word: [937] "quickly" start=328.188
+  Words +/-2s:
+    [930] "at" 326.000-326.313
+    [931] "two" 326.313-326.625
+    [932] "in" 326.625-326.938
+    [933] "the" 326.938-327.250
+    [934] "morning." 327.250-327.563
+    [935] "So" 327.563-327.875
+    [936] "let's" 327.875-328.188 <-- BOUNDARY
+    [937] "quickly" 328.188-328.500
+    [938] "summarize" 328.500-328.813
+    [939] "this" 328.813-329.125
+    [940] "incredible" 329.125-329.438
+    [941] "system" 329.438-329.750
+    [942] "we" 329.750-330.063
+  Transcript markers near 328s:
+    (5:26) at two in the morning. So let's quickly summarize this incredible system we buil
+    (5:31) Redundancy gives us our backup infrastructure.
+
+--- BOUNDARY: 342s (beat 31 of 36) ---
+  Word at boundary: [967] "failures." start=341.545 end=342.000
+  Dist from word start: 0.455, from end: 0.000
+  Previous word: [966] "for" end=341.545
+  Gap: 0ms
+  Next word: [968] "Failover" start=342.000
+  Words +/-2s:
+    [964] "continuously" 340.182-340.636
+    [965] "watching" 340.636-341.091
+    [966] "for" 341.091-341.545
+    [967] "failures." 341.545-342.000 <-- BOUNDARY
+    [968] "Failover" 342.000-342.417 <-- BOUNDARY
+    [969] "seamlessly" 342.417-342.833
+    [970] "redirects" 342.833-343.250
+    [971] "the" 343.250-343.667
+    [972] "traffic." 343.667-344.083
+  Transcript markers near 342s:
+    (5:37) synchronized. Health checks act as our eyes, continuously watching for failures.
+    (5:42) Failover seamlessly redirects the traffic.
+    (5:47) application side. And of course, rigorous testing ensures the whole shebang actu
+
+--- BOUNDARY: 355s (beat 32 of 36) ---
+  Word at boundary: [1001] "let" start=354.769 end=355.231
+  Dist from word start: 0.231, from end: 0.231
+  Previous word: [1000] "components" end=354.769
+  Gap: 0ms
+  Next word: [1002] "us" start=355.231
+  Words +/-2s:
+    [998] "together," 353.385-353.846
+    [999] "these" 353.846-354.308
+    [1000] "components" 354.308-354.769
+    [1001] "let" 354.769-355.231 <-- BOUNDARY
+    [1002] "us" 355.231-355.692
+    [1003] "survive" 355.692-356.154
+    [1004] "massive" 356.154-356.615
+    [1005] "failures" 356.615-357.077
+  Transcript markers near 355s:
+    (5:52) matters most. Working together, these components let us survive massive failures
+    (5:58) zero downtime.
+
+--- BOUNDARY: 370s (beat 33 of 36) ---
+  Word at boundary: [1039] "like" start=369.706 end=370.000
+  Dist from word start: 0.294, from end: 0.000
+  Previous word: [1038] "app" end=369.706
+  Gap: 0ms
+  Next word: [1040] "FoodDash?" start=370.000
+  Words +/-2s:
+    [1034] "actually" 368.235-368.529
+    [1035] "acceptable" 368.529-368.824
+    [1036] "for" 368.824-369.118
+    [1037] "an" 369.118-369.412
+    [1038] "app" 369.412-369.706
+    [1039] "like" 369.706-370.000 <-- BOUNDARY
+    [1040] "FoodDash?" 370.000-370.385 <-- BOUNDARY
+    [1041] "I" 370.385-370.769
+    [1042] "mean," 370.769-371.154
+    [1043] "how" 371.154-371.538
+    [1044] "do" 371.538-371.923
+    [1045] "engineering" 371.923-372.308
+  Transcript markers near 370s:
+    (6:05) Sure, we can recover quickly now. But how much downtime is actually acceptable f
+    (6:10) FoodDash? I mean, how do engineering teams formally measure availability? How do
+    (6:15) define exactly how much downtime the business can handle before it becomes a tot
+
+--- BOUNDARY: 378s (beat 34 of 36) ---
+  Word at boundary: [1061] "handle" start=377.667 end=378.000
+  Dist from word start: 0.333, from end: 0.000
+  Previous word: [1060] "can" end=377.667
+  Gap: 0ms
+  Next word: [1062] "before" start=378.000
+  Words +/-2s:
+    [1056] "much" 376.000-376.333
+    [1057] "downtime" 376.333-376.667
+    [1058] "the" 376.667-377.000
+    [1059] "business" 377.000-377.333
+    [1060] "can" 377.333-377.667
+    [1061] "handle" 377.667-378.000 <-- BOUNDARY
+    [1062] "before" 378.000-378.333 <-- BOUNDARY
+    [1063] "it" 378.333-378.667
+    [1064] "becomes" 378.667-379.000
+    [1065] "a" 379.000-379.333
+    [1066] "total" 379.333-379.667
+    [1067] "disaster?" 379.667-380.000
+    [1068] "Like," 380.000-380.400
+  Transcript markers near 378s:
+    (6:15) define exactly how much downtime the business can handle before it becomes a tot
+    (6:20) Like, what do companies actually mean when they promise 99.9% availability? And 
+
+--- BOUNDARY: 390s (beat 35 of 36) ---
+  Word at boundary: [1093] "achieve?" start=390.000 end=390.400
+  Dist from word start: 0.000, from end: 0.400
+  Previous word: [1092] "to" end=390.000
+  Gap: 0ms
+  Next word: [1094] "Well," start=390.400
+  Words +/-2s:
+    [1088] "become" 388.000-388.400
+    [1089] "exponentially" 388.400-388.800
+    [1090] "more" 388.800-389.200
+    [1091] "expensive" 389.200-389.600
+    [1092] "to" 389.600-390.000 <-- BOUNDARY
+    [1093] "achieve?" 390.000-390.400 <-- BOUNDARY
+    [1094] "Well," 390.400-390.800
+    [1095] "that" 390.800-391.200
+    [1096] "is" 391.200-391.600
+    [1097] "exactly" 391.600-392.000
+    [1098] "what" 392.000-392.214
+  Transcript markers near 390s:
+    (6:26) extra nine in that number become exponentially more expensive to achieve? Well, 
+    (6:32) what we're going to be breaking down in our next explainer on availability targe
+    (6:35) in the famous nines.
+
+--- BOUNDARY: 403s (beat 36 of 36) ---
+  Word at boundary: [1144] "then." start=402.824 end=403.000
+  Dist from word start: 0.176, from end: 0.000
+  Previous word: [1143] "you" end=402.824
+  Gap: 0ms
+  Words +/-2s:
+    [1134] "don't" 401.059-401.235
+    [1135] "miss" 401.235-401.412
+    [1136] "the" 401.412-401.588
+    [1137] "next" 401.588-401.765
+    [1138] "one" 401.765-401.941
+    [1139] "and" 401.941-402.118
+    [1140] "I" 402.118-402.294
+    [1141] "will" 402.294-402.471
+    [1142] "see" 402.471-402.647
+    [1143] "you" 402.647-402.824
+    [1144] "then." 402.824-403.000 <-- BOUNDARY
+  Transcript markers near 403s:
+    (6:40) Make sure you subscribe so you don't miss the next one and I will see you then.
+
+========================================================================================================================
+SUMMARY
+========================================================================================================================
+
+Last word index: 1144, text="then.", end time: 403s
+LessonPlan last end: 403s
+Match: YES
+
+TRANSCRIPT vs BEAT BOUNDARIES:
+
+  Boundary -> Closest Transcript Marker:
+      0s <-> (0:00) diff= 0s [OK] "Welcome back to the Engineering Systems Explainer series. Le"
+      8s <-> (0:08) diff= 0s [OK] "In our last explainer, we successfully eliminated our single"
+     18s <-> (0:18) diff= 0s [OK] "a primary database handling all the live production traffic "
+     28s <-> (0:26) diff= 2s [FAIR] "Well, have we? Okay, let's really dive into this."
+     36s <-> (0:37) diff= 1s [OK] "It's fully replicated, totally synchronized, and completely "
+     48s <-> (0:46) diff= 2s [FAIR] "their food, how does the system actually know the primary fa"
+     60s <-> (1:01) diff= 1s [OK] "The system is continuously asking, hey, are you still alive?"
+     72s <-> (1:10) diff= 2s [FAIR] "The database responds, confirming it's healthy. A few second"
+     84s <-> (1:24) diff= 0s [OK] "what happens. Bam, the primary database suddenly crashes. Th"
+     95s <-> (1:36) diff= 1s [OK] "another, silence again. At this exact moment, FoodDash final"
+    105s <-> (1:42) diff= 3s [FAIR] "to conclude that the primary database is undeniably down."
+    115s <-> (1:53) diff= 2s [FAIR] "a healthy one. And we follow an exact automated sequence to "
+    125s <-> (2:04) diff= 1s [OK] "primary. Third, the live traffic is seamlessly redirected ov"
+    140s <-> (2:21) diff= 1s [OK] "engineer at 3 a.m., nobody had to manually log into a server"
+    152s <-> (2:33) diff= 1s [OK] "That's the real power of automatic failover."
+    162s <-> (2:43) diff= 1s [OK] "on a heavy query, or maybe a network package just gets lost "
+    172s <-> (2:52) diff= 0s [OK] "failover after just one missed check, the entire platform wo"
+    182s <-> (3:02) diff= 0s [OK] "really hasn't. And this brilliantly illustrates why we never"
+    195s <-> (3:14) diff= 1s [OK] "taking any drastic action. So a check fails at t0. Okay, wai"
+    205s <-> (3:26) diff= 1s [OK] "do we officially declare that component dead. It's the perfe"
+    218s <-> (3:36) diff= 2s [FAIR] "cool part. This exact same pattern isn't just for databases."
+    232s <-> (3:53) diff= 1s [OK] "Imagine FoodDash has a cluster of four backend application s"
+    245s <-> (4:05) diff= 0s [OK] "single machine."
+    255s <-> (4:17) diff= 2s [FAIR] "crashes out."
+    268s <-> (4:28) diff= 0s [OK] "new incoming orders are instantly routed to the remaining th"
+    278s <-> (4:37) diff= 1s [OK] "that a server just died in the background. And better yet, t"
+    290s <-> (4:52) diff= 2s [FAIR] "drops it right back into the active rotation. So automatic r"
+    302s <-> (5:01) diff= 1s [OK] "Which leads us to a critical engineering mantra you absolute"
+    312s <-> (5:11) diff= 1s [OK] "down servers in controlled environments. We actively simulat"
+    328s <-> (5:26) diff= 2s [FAIR] "at two in the morning. So let's quickly summarize this incre"
+    342s <-> (5:42) diff= 0s [OK] "Failover seamlessly redirects the traffic."
+    355s <-> (5:52) diff= 3s [FAIR] "matters most. Working together, these components let us surv"
+    370s <-> (6:10) diff= 0s [OK] "FoodDash? I mean, how do engineering teams formally measure "
+    378s <-> (6:20) diff= 2s [FAIR] "Like, what do companies actually mean when they promise 99.9"
+    390s <-> (6:32) diff= 2s [FAIR] "what we're going to be breaking down in our next explainer o"
+    403s <-> (6:40) diff= 3s [FAIR] "Make sure you subscribe so you don't miss the next one and I"
+
+SENTENCE-CUT ANALYSIS:
+  [0:36] Boundary 36s cuts through word "sitting" (idx=97)
+  [0:48] Boundary 48s cuts through word "actually" (idx=130)
+  [1:00] Boundary 60s cuts through word "automated" (idx=170)
+  [1:35] Boundary 95s cuts through word "still" (idx=271)
+  [2:05] Boundary 125s cuts through word "the" (idx=355)
+  [2:20] Boundary 140s cuts through word "up" (idx=397)
+  [2:32] Boundary 152s cuts through word "on" (idx=432)
+  [2:42] Boundary 162s cuts through word "just" (idx=460)
+  [3:25] Boundary 205s cuts through word "consecutive" (idx=589)
+  [3:38] Boundary 218s cuts through word "same" (idx=624)
+  [4:38] Boundary 278s cuts through word "just" (idx=788)
+  [4:50] Boundary 290s cuts through word "marks" (idx=826)
+  [5:02] Boundary 302s cuts through word "to" (idx=865)
+  [5:12] Boundary 312s cuts through word "in" (idx=890)
+  [5:28] Boundary 328s cuts through word "let's" (idx=936)
+  [5:55] Boundary 355s cuts through word "let" (idx=1001)
+  Total potential cuts: 16
+
+TRANSCRIPT TIMESTAMP vs WORD TIMING CROSS-CHECK:
+
+  (0:00) word[0]="Welcome" start=0.000 diff=0.000s "Welcome back to the Engineering Systems Explainer series. Le"
+  (0:04) word[11]="back" start=3.667 diff=0.333s "up with our availability patterns and our fictional food del"
+  (0:08) word[23]="FoodDash." start=7.667 diff=0.333s "In our last explainer, we successfully eliminated our single"
+  (0:12) word[36]="using" start=12.000 diff=0.000s "using redundancy and replication."
+  (0:18) word[49]="two," start=17.571 diff=0.429s "a primary database handling all the live production traffic "
+  (0:22) word[63]="continuously" start=22.000 diff=0.000s "continuously receiving replicated data. It kind of looks lik"
+  (0:26) word[76]="right?" start=25.714 diff=0.286s "Well, have we? Okay, let's really dive into this."
+  (0:31) word[85]="this." start=30.444 diff=0.556s "Imagine the primary database suddenly crashes."
+  (0:37) word[99]="there." start=36.571 diff=0.429s "It's fully replicated, totally synchronized, and completely "
+  (0:41) word[110]="in." start=40.636 diff=0.364s "But here's the massive, million-dollar question."
+  (0:46) word[124]="their" start=46.000 diff=0.000s "their food, how does the system actually know the primary fa"
+  (0:51) word[139]="is" start=50.688 diff=0.312s "literally useless if nobody knows when to switch over to it."
+  (0:55) word[159]="concept," start=55.000 diff=0.000s "concept, health checks. Think of a health check as a simple "
+  (1:01) word[172]="pulse." start=60.571 diff=0.429s "The system is continuously asking, hey, are you still alive?"
+  (1:05) word[186]="FoodDash" start=65.000 diff=0.000s "FoodDash sends this tiny request in the background directly "
+  (1:10) word[199]="The" start=70.000 diff=0.000s "The database responds, confirming it's healthy. A few second"
+  (1:14) word[213]="Then" start=74.000 diff=0.000s "Then another, still good. These tiny requests run on a const"
+  (1:20) word[228]="people" start=79.625 diff=0.375s "ordering their lunch never even know they're happening."
+  (1:24) word[242]="watch" start=83.714 diff=0.286s "what happens. Bam, the primary database suddenly crashes. Th"
+  (1:30) word[258]="but" start=89.625 diff=0.375s "total silence, no response."
+  (1:36) word[273]="Then" start=95.600 diff=0.400s "another, silence again. At this exact moment, FoodDash final"
+  (1:42) word[289]="to" start=102.000 diff=0.000s "to conclude that the primary database is undeniably down."
+  (1:48) word[306]="failover" start=108.000 diff=0.000s "failover kicks in. Failover just means moving traffic away f"
+  (1:53) word[320]="to" start=112.667 diff=0.333s "a healthy one. And we follow an exact automated sequence to "
+  (1:59) word[338]="the" start=118.667 diff=0.333s "failure. Second, that perfectly synchronized backup database"
+  (2:04) word[353]="primary." start=124.000 diff=0.000s "primary. Third, the live traffic is seamlessly redirected ov"
+  (2:10) word[367]="application" start=129.600 diff=0.400s "servers reconnect. Just like that, FoodDash keeps running an"
+  (2:15) word[381]="delivered." start=134.643 diff=0.357s "So the crucial point here is what didn't happen."
+  (2:21) word[401]="engineer" start=141.000 diff=0.000s "engineer at 3 a.m., nobody had to manually log into a server"
+  (2:26) word[417]="typing" start=145.706 diff=0.294s "in new configurations by hand. The system spotted the proble"
+  (2:33) word[434]="own." start=152.588 diff=0.412s "That's the real power of automatic failover."
+  (2:38) word[450]="systems" start=158.000 diff=0.000s "systems aren't always quite that perfect. Sometimes a server"
+  (2:43) word[462]="choking" start=162.615 diff=0.385s "on a heavy query, or maybe a network package just gets lost "
+  (2:48) word[482]="check" start=167.750 diff=0.250s "fails but the database is actually totally fine? If FoodDash"
+  (2:52) word[497]="failover" start=172.000 diff=0.000s "failover after just one missed check, the entire platform wo"
+  (2:57) word[511]="call" start=176.667 diff=0.333s "these false positives, when the system gets jumpy and incorr"
+  (3:02) word[527]="really" start=182.000 diff=0.000s "really hasn't. And this brilliantly illustrates why we never"
+  (3:08) word[542]="in" start=188.000 diff=0.000s "in production. Instead, we use thresholds."
+  (3:14) word[556]="taking" start=194.000 diff=0.000s "taking any drastic action. So a check fails at t0. Okay, wai"
+  (3:20) word[576]="seconds." start=200.000 diff=0.000s "seconds. Hmm. Then again at t plus 10 seconds."
+  (3:26) word[591]="checks" start=205.625 diff=0.375s "do we officially declare that component dead. It's the perfe"
+  (3:30) word[607]="failures" start=210.000 diff=0.000s "failures fast, but we completely avoid those unnecessary cha"
+  (3:36) word[620]="cool" start=216.000 diff=0.000s "cool part. This exact same pattern isn't just for databases."
+  (3:43) word[636]="Let's" start=223.000 diff=0.000s "Let's actually shift our focus up the stack for a second, aw"
+  (3:48) word[654]="the" start=227.737 diff=0.263s "application servers and load balancers to see how this plays"
+  (3:53) word[670]="Imagine" start=233.000 diff=0.000s "Imagine FoodDash has a cluster of four backend application s"
+  (3:59) word[683]="a" start=238.571 diff=0.429s "load balancer. Just like before, that load balancer is conti"
+  (4:05) word[699]="single" start=245.000 diff=0.000s "single machine."
+  (4:11) word[713]="They're" start=250.600 diff=0.400s "happily crunching numbers and routing food orders. But sudde"
+  (4:17) word[725]="completely" start=256.500 diff=0.500s "crashes out."
+  (4:23) word[741]="human" start=263.000 diff=0.000s "human lifting a finger, it seamlessly removes server three f"
+  (4:28) word[756]="new" start=268.000 diff=0.000s "new incoming orders are instantly routed to the remaining th"
+  (4:32) word[770]="the" start=271.733 diff=0.267s "absolute beauty of load balancing."
+  (4:37) word[784]="the" start=276.643 diff=0.357s "that a server just died in the background. And better yet, t"
+  (4:42) word[802]="heal" start=281.722 diff=0.278s "itself. Let's say server three reboots and finally comes bac"
+  (4:47) word[817]="health" start=286.667 diff=0.333s "checks start getting successful responses again. It immediat"
+  (4:52) word[831]="and" start=291.643 diff=0.357s "drops it right back into the active rotation. So automatic r"
+  (4:56) word[846]="both" start=295.733 diff=0.267s "directions."
+  (5:01) word[862]="Which" start=301.000 diff=0.000s "Which leads us to a critical engineering mantra you absolute"
+  (5:05) word[875]="Never" start=305.000 diff=0.000s "Never assume failover works."
+  (5:11) word[888]="down" start=311.000 diff=0.000s "down servers in controlled environments. We actively simulat"
+  (5:15) word[899]="just" start=315.000 diff=0.000s "just to validate our recovery mechanisms long before a real "
+  (5:21) word[913]="me," start=320.600 diff=0.400s "the absolute worst time to discover your failover is broken "
+  (5:26) word[929]="outage" start=325.688 diff=0.312s "at two in the morning. So let's quickly summarize this incre"
+  (5:31) word[945]="FoodDash." start=330.688 diff=0.312s "Redundancy gives us our backup infrastructure."
+  (5:37) word[956]="perfectly" start=336.455 diff=0.545s "synchronized. Health checks act as our eyes, continuously wa"
+  (5:42) word[967]="failures." start=341.545 diff=0.455s "Failover seamlessly redirects the traffic."
+  (5:47) word[980]="application" start=347.000 diff=0.000s "application side. And of course, rigorous testing ensures th"
+  (5:52) word[994]="it" start=351.667 diff=0.333s "matters most. Working together, these components let us surv"
+  (5:58) word[1007]="basically" start=357.538 diff=0.462s "zero downtime."
+  (6:05) word[1023]="Sure," start=365.000 diff=0.000s "Sure, we can recover quickly now. But how much downtime is a"
+  (6:10) word[1039]="like" start=369.706 diff=0.294s "FoodDash? I mean, how do engineering teams formally measure "
+  (6:15) word[1052]="they" start=374.615 diff=0.385s "define exactly how much downtime the business can handle bef"
+  (6:20) word[1068]="Like," start=380.000 diff=0.000s "Like, what do companies actually mean when they promise 99.9"
+  (6:26) word[1082]="every" start=385.600 diff=0.400s "extra nine in that number become exponentially more expensiv"
+  (6:32) word[1097]="exactly" start=391.600 diff=0.400s "what we're going to be breaking down in our next explainer o"
+  (6:35) word[1111]="targets" start=394.786 diff=0.214s "in the famous nines."
+  (6:40) word[1127]="explainer." start=399.688 diff=0.312s "Make sure you subscribe so you don't miss the next one and I"
+
+========================================================================================================================
+END OF REPORT
+========================================================================================================================

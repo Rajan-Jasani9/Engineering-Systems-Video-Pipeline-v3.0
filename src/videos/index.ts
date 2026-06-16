@@ -7,7 +7,10 @@ import {lessonPlan as spofLessonPlan} from './single-point-of-failure/lessonPlan
 import spofWords from './single-point-of-failure/words.json';
 import {lessonPlan as redundancyReplicationLessonPlan} from './redundancy-and-replication/lessonPlan';
 import redundancyReplicationWords from './redundancy-and-replication/words.json';
-import {lessonPlan as healthChecksLessonPlan, words as healthChecksWords} from './health-checks-and-failover/lessonPlan';
+import {lessonPlan as healthChecksLessonPlan} from './health-checks-and-failover/lessonPlan';
+import healthChecksWords from './health-checks-and-failover/words.json';
+import {lessonPlan as famousNinesLessonPlan} from './the-famous-nines/lessonPlan';
+import famousNinesWords from './the-famous-nines/words.json';
 import type {VideoDefinition, WordTiming} from '../types';
 
 export const videos: VideoDefinition[] = [
@@ -53,8 +56,17 @@ export const videos: VideoDefinition[] = [
     title: 'Health Checks & Failover',
     subtitle: 'Availability Patterns #4',
     audioSrc: staticFile('audio/health-checks-and-failover.mp3'),
-    words: healthChecksWords,
+    words: healthChecksWords as WordTiming[],
     lessonPlan: healthChecksLessonPlan,
+  },
+  {
+    id: 'FamousNines',
+    slug: 'the-famous-nines',
+    title: 'The Famous Nines',
+    subtitle: 'Availability Patterns #5',
+    audioSrc: staticFile('audio/the-famous-nines.mp3'),
+    words: famousNinesWords as WordTiming[],
+    lessonPlan: famousNinesLessonPlan,
   },
 ];
 

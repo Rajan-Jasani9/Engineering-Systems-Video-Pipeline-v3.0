@@ -20,6 +20,7 @@ export type MainVideoProps = {
   lessonPlan: LessonBeat[];
   title: string;
   subtitle: string;
+  slug?: string;
 };
 
 export type VisualKind =
@@ -111,6 +112,7 @@ export type VisualKind =
   | 'spof-subscribe'
   | 'spof-final-question'
   | 'rr-screen'
+  | 'fn-screen'
   | 'availability-series-shift'
   | 'availability-pillar'
   | 'availability-roadmap'

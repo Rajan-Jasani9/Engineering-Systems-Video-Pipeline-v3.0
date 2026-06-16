@@ -21,22 +21,21 @@ const getActiveBeat = (lessonPlan: LessonBeat[], currentTime: number): LessonBea
   return lessonPlan[0];
 };
 
-export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan}) => {
+export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan, slug}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const currentTime = frame / fps;
   const chunks = useMemo(() => chunkWords(words), [words]);
   const activeBeat = getActiveBeat(lessonPlan, currentTime);
   const activeChunk = chunks.find((chunk) => currentTime >= chunk.start && currentTime <= chunk.end);
-  const showCaptions = activeBeat.kind !== 'closing';
+  const captionsDisabled = slug === 'health-checks-and-failover' || slug === 'the-famous-nines';
+  const showCaptions = !captionsDisabled && activeBeat.kind !== 'closing';
   const footerLabels = lessonPlan.some((beat) => beat.kind.startsWith('spof-'))
     ? ['Availability', 'SPOFs', 'FoodDash', 'High availability']
-    : lessonPlan.some((beat) => beat.kind === 'hc-screen')
-      ? ['Health checks', 'Failover', 'Load balancers', 'Chaos engineering']
-      : ['Strong consistency', 'Queues', 'Retries', 'Eventual consistency'];
+    : ['Strong consistency', 'Queues', 'Retries', 'Eventual consistency'];
 
   return (
-    <AbsoluteFill className="video-root">
+    <AbsoluteFill className={captionsDisabled ? 'video-root video-root-no-captions' : 'video-root'}>
       <Audio src={audioSrc || staticFile('audio/consistency-in-practice.mp3')} />
 
       <AbsoluteFill className="drifting-stage">
@@ -47,26 +46,28 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
         <LessonVisuals beat={activeBeat} currentTime={currentTime} frame={frame} fps={fps} />
       </AbsoluteFill>
 
-      <AbsoluteFill className="content-layer">
-        <div className="chunk-stage">
-          {showCaptions && activeChunk ? (
-            <WordChunk
-              key={activeChunk.id}
-              chunk={activeChunk}
-              currentTime={currentTime}
-              frame={frame}
-              fps={fps}
-              isVisible
-            />
-          ) : null}
-        </div>
+      {!captionsDisabled ? (
+        <AbsoluteFill className="content-layer">
+          <div className="chunk-stage">
+            {showCaptions && activeChunk ? (
+              <WordChunk
+                key={activeChunk.id}
+                chunk={activeChunk}
+                currentTime={currentTime}
+                frame={frame}
+                fps={fps}
+                isVisible
+              />
+            ) : null}
+          </div>
 
-        <div className="footer-row">
-          {footerLabels.map((label) => (
-            <span key={label}>{label}</span>
-          ))}
-        </div>
-      </AbsoluteFill>
+          <div className="footer-row">
+            {footerLabels.map((label) => (
+              <span key={label}>{label}</span>
+            ))}
+          </div>
+        </AbsoluteFill>
+      ) : null}
     </AbsoluteFill>
   );
 };

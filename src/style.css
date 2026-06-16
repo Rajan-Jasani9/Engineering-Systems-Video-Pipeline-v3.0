@@ -82,6 +82,23 @@ body {
   padding: 78px 96px 180px;
 }
 
+.video-root-no-captions .lesson-layer {
+  padding: 78px 96px 88px;
+}
+
+.video-root-no-captions .lesson-visuals {
+  gap: 34px;
+}
+
+.video-root-no-captions .lesson-body {
+  padding-top: 10px;
+}
+
+.video-root-no-captions .takeaway-strip {
+  min-height: 74px;
+  padding-top: 18px;
+}
+
 .lesson-visuals {
   width: 100%;
   height: 100%;
@@ -8918,14 +8935,19 @@ body {
   isolation: isolate;
 }
 
+.video-root-no-captions .hc2-stage {
+  max-width: 1480px;
+  height: 632px;
+}
+
 .hc2-stage::before {
   content: "";
   position: absolute;
   inset: 34px 20px 26px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  border: 0;
   border-radius: 8px;
   background:
-    linear-gradient(90deg, rgba(0, 194, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(180deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 52px 52px;
   opacity: 0.72;
@@ -8937,7 +8959,7 @@ body {
   position: absolute;
   inset: 34px 20px 26px;
   border-radius: 8px;
-  background: radial-gradient(circle at 52% 46%, rgba(0, 194, 255, 0.08), transparent 42%);
+  background: radial-gradient(circle at 52% 46%, rgba(255, 255, 255, 0.08), transparent 42%);
   opacity: 0.76;
   z-index: -1;
 }
@@ -8960,11 +8982,11 @@ body {
 }
 
 .hc2-stage-label strong {
-  border: 2px solid rgba(0, 194, 255, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 6px;
   padding: 6px 10px;
-  color: #00C2FF;
-  background: rgba(0, 194, 255, 0.08);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
   font-size: 14px;
   font-weight: 950;
 }
@@ -8989,10 +9011,10 @@ body {
   padding: 52px;
   text-align: center;
   transform: translate(-50%, -50%);
-  border: 4px solid #00C2FF;
-  border-radius: 12px;
-  background: rgba(0, 194, 255, 0.06);
-  box-shadow: 0 0 60px rgba(0, 194, 255, 0.15);
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.15);
   text-transform: uppercase;
 }
 
@@ -9004,7 +9026,7 @@ body {
 
 .hc2-section-card h2 {
   margin: 0;
-  color: #00C2FF;
+  color: #ffffff;
   font-size: 58px;
   font-weight: 950;
   line-height: 0.95;

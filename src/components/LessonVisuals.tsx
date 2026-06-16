@@ -1,8 +1,8 @@
 import React from 'react';
-import {AlertTriangle, Bell, BookOpen, CheckCircle2, Clock, Cloud, Code2, CreditCard, Database, GitBranch, Globe, KeyRound, Layers3, LineChart, LockKeyhole, Mail, MessageSquare, PackageCheck, Pencil, PencilRuler, Scale, Search, Server, ShieldAlert, ShoppingCart, Smartphone, Sparkles, ThumbsUp, User, UserCheck, Wrench, XCircle} from 'lucide-react';
+import {Activity, AlertTriangle, Bell, BookOpen, CheckCircle2, Clock, Cloud, Code2, CreditCard, Database, GitBranch, Globe, Heart, KeyRound, Layers3, LineChart, LockKeyhole, Mail, MessageSquare, PackageCheck, Pencil, PencilRuler, Radio, RefreshCw, Scale, Search, Server, ShieldAlert, ShoppingCart, Smartphone, Sparkles, ThumbsUp, User, UserCheck, Wrench, XCircle, Zap} from 'lucide-react';
 import {interpolate, spring} from 'remotion';
-import {HCScreenVisual} from '../videos/health-checks-and-failover/visuals';
 import type {LessonBeat} from '../types';
+import {FamousNinesVisual} from '../videos/the-famous-nines/visuals';
 
 type LessonVisualsProps = {
   beat: LessonBeat;
@@ -42,8 +42,8 @@ const visualIndex = {
   'analytics-staleness': 4,
 };
 
-const Card: React.FC<{children: React.ReactNode; className?: string}> = ({children, className = ''}) => (
-  <div className={`lesson-card ${className}`}>{children}</div>
+const Card: React.FC<{children: React.ReactNode; className?: string; style?: React.CSSProperties}> = ({children, className = '', style}) => (
+  <div className={`lesson-card ${className}`} style={style}>{children}</div>
 );
 
 const BeatHeader: React.FC<{beat: LessonBeat}> = ({beat}) => (
@@ -3148,6 +3148,1348 @@ const RRDetectionBridgeVisual = ({currentTime}: {currentTime: number}) => {
   );
 };
 
+/* ─── Health Checks & Failover Visual Components ───
+ *  Uses existing CSS classes (rr-*, spof-*) for visual consistency.
+ *  Larger scale matching RR visuals. No fragile absolute positioning.
+ */
+
+/* Reusable wrapper so all HC content sits at a consistent z-index layer */
+const HCContentWrap: React.FC<{children: React.ReactNode; style?: React.CSSProperties}> = ({children, style}) => (
+  <div className="lesson-body" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 24, flex: 1, padding: '10px 0', ...style}}>
+    {children}
+  </div>
+);
+
+/* Large architecture node matching RRFlowNode scale */
+const HCArchNode = ({label, icon: Icon = Server, state = 'ok', sub}: {label: string; icon?: React.ComponentType<{size?: number}>; state?: 'ok' | 'fail' | 'idle' | 'active' | 'promoted'; sub?: string}) => (
+  <div className="rr-flow-node" style={{opacity: state === 'idle' ? 0.45 : 1, borderColor: state === 'fail' ? 'rgba(255,60,60,0.8)' : state === 'promoted' ? 'rgba(60,255,60,0.8)' : undefined}}>
+    {state === 'fail' ? <XCircle size={46} /> : <Icon size={46} />}
+    <strong>{label}</strong>
+    {sub ? <span style={{fontSize: 12, opacity: 0.55, textTransform: 'uppercase'}}>{sub}</span> : null}
+  </div>
+);
+
+/* Large database node */
+const HCDbNode = ({label, state = 'ok', sub}: {label: string; state?: 'ok' | 'fail' | 'idle' | 'active' | 'promoted'; sub?: string}) => (
+  <div className="rr-db-node" style={{opacity: state === 'idle' ? 0.45 : 1, borderColor: state === 'fail' ? 'rgba(255,60,60,0.8)' : state === 'promoted' ? 'rgba(60,255,60,0.8)' : undefined}}>
+    {state === 'fail' ? <XCircle size={56} /> : <Database size={56} />}
+    <strong>{label}</strong>
+    {sub ? <span style={{fontSize: 13, opacity: 0.55, textTransform: 'uppercase'}}>{sub}</span> : null}
+  </div>
+);
+
+const HCSectionVisual = ({beat}: {beat: LessonBeat}) => (
+  <div className="spof-section-card rr-section-card">
+    <span>Health Checks &amp; Failover</span>
+    <h2>{beat.title}</h2>
+    <p>{beat.subtitle}</p>
+  </div>
+);
+
+const HCIntroVisual = () => (
+  <div className="rr-hero rr-engineering-intro">
+    <div className="rr-path">
+      <span>Engineering Systems</span>
+      <strong>Availability Patterns #4</strong>
+    </div>
+    <div className="rr-mini-diagram">
+      <HCArchNode label="Health Checks" icon={Activity} />
+      <div className="rr-arrow">&gt;</div>
+      <HCArchNode label="Failover" icon={RefreshCw} />
+      <div className="rr-arrow">&gt;</div>
+      <HCArchNode label="Auto Recovery" icon={CheckCircle2} />
+    </div>
+  </div>
+);
+
+/* ─── hc-02 / hc-03: Primary + Secondary with blind spot ─── */
+const HCSetupVisual = ({currentTime}: {currentTime: number}) => {
+  const t = currentTime - 8;
+  const showSecondary = currentTime >= 11;
+  const blindSpot = currentTime >= 20;
+
+  return (
+    <HCContentWrap>
+      <div style={{display: 'flex', alignItems: 'center', gap: 40}}>
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, opacity: currentTime >= 8 ? 1 : 0.3}}>
+          <Smartphone size={48} />
+          <strong style={{fontSize: 18}}>FoodDash</strong>
+        </div>
+        <div className="rr-arrow">&rarr;</div>
+        <HCDbNode label="Primary DB" state={blindSpot ? 'fail' : 'active'} sub={blindSpot ? 'unmonitored' : 'live traffic'} />
+        {currentTime >= 9.5 ? <div className="rr-arrow" style={{fontSize: 14}}>replicates</div> : null}
+        <HCDbNode label="Secondary DB" state="active" sub={showSecondary ? 'synced copy' : ''} />
+      </div>
+      <div style={{display: 'flex', gap: 32, marginTop: 8}}>
+        {[
+          {label: 'Redundant', ok: true},
+          {label: 'Replicated', ok: showSecondary},
+          {label: 'Detection', ok: false, alert: blindSpot},
+        ].map(item => (
+          <div key={item.label} style={{display: 'flex', alignItems: 'center', gap: 8, padding: '6px 16px', border: '1px solid', borderColor: item.ok ? 'rgba(60,255,60,0.4)' : item.alert ? 'rgba(255,200,60,0.5)' : 'rgba(255,255,255,0.15)', borderRadius: 6, opacity: item.ok || item.alert ? 1 : 0.3}}>
+            {item.ok ? <CheckCircle2 size={24} /> : item.alert ? <AlertTriangle size={24} /> : <span style={{width: 24, height: 24, borderRadius: 12, border: '2px solid rgba(255,255,255,0.2)'}} />}
+            <strong style={{fontSize: 16}}>{item.label}</strong>
+          </div>
+        ))}
+      </div>
+      {blindSpot ? (
+        <div className="rr-wide-note danger" style={{border: '2px solid rgba(255,200,60,0.6)'}}>
+          <Search size={24} style={{marginRight: 10, verticalAlign: 'middle'}} />
+          Blind spot: redundancy without detection is expensive hardware, not recovery.
+        </div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-04 / hc-05: The million-dollar question ─── */
+const HCQuestionVisual = ({currentTime}: {currentTime: number}) => {
+  const detail = currentTime >= 40;
+  return (
+    <HCContentWrap>
+      <Card className="spof-question-card" style={{maxWidth: '85%', padding: '36px 56px'}}>
+        <h2 style={{fontSize: 34}}>How does the system know the primary failed?</h2>
+      </Card>
+      {detail ? (
+        <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '14px 28px', border: '2px solid rgba(255,200,60,0.55)', borderRadius: 8}}>
+          <AlertTriangle size={34} />
+          <div>
+            <strong style={{fontSize: 22}}>The backup is useless without detection</strong>
+            <p style={{fontSize: 16, opacity: 0.65, margin: 0}}>Nobody knows when to switch over</p>
+          </div>
+        </div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-06: Health check definition ─── */
+const HCConceptVisual = () => (
+  <HCContentWrap>
+    <Card className="inverted-card" style={{textAlign: 'center', padding: '36px 60px'}}>
+      <Activity size={80} />
+      <h2 style={{fontSize: 40}}>Health Checks</h2>
+      <p style={{fontSize: 24, opacity: 0.8}}>An automated digital pulse</p>
+    </Card>
+    <div style={{display: 'flex', flexDirection: 'column', gap: 14, minWidth: 420}}>
+      {[
+        'Continuously asks: are you alive?',
+        'Tiny background requests',
+        'No user impact whatsoever',
+      ].map((item, i) => (
+        <div key={item} className="checklist-row active" style={{animationDelay: `${i * 0.3}s`}}>
+          <CheckCircle2 size={32} />
+          <strong style={{fontSize: 20}}>{item}</strong>
+        </div>
+      ))}
+    </div>
+  </HCContentWrap>
+);
+
+/* ─── hc-07 / hc-08 / hc-09: Ping / pong / crash ─── */
+const HCPingVisual = ({currentTime}: {currentTime: number}) => {
+  const phase = Math.floor((currentTime * 2) % 4);
+  const alive = currentTime < 84;
+  const labeled = currentTime >= 64;
+
+  return (
+    <HCContentWrap style={{gap: 28}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: 50}}>
+        <div className="rr-flow-node" style={{padding: '14px 18px'}}>
+          <Activity size={52} />
+          <strong>Health Checker</strong>
+        </div>
+
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10, minWidth: 80}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 6, opacity: phase === 0 || phase === 1 ? 1 : 0.25, transition: 'opacity 0.15s'}}>
+            <span style={{fontWeight: 700, fontSize: 20, color: alive ? 'rgba(255,255,255,0.8)' : 'rgba(255,60,60,0.8)'}}>{alive ? 'ping' : 'check'}</span>
+            <span style={{fontSize: 16, opacity: 0.5}}>{'>>'}</span>
+          </div>
+          <div style={{width: 2, height: 36, background: alive ? (phase < 2 ? 'rgba(255,255,255,0.15)' : 'rgba(60,255,60,0.5)') : 'rgba(255,60,60,0.5)', transition: 'background 0.2s'}} />
+          <div style={{display: 'flex', alignItems: 'center', gap: 6, opacity: phase === 2 || phase === 3 ? 1 : 0.25, transition: 'opacity 0.15s'}}>
+            <span style={{fontSize: 16, opacity: 0.5}}>{'<<'}</span>
+            <span style={{fontWeight: 700, fontSize: 20, color: alive ? 'rgba(60,255,60,0.9)' : 'rgba(255,60,60,0.9)'}}>{alive ? 'pong' : 'SILENCE'}</span>
+          </div>
+        </div>
+
+        <div className="rr-db-node" style={{borderColor: alive ? 'rgba(60,255,60,0.7)' : 'rgba(255,60,60,0.7)'}}>
+          {alive ? <Database size={56} /> : <XCircle size={56} />}
+          <strong>Primary DB</strong>
+          <span style={{fontSize: 13, opacity: 0.6, textTransform: 'uppercase'}}>{alive ? 'healthy response' : 'no response'}</span>
+        </div>
+      </div>
+
+      {labeled ? (
+        alive ? (
+          <div className="rr-wide-note">Every few seconds. Ping. Response. Ping. Response. Users never notice.</div>
+        ) : (
+          <div className="rr-wide-note danger">Total silence. The health check has evidence of failure.</div>
+        )
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-10 / hc-11: Three failed checks → confirmed ─── */
+const HCFailDetectionVisual = ({currentTime}: {currentTime: number}) => {
+  const steps = [
+    {label: 'Check #1', time: 88},
+    {label: 'Check #2', time: 94},
+    {label: 'Check #3', time: 100},
+    {label: 'Confirmed', time: 106},
+  ];
+  const n = steps.filter(s => currentTime >= s.time).length;
+
+  return (
+    <HCContentWrap style={{gap: 28}}>
+      <div className="rr-arch-board" style={{gap: 24}}>
+        <HCDbNode label="Primary DB" state={currentTime >= 84 ? 'fail' : 'ok'} sub="health checks fail" />
+        <div className="rr-arrow" style={{fontSize: 15}}>monitoring</div>
+        <HCDbNode label="Backup DB" state="idle" sub="waiting for activation" />
+      </div>
+      <div style={{display: 'flex', gap: 16}}>
+        {steps.map((s, i) => (
+          <div key={s.label} style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
+            padding: '14px 22px',
+            border: '2px solid',
+            borderColor: i < n ? (i === 3 ? 'rgba(255,60,60,0.8)' : 'rgba(255,60,60,0.5)') : 'rgba(255,255,255,0.15)',
+            borderRadius: 10,
+            opacity: i < n ? 1 : 0.3,
+            background: i < n ? 'rgba(255,60,60,0.06)' : 'transparent',
+            transition: 'all 0.3s',
+          }}>
+            {i === 3 ? <XCircle size={40} /> : <span style={{fontSize: 30, fontWeight: 900, lineHeight: 1}}>!</span>}
+            <strong style={{fontSize: 16}}>{s.label}</strong>
+            <span style={{fontSize: 13, opacity: 0.6}}>{i < n ? (i === 3 ? 'HARD EVIDENCE' : 'no response') : 'waiting'}</span>
+          </div>
+        ))}
+      </div>
+      {n >= 4 ? (
+        <div className="rr-wide-note danger">Hard evidence: primary is undeniably down. Time for failover.</div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-12 / hc-13 / hc-14: Failover sequence + automated comparison ─── */
+const HCFailoverVisual = ({currentTime}: {currentTime: number}) => {
+  const step = currentTime < 118 ? 0 : currentTime < 125 ? 1 : currentTime < 131 ? 2 : currentTime < 138 ? 3 : 4;
+  const steps = [
+    {id: 'detect', label: 'Detect', icon: Search, detail: 'silence confirmed'},
+    {id: 'promote', label: 'Promote', icon: ShieldAlert, detail: 'backup → primary'},
+    {id: 'redirect', label: 'Redirect', icon: Globe, detail: 'traffic rerouted'},
+    {id: 'reconnect', label: 'Reconnect', icon: RefreshCw, detail: 'servers resume'},
+  ];
+
+  return (
+    <HCContentWrap style={{gap: 20}}>
+      <div className="rr-arch-board" style={{gap: 24}}>
+        <HCDbNode label={step >= 2 ? 'Old Primary' : 'Primary DB'} state={step >= 1 ? 'fail' : 'ok'} sub={step >= 1 ? 'failed' : 'serving'} />
+        <div className="rr-arrow" style={{fontSize: 14}}>{step >= 3 ? 'reroute' : 'sync'}</div>
+        <HCDbNode label={step >= 2 ? 'New Primary' : 'Secondary DB'} state={step >= 2 ? 'promoted' : 'idle'} sub={step >= 2 ? 'promoted' : 'standby'} />
+      </div>
+      <div style={{display: 'flex', gap: 12}}>
+        {steps.map(s => (
+          <div key={s.id} style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6,
+            padding: '12px 18px', minWidth: 130,
+            border: '2px solid',
+            borderColor: step >= 2 ? 'rgba(60,255,60,0.4)' : step >= 1 ? 'rgba(255,200,60,0.4)' : 'rgba(255,255,255,0.1)',
+            borderRadius: 8,
+            opacity: step >= 1 ? 1 : 0.25,
+            background: step >= 2 ? 'rgba(60,255,60,0.04)' : step >= 1 ? 'rgba(255,200,60,0.04)' : 'transparent',
+            transition: 'all 0.3s',
+          }}>
+            {React.createElement(s.icon, {size: 32})}
+            <strong style={{fontSize: 15, textTransform: 'uppercase'}}>{s.label}</strong>
+            <span style={{fontSize: 12, opacity: 0.55}}>{s.detail}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* Merge hc-14 into the same component: automated vs manual comparison */}
+      {step >= 4 ? (
+        <div style={{display: 'flex', gap: 24, marginTop: 4, width: '100%', justifyContent: 'center'}}>
+          <Card className="danger-card" style={{flex: '0 1 280px', padding: '16px 20px'}}>
+            <XCircle size={36} />
+            <h2 style={{fontSize: 24, margin: '6px 0'}}>Manual</h2>
+            {['Wake up engineer', 'Log into server', 'Type config by hand'].map(m => (
+              <div key={m} style={{display: 'flex', alignItems: 'center', gap: 8, opacity: 0.7, fontSize: 15}}>
+                <span style={{color: 'rgba(255,60,60,0.7)'}}>&times;</span> {m}
+              </div>
+            ))}
+          </Card>
+          <div className="chalk-arrow" style={{alignSelf: 'center'}}>vs</div>
+          <Card className="inverted-card" style={{flex: '0 1 280px', padding: '16px 20px'}}>
+            <CheckCircle2 size={36} />
+            <h2 style={{fontSize: 24, margin: '6px 0'}}>Automatic</h2>
+            {['System detects failure', 'Seamless failover', 'Zero human intervention'].map(m => (
+              <div key={m} className="checklist-row active" style={{fontSize: 15, gap: 8}}>
+                <CheckCircle2 size={18} /> {m}
+              </div>
+            ))}
+          </Card>
+        </div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-15: Real-world imperfections ─── */
+const HCRealWorldVisual = ({currentTime}: {currentTime: number}) => {
+  const showCauses = currentTime >= 155;
+  const showQ = currentTime >= 160;
+  const causes = [
+    {label: 'Heavy Query', icon: Zap, time: 155},
+    {label: 'Lost Packet', icon: Radio, time: 160},
+    {label: 'Temp Spike', icon: Activity, time: 165},
+  ];
+
+  return (
+    <HCContentWrap>
+      <HCDbNode label="Primary DB" state={showCauses ? 'fail' : 'ok'} sub={showCauses ? 'temporarily choked' : 'humming along'} />
+      <div style={{display: 'flex', gap: 14}}>
+        {causes.map(c => (
+          <div key={c.label} style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            padding: '10px 20px',
+            border: '2px solid',
+            borderColor: currentTime >= c.time ? 'rgba(255,200,60,0.5)' : 'rgba(255,255,255,0.12)',
+            borderRadius: 8,
+            opacity: currentTime >= c.time ? 1 : 0.25,
+            background: currentTime >= c.time ? 'rgba(255,200,60,0.05)' : 'transparent',
+            transition: 'all 0.3s',
+          }}>
+            {React.createElement(c.icon, {size: 28})}
+            <strong style={{fontSize: 17}}>{c.label}</strong>
+          </div>
+        ))}
+      </div>
+      {showQ ? (
+        <Card className="spof-question-card">
+          <h2 style={{fontSize: 26}}>What if a health check fails but the database is fine?</h2>
+        </Card>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-16: False positives ─── */
+const HCFalsePositiveVisual = () => (
+  <HCContentWrap>
+    <div style={{display: 'flex', alignItems: 'center', gap: 36}}>
+      <Card className="danger-card" style={{textAlign: 'center', padding: '20px 30px'}}>
+        <XCircle size={60} />
+        <h2 style={{fontSize: 28}}>1 Missed Check</h2>
+        <p style={{fontSize: 20, opacity: 0.7}}>immediate failover?</p>
+      </Card>
+      <div className="chalk-arrow" style={{fontSize: 30}} />
+      <Card className="inverted-card" style={{textAlign: 'center', padding: '20px 30px', border: '3px solid rgba(255,200,60,0.8)'}}>
+        <AlertTriangle size={60} />
+        <h2 style={{fontSize: 28, color: 'rgba(255,200,60,0.9)'}}>False Positive</h2>
+        <p style={{fontSize: 20}}>platform becomes unstable</p>
+      </Card>
+    </div>
+    <div className="rr-wide-note danger" style={{border: '2px solid rgba(255,60,60,0.7)'}}>
+      Never, ever trust a single failed check in production.
+    </div>
+  </HCContentWrap>
+);
+
+/* ─── hc-17 / hc-18 / hc-19: Thresholds ─── */
+const HCThresholdVisual = ({currentTime}: {currentTime: number}) => {
+  const active = Math.min(3, Math.max(0, Math.floor((currentTime - 188) / 4) + 1));
+  const done = currentTime >= 200;
+
+  return (
+    <HCContentWrap>
+      <div className="rr-arch-board" style={{gap: 24}}>
+        <HCDbNode label="Component" state={active >= 1 && !done ? 'fail' : 'ok'} sub={done ? 'stable' : active >= 1 ? 'failing' : 'healthy'} />
+        <div className="rr-arrow">check</div>
+        <div style={{display: 'flex', flexDirection: 'column', gap: 10}}>
+          {[0, 1, 2].map(i => (
+            <div key={i} style={{
+              display: 'flex', alignItems: 'center', gap: 12,
+              padding: '8px 18px',
+              border: '2px solid',
+              borderColor: i < active ? 'rgba(255,60,60,0.6)' : 'rgba(255,255,255,0.12)',
+              borderRadius: 8,
+              opacity: i < active ? 1 : 0.3,
+              background: i < active ? 'rgba(255,60,60,0.06)' : 'transparent',
+              transition: 'all 0.3s',
+            }}>
+              {i < active ? <XCircle size={24} /> : <span style={{width: 24, height: 24, borderRadius: 12, border: '2px solid rgba(255,255,255,0.2)'}} />}
+              <strong style={{fontSize: 18, minWidth: 60}}>t + {i * 5}s</strong>
+              <span style={{fontSize: 14, opacity: 0.65}}>{i < active ? 'FAIL' : 'waiting'}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {active >= 3 ? (
+        <div className="rr-wide-note danger" style={{border: '2px solid rgba(255,60,60,0.7)'}}>
+          <XCircle size={24} style={{marginRight: 10, verticalAlign: 'middle'}} />
+          Three consecutive failures → component declared dead
+        </div>
+      ) : done ? (
+        <div className="rr-wide-note">Thresholds filter noise without delaying genuine recovery.</div>
+      ) : (
+        <div className="rr-wide-note">Require multiple failures before taking action.</div>
+      )}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-20: Pattern everywhere ─── */
+const HCPatternEverywhereVisual = ({currentTime}: {currentTime: number}) => {
+  const systems = [
+    {label: 'Databases', icon: Database, time: 220},
+    {label: 'Load Balancers', icon: Globe, time: 224},
+    {label: 'API Gateways', icon: Server, time: 227},
+    {label: 'Queues', icon: GitBranch, time: 230},
+  ];
+  const n = systems.filter(s => currentTime >= s.time).length;
+
+  return (
+    <HCContentWrap>
+      <div className="rr-arch-board" style={{gap: 28}}>
+        {systems.map((s, i) => (
+          <div key={s.label} style={{
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10,
+            opacity: i < n ? 1 : 0.2,
+            transition: 'opacity 0.3s',
+          }}>
+            <div className="rr-flow-node" style={{padding: '14px'}}>
+              {React.createElement(s.icon, {size: 48})}
+            </div>
+            <strong style={{fontSize: 17}}>{s.label}</strong>
+          </div>
+        ))}
+      </div>
+      {n >= 4 ? (
+        <div className="rr-wide-note">Health checks are a universal primitive in every modern system.</div>
+      ) : (
+        <div className="rr-wide-note">This pattern is not just for databases ...</div>
+      )}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-21 / hc-22 / hc-23 / hc-24: Server cluster + LB ─── */
+const HCServerClusterVisual = ({currentTime}: {currentTime: number}) => {
+  const crashed = currentTime >= 257;
+  const removed = currentTime >= 265;
+  const servers = [
+    {id: 1, label: 'S1', sub: 'healthy'},
+    {id: 2, label: 'S2', sub: 'healthy'},
+    {id: 3, label: 'S3', sub: crashed ? (removed ? 'removed' : 'crashed') : 'healthy'},
+    {id: 4, label: 'S4', sub: 'healthy'},
+  ];
+
+  return (
+    <HCContentWrap style={{gap: 20}}>
+      <div className="rr-arch-board" style={{gap: 28}}>
+        <div className="rr-flow-node" style={{flexDirection: 'column', padding: '14px 20px'}}>
+          <Globe size={52} />
+          <strong>Load Balancer</strong>
+          <span style={{fontSize: 12, opacity: 0.5}}>health checks &darr;</span>
+        </div>
+        <div style={{display: 'flex', gap: 14}}>
+          {servers.map(s => {
+            const isBad = s.sub === 'removed' || s.sub === 'crashed';
+            return (
+              <div key={s.id} className="rr-flow-node" style={{
+                opacity: isBad && removed ? 0.3 : 1,
+                borderColor: isBad && removed ? 'rgba(255,60,60,0.6)' : isBad && crashed ? 'rgba(255,200,60,0.5)' : undefined,
+                background: isBad && removed ? 'rgba(255,60,60,0.06)' : undefined,
+                transition: 'all 0.3s',
+              }}>
+                {isBad && removed ? <XCircle size={42} /> : s.sub === 'crashed' ? <AlertTriangle size={42} /> : <Server size={42} />}
+                <strong>{s.label}</strong>
+                <span style={{fontSize: 12, opacity: 0.55}}>{s.sub}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {removed ? (
+        <div className="rr-wide-note" style={{border: '2px solid rgba(255,200,60,0.5)'}}>
+          <AlertTriangle size={22} style={{marginRight: 8, verticalAlign: 'middle'}} />
+          Server 3 removed from rotation. New orders routed to S1, S2, S4.
+        </div>
+      ) : crashed ? (
+        <div className="rr-wide-note danger">Server 3 crashes. Load balancer detects silence.</div>
+      ) : (
+        <div className="rr-wide-note">All servers healthy. Load balancer continuously monitors each one.</div>
+      )}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-25 / hc-26: Auto-recovery / re-join ─── */
+const HCAutoRecoveryVisual = ({currentTime}: {currentTime: number}) => {
+  const redirect = currentTime >= 270;
+  const rebooting = currentTime >= 280;
+  const rejoin = currentTime >= 290;
+
+  const servers = [
+    {id: 1, label: 'S1', sub: 'serving', alive: true},
+    {id: 2, label: 'S2', sub: 'serving', alive: true},
+    {id: 3, label: 'S3', sub: rejoin ? 'serving' : rebooting ? 'rebooting' : 'removed', alive: rejoin},
+    {id: 4, label: 'S4', sub: 'serving', alive: true},
+  ];
+
+  return (
+    <HCContentWrap style={{gap: 20}}>
+      <div className="rr-arch-board" style={{gap: 28}}>
+        <div className="rr-flow-node" style={{flexDirection: 'column', padding: '14px 20px'}}>
+          <Globe size={52} />
+          <strong>Load Balancer</strong>
+        </div>
+        <div style={{display: 'flex', gap: 14}}>
+          {servers.map(s => (
+            <div key={s.id} className="rr-flow-node" style={{
+              opacity: s.alive ? 1 : 0.35,
+              borderColor: rejoin && s.id === 3 ? 'rgba(60,255,60,0.6)' : !s.alive && s.id === 3 ? 'rgba(255,200,60,0.5)' : undefined,
+              background: rejoin && s.id === 3 ? 'rgba(60,255,60,0.06)' : undefined,
+              transition: 'all 0.3s',
+            }}>
+              {s.id === 3 && !s.alive ? <RefreshCw size={42} /> : <Server size={42} />}
+              <strong>{s.label}</strong>
+              <span style={{fontSize: 12, opacity: 0.55}}>{s.sub}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      {rejoin ? (
+        <div className="rr-wide-note" style={{border: '2px solid rgba(60,255,60,0.5)'}}>
+          <CheckCircle2 size={22} style={{marginRight: 8, verticalAlign: 'middle'}} />
+          S3 passes health checks again. Automatically re-added to rotation.
+        </div>
+      ) : rebooting ? (
+        <div className="rr-wide-note" style={{border: '2px solid rgba(60,255,60,0.4)'}}>
+          <RefreshCw size={22} style={{marginRight: 8, verticalAlign: 'middle'}} />
+          S3 reboots. Health checks resume successfully.
+        </div>
+      ) : redirect ? (
+        <div className="rr-wide-note">Customers order food, completely oblivious that a server died.</div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-27 / hc-28: Test mantra ─── */
+const HCTestMantraVisual = () => (
+  <HCContentWrap style={{gap: 28}}>
+    <Card className="inverted-card" style={{textAlign: 'center', padding: '36px 56px', maxWidth: '80%'}}>
+      <ShieldAlert size={72} />
+      <h2 style={{fontSize: 38}}>Never assume failover works.</h2>
+      <p style={{fontSize: 30, fontWeight: 900, color: 'rgba(255,200,60,0.9)', margin: '8px 0 0'}}>Test it.</p>
+    </Card>
+    <div className="rr-chip-row" style={{gap: 14}}>
+      {['Shut down servers', 'Simulate outages', 'Validate recovery'].map(item => (
+        <span key={item} style={{padding: '10px 20px', border: '2px solid rgba(255,255,255,0.35)', borderRadius: 8, fontSize: 18, fontWeight: 700, textTransform: 'uppercase'}}>{item}</span>
+      ))}
+    </div>
+    <div className="rr-wide-note" style={{border: '2px solid rgba(255,200,60,0.5)'}}>
+      <AlertTriangle size={22} style={{marginRight: 10, verticalAlign: 'middle'}} />
+      The worst time to discover broken failover is during a production outage at 2 AM.
+    </div>
+  </HCContentWrap>
+);
+
+/* ─── hc-29 / hc-30: Summary checklist ─── */
+const HCSummaryVisual = ({currentTime}: {currentTime: number}) => {
+  const items = [
+    {label: 'Redundancy', icon: Database, sub: 'backup infrastructure', time: 328},
+    {label: 'Replication', icon: RefreshCw, sub: 'synchronized copies', time: 332},
+    {label: 'Health Checks', icon: Activity, sub: 'continuous monitoring', time: 336},
+    {label: 'Failover', icon: Globe, sub: 'automated traffic redirect', time: 340},
+    {label: 'Testing', icon: ShieldAlert, sub: 'validated recovery', time: 344},
+  ];
+  const n = items.filter(x => currentTime >= x.time).length;
+
+  return (
+    <HCContentWrap>
+      <h2 style={{fontSize: 32, letterSpacing: 1, margin: 0}}>The Complete System</h2>
+      <div style={{display: 'flex', flexDirection: 'column', gap: 8, minWidth: 500}}>
+        {items.map((x, i) => (
+          <div key={x.label} className="checklist-row" style={{
+            opacity: i < n ? 1 : 0.25,
+            padding: '12px 20px',
+            border: i < n ? '1px solid rgba(255,255,255,0.08)' : 'none',
+            borderRadius: 8,
+            transition: 'all 0.3s',
+          }}>
+            {React.createElement(x.icon, {size: 36})}
+            <div>
+              <strong style={{fontSize: 22}}>{x.label}</strong>
+              <p style={{fontSize: 16, margin: 0, opacity: 0.6}}>{x.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      {n >= 5 ? (
+        <div className="rr-wide-note" style={{border: '2px solid rgba(60,255,60,0.5)'}}>
+          <CheckCircle2 size={24} style={{marginRight: 10, verticalAlign: 'middle'}} />
+          Together they let us survive massive failures with zero downtime.
+        </div>
+      ) : null}
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-31 / hc-32: Downtime question + nines ─── */
+const HCNinesVisual = ({currentTime}: {currentTime: number}) => {
+  const showQ = currentTime >= 342;
+  const showTable = currentTime >= 358;
+  const tiers = [
+    {nines: '99.9%', downtime: '~8.7 hrs/yr', label: 'standard'},
+    {nines: '99.99%', downtime: '~52 min/yr', label: 'enhanced'},
+    {nines: '99.999%', downtime: '~5 min/yr', label: 'mission critical'},
+  ];
+
+  return (
+    <HCContentWrap>
+      {showQ ? (
+        <Card className="spof-question-card" style={{maxWidth: '80%', padding: '24px 40px'}}>
+          <h2 style={{fontSize: 30}}>How much downtime is actually acceptable?</h2>
+        </Card>
+      ) : null}
+      {showTable ? (
+        <div style={{display: 'flex', gap: 18}}>
+          {tiers.map((t, i) => (
+            <div key={t.nines} style={{
+              padding: '18px 28px',
+              border: '3px solid',
+              borderColor: i === 2 ? 'rgba(60,255,60,0.6)' : i === 1 ? 'rgba(255,200,60,0.5)' : 'rgba(255,255,255,0.25)',
+              borderRadius: 10,
+              textAlign: 'center',
+              background: i === 2 ? 'rgba(60,255,60,0.04)' : i === 1 ? 'rgba(255,200,60,0.04)' : 'rgba(255,255,255,0.02)',
+            }}>
+              <strong style={{fontSize: 40, letterSpacing: 3}}>{t.nines}</strong>
+              <div style={{fontSize: 18, opacity: 0.7, marginTop: 8}}>{t.downtime}</div>
+              <span style={{fontSize: 14, opacity: 0.5, textTransform: 'uppercase'}}>{t.label}</span>
+            </div>
+          ))}
+        </div>
+      ) : null}
+      <div className="rr-wide-note">Availability targets define the architecture you need to build.</div>
+    </HCContentWrap>
+  );
+};
+
+/* ─── hc-33: Next video teaser ─── */
+const HCNextVideoVisual = () => (
+  <HCContentWrap>
+    <Card style={{textAlign: 'center', padding: '28px 48px'}}>
+      <BookOpen size={64} />
+      <h2 style={{fontSize: 30}}>Next Explainer</h2>
+      <p style={{fontSize: 22, opacity: 0.8}}>Availability Targets &amp; The Famous Nines</p>
+    </Card>
+    <div className="rr-chip-row" style={{gap: 14}}>
+      {['SLA Math', 'Uptime Budget', 'Cost vs Nines'].map(item => (
+        <span key={item} style={{padding: '8px 20px', border: '2px solid rgba(255,255,255,0.3)', borderRadius: 8, fontSize: 17, fontWeight: 700}}>{item}</span>
+      ))}
+    </div>
+  </HCContentWrap>
+);
+
+/* ─── hc-34: Subscribe / series timeline ─── */
+const HCSubscribeVisual = () => (
+  <HCContentWrap>
+    <div className="spof-agenda-timeline" style={{flexDirection: 'row', gap: 10}}>
+      {['Availability', 'SPOF', 'Redundancy', 'Health Checks', 'Targets'].map((item, i) => (
+        <div key={item} className="spof-timeline-item active" style={{opacity: i < 4 ? 1 : 0.4, padding: '8px 14px'}}>
+          <span>{i + 1}</span>
+          <p>{item}</p>
+        </div>
+      ))}
+    </div>
+    <Card className="inverted-card" style={{textAlign: 'center', padding: '24px 48px'}}>
+      <Bell size={48} />
+      <h2 style={{fontSize: 26}}>Subscribe to Engineering Systems</h2>
+      <p style={{fontSize: 18, opacity: 0.7}}>Don't miss the next availability pattern</p>
+    </Card>
+  </HCContentWrap>
+);
+
+const hcBeatNumber = (beat: LessonBeat) => Number(beat.id.match(/^hc-(\d+)/)?.[1] ?? 0);
+
+const hcProgress = (beat: LessonBeat, currentTime: number) =>
+  Math.max(0, Math.min(1, (currentTime - beat.start) / Math.max(beat.end - beat.start, 0.001)));
+
+const HCBeatStage: React.FC<{beat: LessonBeat; label: string; children: React.ReactNode}> = ({children}) => (
+  <HCContentWrap style={{gap: 18, padding: '0'}}>
+    <div className="hc2-stage">
+      {children}
+    </div>
+  </HCContentWrap>
+);
+
+const HCPanel: React.FC<{children: React.ReactNode; emphasis?: boolean; muted?: boolean; style?: React.CSSProperties}> = ({
+  children,
+  emphasis = false,
+  muted = false,
+  style,
+}) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 12,
+      minWidth: 214,
+      minHeight: 142,
+      padding: '24px 26px',
+      border: '4px solid rgba(255,255,255,0.9)',
+      borderRadius: 8,
+      background: emphasis ? '#ffffff' : 'rgba(0,0,0,0.84)',
+      color: emphasis ? '#000000' : '#ffffff',
+      boxShadow: emphasis ? '13px 13px 0 rgba(255,255,255,0.18)' : '10px 10px 0 rgba(255,255,255,0.1)',
+      opacity: muted ? 0.38 : 1,
+      textAlign: 'center',
+      textTransform: 'uppercase',
+      transform: emphasis ? 'scale(1.04)' : undefined,
+      ...style,
+    }}
+  >
+    {children}
+  </div>
+);
+
+const HCNode = ({
+  label,
+  sub,
+  icon: Icon,
+  emphasis,
+  muted,
+  failed,
+  style,
+}: {
+  label: string;
+  sub?: string;
+  icon: React.ComponentType<{size?: number}>;
+  emphasis?: boolean;
+  muted?: boolean;
+  failed?: boolean;
+  style?: React.CSSProperties;
+}) => (
+  <HCPanel emphasis={emphasis} muted={muted} style={{width: 236, minHeight: 158, borderStyle: failed ? 'double' : 'solid', ...style}}>
+    {failed ? <XCircle size={58} /> : <Icon size={58} />}
+    <strong style={{fontSize: 28, lineHeight: 1}}>{label}</strong>
+    {sub ? <span style={{fontSize: 15, fontWeight: 900, opacity: emphasis ? 0.68 : 0.62}}>{sub}</span> : null}
+  </HCPanel>
+);
+
+const HCArrow = ({label = '->', muted = false}: {label?: string; muted?: boolean}) => (
+  <div
+    style={{
+      width: label.length > 4 ? 132 : 96,
+      height: 58,
+      position: 'relative',
+      display: 'grid',
+      placeItems: 'center',
+      color: '#ffffff',
+      fontSize: label.length > 4 ? 15 : 0,
+      fontWeight: 950,
+      opacity: muted ? 0.28 : 0.78,
+      textAlign: 'center',
+      textTransform: 'uppercase',
+    }}
+  >
+    <svg viewBox="0 0 132 58" style={{position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'visible'}}>
+      <defs>
+        <marker id={`hc-inline-arrow-${label.replace(/[^a-z0-9]/gi, '') || 'plain'}`} markerWidth="13" markerHeight="13" refX="11" refY="6.5" orient="auto" markerUnits="userSpaceOnUse">
+          <path d="M1 2 L12 6.5 L1 11 Z" fill="rgba(255,255,255,0.9)" />
+        </marker>
+      </defs>
+      <path
+        d={label.length > 4 ? 'M4 42 H124' : 'M4 29 H124'}
+        fill="none"
+        stroke="rgba(255,255,255,0.74)"
+        strokeWidth="5"
+        strokeLinecap="round"
+        markerEnd={`url(#hc-inline-arrow-${label.replace(/[^a-z0-9]/gi, '') || 'plain'})`}
+      />
+    </svg>
+    {label.length > 4 ? (
+      <span style={{position: 'absolute', left: -12, right: -12, top: 2, zIndex: 1, padding: '2px 4px', textShadow: '0 3px 12px #000000'}}>
+        {label}
+      </span>
+    ) : null}
+  </div>
+);
+
+const HCBigNote = ({children, emphasis = false}: {children: React.ReactNode; emphasis?: boolean}) => (
+  <div
+    style={{
+      width: 'min(1040px, 92%)',
+      minHeight: 72,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      border: '3px solid rgba(255,255,255,0.76)',
+      borderRadius: 8,
+      background: emphasis ? '#ffffff' : 'rgba(0,0,0,0.72)',
+      color: emphasis ? '#000000' : '#ffffff',
+      padding: '16px 28px',
+      fontSize: 25,
+      fontWeight: 950,
+      lineHeight: 1.05,
+      textAlign: 'center',
+      textTransform: 'uppercase',
+    }}
+  >
+    {children}
+  </div>
+);
+
+const HCFlowRow = ({children}: {children: React.ReactNode}) => (
+  <div style={{position: 'absolute', inset: '74px 34px 86px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0}}>
+    {children}
+  </div>
+);
+
+const HCArchitectureBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const progress = hcProgress(beat, currentTime);
+  const failed = n === 5 || n === 6;
+  const showSecondary = n >= 3;
+  const showBlindSpot = n === 4 || n === 6;
+
+  if (n === 1) {
+    return (
+      <HCBeatStage beat={beat} label="availability pattern">
+        <HCFlowRow>
+          <HCNode label="Health Checks" sub="detect" icon={Activity} emphasis />
+          <HCArrow />
+          <HCNode label="Failover" sub="reroute" icon={RefreshCw} />
+          <HCArrow />
+          <HCNode label="Recovery" sub="resume" icon={CheckCircle2} />
+        </HCFlowRow>
+        <div style={{position: 'absolute', left: 56, bottom: 42, fontSize: 26, fontWeight: 950, textTransform: 'uppercase'}}>
+          Engineering Systems / FoodDash
+        </div>
+      </HCBeatStage>
+    );
+  }
+
+  return (
+    <HCBeatStage beat={beat} label={failed ? 'failure setup' : 'database setup'}>
+      <HCFlowRow>
+        <HCNode label="FoodDash" sub="live app" icon={Smartphone} emphasis={n === 2} />
+        <HCArrow label={failed ? 'traffic?' : 'traffic'} muted={failed} />
+        <HCNode label="Primary DB" sub={failed ? 'crashed' : 'live traffic'} icon={Database} failed={failed} emphasis={!failed && n >= 3} />
+        {showSecondary ? <HCArrow label={failed ? 'standby' : 'replicate'} /> : null}
+        {showSecondary ? <HCNode label="Secondary DB" sub={failed ? 'synced copy' : 'replicated'} icon={Database} emphasis={failed} /> : null}
+      </HCFlowRow>
+      <div style={{position: 'absolute', left: 108, right: 108, bottom: 34, display: 'flex', justifyContent: 'center', gap: 16}}>
+        {[
+          ['Redundant', n >= 2],
+          ['Replicated', showSecondary],
+          ['Detected', !showBlindSpot && failed],
+        ].map(([label, active]) => (
+          <span
+            key={String(label)}
+            style={{
+              border: '2px solid rgba(255,255,255,0.74)',
+              borderRadius: 8,
+              background: active ? '#ffffff' : 'rgba(0,0,0,0.78)',
+              color: active ? '#000000' : '#ffffff',
+              opacity: active || showBlindSpot ? 1 : 0.28,
+              padding: '10px 18px',
+              fontSize: 18,
+              fontWeight: 950,
+              textTransform: 'uppercase',
+            }}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+      {showBlindSpot ? (
+        <div style={{position: 'absolute', left: 390, top: 92 + progress * 10}}>
+          <HCBigNote emphasis>Blind spot: who knows when to switch?</HCBigNote>
+        </div>
+      ) : null}
+    </HCBeatStage>
+  );
+};
+
+const hcCubicPoint = (
+  t: number,
+  p0: [number, number],
+  p1: [number, number],
+  p2: [number, number],
+  p3: [number, number],
+) => {
+  const u = 1 - t;
+  const x = u ** 3 * p0[0] + 3 * u ** 2 * t * p1[0] + 3 * u * t ** 2 * p2[0] + t ** 3 * p3[0];
+  const y = u ** 3 * p0[1] + 3 * u ** 2 * t * p1[1] + 3 * u * t ** 2 * p2[1] + t ** 3 * p3[1];
+
+  return {x, y};
+};
+
+const HCPulseBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const progress = hcProgress(beat, currentTime);
+  const failed = n >= 11;
+  const checks = n === 12 ? Math.max(1, Math.min(3, Math.ceil(progress * 3))) : n >= 13 ? 3 : 0;
+  const isUserView = n === 10;
+  const loopDuration = failed ? 1.8 : 2.2;
+  const loop = ((currentTime - beat.start) % loopDuration) / loopDuration;
+  const pingProgress = Math.min(1, loop / 0.48);
+  const responseProgress = Math.max(0, Math.min(1, (loop - 0.52) / 0.4));
+  const pingStart: [number, number] = [535, 252];
+  const pingEnd: [number, number] = [845, 252];
+  const responseStart: [number, number] = [845, 326];
+  const responseEnd: [number, number] = [535, 326];
+  const pingPoint = hcCubicPoint(pingProgress, pingStart, [625, 220], [755, 220], pingEnd);
+  const responsePoint = hcCubicPoint(responseProgress, responseStart, [755, 370], [625, 370], responseEnd);
+  const pingOpacity = loop < 0.52 ? (failed ? 0.8 - pingProgress * 0.45 : 1) : 0;
+  const responseOpacity = !failed && loop >= 0.52 && loop < 0.96 ? 1 : 0;
+  const pulse = failed ? 1 : 1 + Math.sin(loop * Math.PI * 2) * 0.018;
+  const dbPulse = failed ? 1 : 1 + Math.sin((loop + 0.22) * Math.PI * 2) * 0.012;
+
+  return (
+    <HCBeatStage beat={beat} label={failed ? 'failure detection' : 'health check loop'}>
+      <svg className="hc2-wire-svg" viewBox="0 0 1380 548">
+        <defs>
+          <marker id={`hc-arrow-tip-${beat.id}`} markerWidth="18" markerHeight="18" refX="16" refY="9" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M2 3 L16 9 L2 15 Z" fill="rgba(255,255,255,0.92)" />
+          </marker>
+          <marker id={`hc-arrow-tip-muted-${beat.id}`} markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M2 3 L14 8 L2 13 Z" fill="rgba(255,255,255,0.56)" />
+          </marker>
+        </defs>
+        <path
+          d={`M${pingStart[0]} ${pingStart[1]} C625 220 755 220 ${pingEnd[0]} ${pingEnd[1]}`}
+          fill="none"
+          stroke="rgba(255,255,255,0.92)"
+          strokeWidth="7"
+          strokeLinecap="round"
+          strokeDasharray={failed ? '14 20' : '0'}
+          markerEnd={`url(#hc-arrow-tip-${beat.id})`}
+        />
+        <path
+          d={`M${responseStart[0]} ${responseStart[1]} C755 370 625 370 ${responseEnd[0]} ${responseEnd[1]}`}
+          fill="none"
+          stroke="rgba(255,255,255,0.5)"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeDasharray={failed ? '10 18' : '0'}
+          markerEnd={`url(#hc-arrow-tip-muted-${beat.id})`}
+        />
+        <circle
+          cx={pingPoint.x}
+          cy={pingPoint.y}
+          r="10"
+          fill="#ffffff"
+          opacity={pingOpacity}
+        />
+        <circle
+          cx={pingPoint.x}
+          cy={pingPoint.y}
+          r="20"
+          fill="none"
+          stroke="rgba(255,255,255,0.42)"
+          strokeWidth="3"
+          opacity={pingOpacity * 0.75}
+        />
+        <circle
+          cx={responsePoint.x}
+          cy={responsePoint.y}
+          r="9"
+          fill="#ffffff"
+          opacity={responseOpacity}
+        />
+        <circle
+          cx={responsePoint.x}
+          cy={responsePoint.y}
+          r="18"
+          fill="none"
+          stroke="rgba(255,255,255,0.32)"
+          strokeWidth="3"
+          opacity={responseOpacity * 0.7}
+        />
+      </svg>
+      <HCFlowRow>
+        <HCNode
+          label={isUserView ? 'Customers' : 'Checker'}
+          sub={isUserView ? 'ordering lunch' : 'tiny request'}
+          icon={isUserView ? ShoppingCart : Activity}
+          emphasis={!failed}
+          style={{transform: `scale(${pulse})`}}
+        />
+        <div style={{display: 'grid', gap: 46, minWidth: 250, justifyItems: 'center'}}>
+          <span style={{fontSize: 28, fontWeight: 950, textTransform: 'uppercase', textShadow: '0 4px 18px #000000', opacity: pingOpacity > 0 ? 1 : 0.48}}>
+            {failed ? 'check' : 'ping'}
+          </span>
+          <span style={{fontSize: 22, fontWeight: 950, opacity: failed ? 0.38 : responseOpacity > 0 ? 0.9 : 0.48, textTransform: 'uppercase', textShadow: '0 4px 18px #000000'}}>
+            {failed ? 'silence' : 'response'}
+          </span>
+        </div>
+        <HCNode label="Primary DB" sub={failed ? 'silent' : 'healthy'} icon={Database} failed={failed} emphasis={n === 9} style={{transform: `scale(${dbPulse})`}} />
+      </HCFlowRow>
+      {checks ? (
+        <div style={{position: 'absolute', left: 450, right: 450, bottom: 44, display: 'flex', justifyContent: 'center', gap: 18}}>
+          {[0, 1, 2].map((index) => (
+            <HCPanel key={index} emphasis={index < checks} style={{minWidth: 126, minHeight: 82, padding: '12px 16px'}}>
+              <strong style={{fontSize: 24}}>{index < checks ? 'MISS' : 'WAIT'}</strong>
+              <span style={{fontSize: 13, fontWeight: 950}}>check {index + 1}</span>
+            </HCPanel>
+          ))}
+        </div>
+      ) : (
+        <div style={{position: 'absolute', left: 210, right: 210, bottom: 46}}>
+          <HCBigNote emphasis={n === 13}>
+            {n === 13 ? 'Hard evidence: primary is down' : isUserView ? 'Monitoring stays invisible to users' : 'Every expected response proves life'}
+          </HCBigNote>
+        </div>
+      )}
+    </HCBeatStage>
+  );
+};
+
+const HCFailoverBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const step = Math.max(0, Math.min(4, n - 15));
+  const progress = hcProgress(beat, currentTime);
+  const steps = [
+    ['Detect', Search],
+    ['Promote', ShieldAlert],
+    ['Redirect', Globe],
+    ['Reconnect', RefreshCw],
+  ] as const;
+
+  if (n === 14) {
+    return (
+      <HCBeatStage beat={beat} label="failover definition">
+        <HCFlowRow>
+          <HCNode label="Broken" sub="old path" icon={XCircle} failed />
+          <HCArrow label="move traffic" />
+          <HCNode label="Healthy" sub="new path" icon={CheckCircle2} emphasis />
+        </HCFlowRow>
+      </HCBeatStage>
+    );
+  }
+
+  return (
+    <HCBeatStage beat={beat} label="automated failover">
+      <HCFlowRow>
+        <HCNode label={step >= 2 ? 'Old Primary' : 'Primary DB'} sub={step >= 1 ? 'failed' : 'serving'} icon={Database} failed={step >= 1} muted={step >= 3} />
+        <HCArrow label={step >= 3 ? 'traffic' : step >= 2 ? 'promote' : 'sync'} />
+        <HCNode label={step >= 2 ? 'New Primary' : 'Backup DB'} sub={step >= 2 ? 'active' : 'standby'} icon={Database} emphasis={step >= 2} />
+        {step >= 4 ? <HCArrow label="reconnect" /> : null}
+        {step >= 4 ? <HCNode label="App Servers" sub="running" icon={Server} emphasis /> : null}
+      </HCFlowRow>
+      <div style={{position: 'absolute', left: 116, right: 116, bottom: 34, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16}}>
+        {steps.map(([label, Icon], index) => (
+          <HCPanel key={label} emphasis={index < step || (index === 0 && progress > 0.25)} muted={index > step} style={{minWidth: 0, minHeight: 96, padding: 14}}>
+            <Icon size={30} />
+            <strong style={{fontSize: 20}}>{label}</strong>
+          </HCPanel>
+        ))}
+      </div>
+    </HCBeatStage>
+  );
+};
+
+const HCNoHumanBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const rows =
+    n === 21
+      ? ['No on-call wakeup', 'No manual login', 'No emergency config']
+      : n === 22
+        ? ['System spotted the problem', 'System rerouted traffic', 'System recovered alone']
+        : ['The important part', 'Manual rescue did not happen'];
+  const activeIndex =
+    n === 21
+      ? currentTime < 142.176
+        ? 0
+        : currentTime < 144.529
+          ? 1
+          : 2
+      : n === 22
+        ? Math.min(rows.length - 1, Math.floor(hcProgress(beat, currentTime) * rows.length))
+        : rows.length - 1;
+
+  return (
+    <HCBeatStage beat={beat} label="automation">
+      <div style={{position: 'absolute', inset: '82px 120px 58px', display: 'grid', gridTemplateColumns: n === 21 ? '1fr 1fr' : '1fr', gap: 26, alignItems: 'center'}}>
+        {n === 21 ? (
+          <HCPanel muted style={{minHeight: 298}}>
+            <XCircle size={66} />
+            <strong style={{fontSize: 34}}>Manual Rescue</strong>
+            <span style={{fontSize: 18, fontWeight: 900}}>slow, risky, late</span>
+          </HCPanel>
+        ) : null}
+        <div style={{display: 'grid', gap: 16}}>
+          {rows.map((row, index) => (
+            <HCPanel
+              key={row}
+              emphasis={index === activeIndex}
+              muted={n === 21 && index !== activeIndex}
+              style={{minHeight: 88, alignItems: 'flex-start', padding: '18px 30px'}}
+            >
+              <div style={{display: 'flex', alignItems: 'center', gap: 16}}>
+                {n === 21 ? <XCircle size={32} /> : <CheckCircle2 size={32} />}
+                <strong style={{fontSize: 26}}>{row}</strong>
+              </div>
+            </HCPanel>
+          ))}
+        </div>
+      </div>
+    </HCBeatStage>
+  );
+};
+
+const HCThresholdBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const progress = hcProgress(beat, currentTime);
+  const missCount = n === 28 ? Math.max(1, Math.min(3, Math.ceil(progress * 3))) : n >= 29 ? 3 : n >= 26 ? 1 : 0;
+  const messyItems = [
+    ['Heavy Query', Zap],
+    ['Lost Packet', Radio],
+    ['Temp Spike', Activity],
+  ] as const;
+
+  if (n === 23) {
+    return (
+      <HCBeatStage beat={beat} label="real world">
+        <div style={{position: 'absolute', inset: '110px 100px 70px', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 22, alignItems: 'center'}}>
+          {messyItems.map(([label, Icon], index) => (
+            <HCPanel key={label} emphasis={progress > index / 3} style={{minHeight: 228}}>
+              <Icon size={62} />
+              <strong style={{fontSize: 30}}>{label}</strong>
+              <span style={{fontSize: 16, fontWeight: 900}}>temporary noise</span>
+            </HCPanel>
+          ))}
+        </div>
+      </HCBeatStage>
+    );
+  }
+
+  if (n === 24 || n === 25) {
+    return (
+      <HCBeatStage beat={beat} label="false positive">
+        <HCFlowRow>
+          <HCNode label="One Miss" sub="not proof" icon={AlertTriangle} />
+          <HCArrow label="panic?" />
+          <HCNode label={n === 24 ? 'Mass Failover' : 'False Positive'} sub={n === 24 ? 'unstable' : 'wrong call'} icon={XCircle} failed emphasis={n === 25} />
+        </HCFlowRow>
+      </HCBeatStage>
+    );
+  }
+
+  return (
+    <HCBeatStage beat={beat} label="threshold rule">
+      <div style={{position: 'absolute', inset: '104px 100px 100px', display: 'grid', gridTemplateColumns: '260px 1fr 260px', gap: 24, alignItems: 'center'}}>
+        <HCNode label="Component" sub={n >= 29 ? 'declared dead' : 'under review'} icon={Server} failed={n >= 29} emphasis={n === 30} />
+        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16}}>
+          {['t0', 't+5s', 't+10s'].map((label, index) => (
+            <HCPanel key={label} emphasis={index < missCount} muted={index >= missCount} style={{minHeight: 168, minWidth: 0}}>
+              <strong style={{fontSize: 30}}>{label}</strong>
+              <span style={{fontSize: 20, fontWeight: 950}}>{index < missCount ? 'FAIL' : 'WAIT'}</span>
+            </HCPanel>
+          ))}
+        </div>
+        <HCNode label={n >= 29 ? 'Decision' : 'Threshold'} sub={n >= 29 ? 'confirmed' : 'multiple misses'} icon={n >= 29 ? XCircle : Clock} emphasis={n >= 29} />
+      </div>
+      <div style={{position: 'absolute', left: 230, right: 230, bottom: 42}}>
+        <HCBigNote emphasis={n === 30}>{n === 30 ? 'Catch fast. Avoid chaos.' : 'Require repeated failed checks before action.'}</HCBigNote>
+      </div>
+    </HCBeatStage>
+  );
+};
+
+const HCClusterBeat = ({beat}: {beat: LessonBeat}) => {
+  const n = hcBeatNumber(beat);
+  const serverFailed = n >= 36 && n <= 39;
+  const removed = n >= 37 && n <= 39;
+  const rejoin = n === 41;
+  const reboot = n === 40;
+  const serving = n >= 38 && n <= 39;
+
+  return (
+    <HCBeatStage beat={beat} label={n <= 32 ? 'pattern transfer' : 'load balancer cluster'}>
+      <HCFlowRow>
+        {n <= 32 ? (
+          <>
+            <HCNode label="Database" sub="same pattern" icon={Database} emphasis={n === 31} />
+            <HCArrow />
+            <HCNode label="Load Balancer" sub="up stack" icon={Globe} emphasis={n === 32} />
+            <HCArrow />
+            <HCNode label="App Servers" sub="backend layer" icon={Server} />
+          </>
+        ) : (
+          <>
+            <HCNode label="Load Balancer" sub={n >= 34 ? 'checking' : 'routes'} icon={Globe} emphasis />
+            <HCArrow label={serving ? 'orders' : 'checks'} />
+            <div style={{display: 'grid', gridTemplateColumns: 'repeat(4, 150px)', gap: 14}}>
+              {[1, 2, 3, 4].map((id) => {
+                const isThree = id === 3;
+                const isBad = isThree && serverFailed && !rejoin && !reboot;
+                return (
+                  <HCPanel
+                    key={id}
+                    emphasis={(n === 35 && !isBad) || (isThree && rejoin)}
+                    muted={isThree && removed && !rejoin}
+                    style={{minWidth: 0, minHeight: 148, padding: 16, borderStyle: isBad ? 'double' : 'solid'}}
+                  >
+                    {isBad ? <XCircle size={40} /> : reboot && isThree ? <RefreshCw size={40} /> : <Server size={40} />}
+                    <strong style={{fontSize: 25}}>S{id}</strong>
+                    <span style={{fontSize: 13, fontWeight: 950}}>
+                      {isThree && isBad ? 'removed' : isThree && reboot ? 'rebooting' : 'healthy'}
+                    </span>
+                  </HCPanel>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </HCFlowRow>
+      {n >= 37 ? (
+        <div style={{position: 'absolute', left: 220, right: 220, bottom: 40}}>
+          <HCBigNote emphasis={n === 41}>
+            {n === 41 ? 'Successful checks add server 3 back to rotation' : n === 39 ? 'Customers keep ordering through healthy paths' : 'Server 3 is isolated from new traffic'}
+          </HCBigNote>
+        </div>
+      ) : null}
+    </HCBeatStage>
+  );
+};
+
+const HCTestAndSummaryBeat = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+  const progress = hcProgress(beat, currentTime);
+
+  if (n <= 45) {
+    const rows =
+      n === 42
+        ? ['Never assume failover works', 'Test it']
+        : n === 43
+          ? ['Controlled environment', 'Intentional shutdown', 'Observe recovery']
+          : n === 44
+            ? ['Simulate outage', 'Validate automation', 'Fix before incident']
+            : ['2 AM outage', 'Worst time to learn', 'Test recovery first'];
+
+    return (
+      <HCBeatStage beat={beat} label="recovery testing">
+        <div style={{position: 'absolute', inset: '96px 170px 70px', display: 'grid', gap: 18}}>
+          {rows.map((row, index) => (
+            <HCPanel key={row} emphasis={index <= Math.floor(progress * rows.length)} style={{minHeight: 88, alignItems: 'flex-start'}}>
+              <div style={{display: 'flex', gap: 16, alignItems: 'center'}}>
+                {n === 45 ? <AlertTriangle size={34} /> : <CheckCircle2 size={34} />}
+                <strong style={{fontSize: 30}}>{row}</strong>
+              </div>
+            </HCPanel>
+          ))}
+        </div>
+      </HCBeatStage>
+    );
+  }
+
+  const items = [
+    ['Redundancy', Database, n >= 47],
+    ['Replication', RefreshCw, n >= 47],
+    ['Health Checks', Activity, n >= 48],
+    ['Failover', Globe, n >= 48],
+    ['Testing', ShieldAlert, n >= 49],
+  ] as const;
+
+  return (
+    <HCBeatStage beat={beat} label="summary stack">
+      <div style={{position: 'absolute', inset: '92px 88px 80px', display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16, alignItems: 'center'}}>
+        {items.map(([label, Icon, active]) => (
+          <HCPanel key={label} emphasis={active || n === 50} muted={!active && n !== 46 && n !== 50} style={{minWidth: 0, minHeight: 230, padding: 18}}>
+            <Icon size={52} />
+            <strong style={{fontSize: 24}}>{label}</strong>
+          </HCPanel>
+        ))}
+      </div>
+      <div style={{position: 'absolute', left: 218, right: 218, bottom: 38}}>
+        <HCBigNote emphasis={n === 50}>{n === 50 ? 'Coordinated layers survive failure with near-zero downtime' : 'Each layer has a job in the recovery system'}</HCBigNote>
+      </div>
+    </HCBeatStage>
+  );
+};
+
+const HCNinesBeat = ({beat}: {beat: LessonBeat}) => {
+  const n = hcBeatNumber(beat);
+  const tiers = [
+    ['99.9%', '~8.7 hrs / yr'],
+    ['99.99%', '~52 min / yr'],
+    ['99.999%', '~5 min / yr'],
+  ];
+
+  if (n === 55) {
+    return (
+      <HCBeatStage beat={beat} label="next explainer">
+        <HCFlowRow>
+          <HCNode label="Availability Targets" sub="next" icon={BookOpen} emphasis />
+          <HCArrow />
+          <HCNode label="The Nines" sub="SLA math" icon={LineChart} />
+        </HCFlowRow>
+      </HCBeatStage>
+    );
+  }
+
+  return (
+    <HCBeatStage beat={beat} label="availability targets">
+      <div style={{position: 'absolute', inset: '96px 110px 82px', display: n >= 54 ? 'grid' : 'flex', gridTemplateColumns: 'repeat(3, 1fr)', alignItems: 'center', justifyContent: 'center', gap: 22}}>
+        {n >= 54
+          ? tiers.map(([nine, downtime], index) => (
+              <HCPanel key={nine} emphasis={index === 0 || n > 54} style={{minHeight: 228}}>
+                <strong style={{fontSize: 48}}>{nine}</strong>
+                <span style={{fontSize: 22, fontWeight: 950}}>{downtime}</span>
+              </HCPanel>
+            ))
+          : (
+              <HCPanel emphasis style={{width: 780, minHeight: 260}}>
+                <Clock size={76} />
+                <strong style={{fontSize: 42}}>{n === 51 ? 'One Question Remains' : n === 52 ? 'Acceptable Downtime?' : 'Measure Availability'}</strong>
+                <span style={{fontSize: 22, fontWeight: 900}}>{n === 51 ? 'Recovery needs a target' : n === 52 ? 'How much can FoodDash tolerate?' : 'Business tolerance becomes an engineering number'}</span>
+              </HCPanel>
+            )}
+      </div>
+    </HCBeatStage>
+  );
+};
+
+const HCScreenVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+  const n = hcBeatNumber(beat);
+
+  if (n <= 6) {
+    return <HCArchitectureBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 13) {
+    return <HCPulseBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 19) {
+    return <HCFailoverBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 22) {
+    return <HCNoHumanBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 30) {
+    return <HCThresholdBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 41) {
+    return <HCClusterBeat beat={beat} />;
+  }
+  if (n <= 50) {
+    return <HCTestAndSummaryBeat beat={beat} currentTime={currentTime} />;
+  }
+  if (n <= 55) {
+    return <HCNinesBeat beat={beat} />;
+  }
+
+  return <HCSectionVisual beat={beat} />;
+};
+
 const RRScreenVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
   switch (beat.id) {
     case 'rr-01':
@@ -3283,7 +4625,7 @@ const RRScreenVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: num
   return <RRSectionVisual beat={beat} />;
 };
 
-const renderVisual = (beat: LessonBeat, currentTime: number) => {
+const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps: number) => {
   switch (beat.kind) {
     case 'intro':
       return <IntroVisual />;
@@ -3456,10 +4798,12 @@ const renderVisual = (beat: LessonBeat, currentTime: number) => {
       return <SpofSubscribeVisual />;
     case 'spof-final-question':
       return <SpofFinalQuestionVisual />;
-    case 'rr-screen':
-      return <RRScreenVisual beat={beat} currentTime={currentTime} />;
     case 'hc-screen':
       return <HCScreenVisual beat={beat} currentTime={currentTime} />;
+    case 'rr-screen':
+      return <RRScreenVisual beat={beat} currentTime={currentTime} />;
+    case 'fn-screen':
+      return <FamousNinesVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'availability-intro':
       return <AvailabilityIntroVisual />;
     case 'availability-series-shift':
@@ -3549,8 +4893,9 @@ const renderVisual = (beat: LessonBeat, currentTime: number) => {
 };
 
 export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, frame, fps}) => {
+  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen';
+  const showTakeaway = beat.id !== 'fn-01';
   const localFrame = Math.max(0, frame - Math.round(beat.start * fps));
-  const isHealthChecksScreen = beat.kind === 'hc-screen';
   const entrance = spring({
     frame: localFrame,
     fps,
@@ -3558,26 +4903,31 @@ export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, 
     to: 1,
     config: {damping: 18, stiffness: 130, mass: 0.8},
   });
-  const opacity = interpolate(localFrame, isHealthChecksScreen ? [0, 6, 12] : [0, 8, 18], isHealthChecksScreen ? [0.72, 0.94, 1] : [0, 0.7, 1], {
-    extrapolateLeft: 'clamp',
-    extrapolateRight: 'clamp',
-  });
-  const yOffset = isHealthChecksScreen ? 8 : 20;
-  const startScale = isHealthChecksScreen ? 0.996 : 0.985;
+  const opacity = keepSceneStable
+    ? 1
+    : interpolate(localFrame, [0, 8, 18], [0, 0.7, 1], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp',
+      });
+  const yOffset = 20;
+  const startScale = 0.985;
+  const transform = keepSceneStable ? 'none' : `translateY(${(1 - entrance) * yOffset}px) scale(${startScale + entrance * (1 - startScale)})`;
 
   return (
     <section
       className={`lesson-visuals lesson-kind-${beat.kind}`}
       style={{
         opacity,
-        transform: `translateY(${(1 - entrance) * yOffset}px) scale(${startScale + entrance * (1 - startScale)})`,
+        transform,
       }}
     >
       <BeatHeader beat={beat} />
-      <div className="lesson-body">{renderVisual(beat, currentTime)}</div>
-      <div className="takeaway-strip">
-        <strong>{beat.takeaway}</strong>
-      </div>
+      <div className="lesson-body">{renderVisual(beat, currentTime, frame, fps)}</div>
+      {showTakeaway ? (
+        <div className="takeaway-strip">
+          <strong>{beat.takeaway}</strong>
+        </div>
+      ) : null}
     </section>
   );
 };
