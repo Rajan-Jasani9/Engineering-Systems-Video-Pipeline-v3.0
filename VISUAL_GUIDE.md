@@ -71,6 +71,7 @@ Body:
 - Centered by default.
 - Use grids, cards, diagrams, rows, timelines, and spectrum boards.
 - Keep the main visual dense enough to teach, but not so detailed that it competes with captions.
+- Do not add tiny scene/category tags inside the visual stage. Use the main title, top note, rail, and takeaway for context instead.
 
 Takeaway strip:
 
@@ -112,6 +113,13 @@ Use these recurring visual types across videos:
 - System flow: API, queue, worker, database, cache, region.
 - Failure path: detect, reroute, retry, recover.
 - Recap bridge: current topic connected to the next topic.
+
+Architecture diagram motion:
+
+- Choose per beat whether edges should be static or animated.
+- Use static edges when the diagram explains relationships, ownership, stakeholder pressure, dependencies, or a stable topology.
+- Use moving packet dots or pulses only when the narration is specifically about traffic, request flow, replication, failover, retry, or work moving between components.
+- If motion is used, animate only the active path. Do not add pulses to every connector by default.
 
 When a beat lasts too long, split it into a companion scene:
 

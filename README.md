@@ -21,6 +21,7 @@ src/style.css                             Black-and-white visual system
 VISUAL_GUIDE.md                           Series-wide production guide for future videos
 VISUAL_LAYOUT_CATALOG.md                  Reusable future layout names and primitives
 VIDEO_STYLE_PROMPT.md                     Visual prompt for generated diagrams/assets
+ARCHITECTURE_DIAGRAM_GUIDELINES.md        Reference-frame rules for architecture diagrams
 ```
 
 ## Commands
@@ -40,11 +41,12 @@ Each video is registered in `src/videos/index.ts` and gets its own Remotion comp
 To add another video:
 
 1. Read `VISUAL_GUIDE.md` so the video keeps the same series language.
-2. Use `VISUAL_LAYOUT_CATALOG.md` to pick reusable future layout kinds when a generic layout fits.
-3. Create `src/videos/<new-topic-slug>/lessonPlan.ts`.
-4. Generate `src/videos/<new-topic-slug>/words.json` with `npm run extract:words -- <input.srt> src/videos/<new-topic-slug>/words.json`.
-5. Add the video to `src/videos/index.ts` with a unique `id`, `slug`, audio path, words, and lesson plan.
-6. Add a render script in `package.json`, for example `render:availability`.
+2. Read `ARCHITECTURE_DIAGRAM_GUIDELINES.md` before creating system architecture scenes.
+3. Use `VISUAL_LAYOUT_CATALOG.md` to pick reusable future layout kinds when a generic layout fits.
+4. Create `src/videos/<new-topic-slug>/lessonPlan.ts`.
+5. Generate `src/videos/<new-topic-slug>/words.json` with `npm run extract:words -- <input.srt> src/videos/<new-topic-slug>/words.json`.
+6. Add the video to `src/videos/index.ts` with a unique `id`, `slug`, audio path, words, and lesson plan.
+7. Add a render script in `package.json`, for example `render:availability`.
 
 ## Scene Pacing Rule
 

@@ -8923,6 +8923,181 @@ body {
   transform: rotate(-10deg);
 }
 
+.thumbnail-split-nines {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.thumbnail-nines-copy h1 {
+  font-size: 122px;
+}
+
+.thumbnail-yellow-text {
+  color: #ffd400;
+  text-shadow:
+    0 10px 0 rgba(255, 212, 0, 0.12),
+    0 0 34px rgba(255, 212, 0, 0.26);
+}
+
+.thumbnail-brush-answer {
+  position: relative;
+  width: fit-content;
+  max-width: 760px;
+  margin-top: 18px;
+  background: #ffd400;
+  color: #000000;
+  box-shadow: 16px 14px 0 rgba(255, 212, 0, 0.12);
+  padding: 18px 32px 20px;
+  font-size: 50px;
+  font-weight: 950;
+  font-style: italic;
+  line-height: 0.95;
+  text-transform: uppercase;
+  transform: rotate(-2deg);
+}
+
+.thumbnail-brush-answer::before,
+.thumbnail-brush-answer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 44px;
+  background: #ffd400;
+}
+
+.thumbnail-brush-answer::before {
+  left: -28px;
+  clip-path: polygon(0 18%, 100% 0, 100% 100%, 10% 86%);
+}
+
+.thumbnail-brush-answer::after {
+  right: -30px;
+  clip-path: polygon(0 0, 100% 22%, 18% 82%, 0 100%);
+}
+
+.thumbnail-nines-board {
+  position: relative;
+  min-height: 700px;
+}
+
+.thumbnail-nines-board::before {
+  content: "";
+  position: absolute;
+  inset: 34px 26px 40px;
+  border: 4px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+}
+
+.thumbnail-nines-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.thumbnail-nines-lines path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-dasharray: 24 22;
+}
+
+.thumbnail-nines-lines path.active {
+  stroke: #ffd400;
+  stroke-dasharray: none;
+  filter: drop-shadow(0 0 18px rgba(255, 212, 0, 0.28));
+}
+
+.thumbnail-nines-card,
+.thumbnail-cost-callout {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 14px 14px 0 rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.thumbnail-nines-card {
+  width: 260px;
+  height: 158px;
+  gap: 8px;
+  padding: 22px;
+}
+
+.thumbnail-nines-card strong {
+  color: inherit;
+  font-size: 42px;
+  font-weight: 950;
+  line-height: 0.9;
+}
+
+.thumbnail-nines-card span {
+  color: inherit;
+  font-size: 23px;
+  font-weight: 950;
+  opacity: 0.78;
+}
+
+.thumbnail-nines-card.active {
+  border-color: #ffd400;
+  background: #ffd400;
+  color: #000000;
+  box-shadow: 18px 18px 0 rgba(255, 212, 0, 0.18);
+}
+
+.thumbnail-nines-card.card-one {
+  left: 36px;
+  top: 90px;
+  transform: rotate(-3deg);
+}
+
+.thumbnail-nines-card.card-two {
+  left: 326px;
+  top: 154px;
+  transform: rotate(2deg);
+}
+
+.thumbnail-nines-card.card-three {
+  left: 138px;
+  top: 388px;
+  transform: rotate(2deg);
+}
+
+.thumbnail-nines-card.card-four {
+  right: 56px;
+  bottom: 82px;
+  transform: rotate(-2deg);
+}
+
+.thumbnail-cost-callout {
+  right: 90px;
+  top: 76px;
+  width: 230px;
+  height: 132px;
+  gap: 8px;
+  border-style: dashed;
+  color: #ffd400;
+  transform: rotate(4deg);
+}
+
+.thumbnail-cost-callout strong {
+  color: inherit;
+  font-size: 29px;
+  font-weight: 950;
+  line-height: 0.95;
+}
+
 /* HC2 Scene Stage - SVG-based monitoring dashboard */
 
 .hc2-stage {
@@ -8962,33 +9137,6 @@ body {
   background: radial-gradient(circle at 52% 46%, rgba(255, 255, 255, 0.08), transparent 42%);
   opacity: 0.76;
   z-index: -1;
-}
-
-.hc2-stage-label {
-  position: absolute;
-  left: 34px;
-  top: 8px;
-  z-index: 20;
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  text-transform: uppercase;
-}
-
-.hc2-stage-label span {
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 15px;
-  font-weight: 950;
-}
-
-.hc2-stage-label strong {
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 6px;
-  padding: 6px 10px;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
-  font-size: 14px;
-  font-weight: 950;
 }
 
 .hc2-wire-svg {

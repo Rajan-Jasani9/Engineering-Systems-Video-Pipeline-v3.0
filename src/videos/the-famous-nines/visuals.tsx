@@ -81,36 +81,9 @@ const gridStyle: React.CSSProperties = {
   opacity: 0.75,
 };
 
-const labelStyle: React.CSSProperties = {
-  position: 'absolute',
-  left: 28,
-  top: 0,
-  display: 'inline-flex',
-  alignItems: 'center',
-  gap: 12,
-  color: 'rgba(255,255,255,0.58)',
-  fontSize: 15,
-  fontWeight: 950,
-  textTransform: 'uppercase',
-};
-
-export const ArchitectureStage: React.FC<{label: string; children: React.ReactNode}> = ({label, children}) => (
+export const ArchitectureStage: React.FC<{children: React.ReactNode}> = ({children}) => (
   <div style={boardStyle}>
     <div style={gridStyle} />
-    <div style={labelStyle}>
-      <span>availability targets</span>
-      <strong
-        style={{
-          border: '2px solid rgba(255,255,255,0.48)',
-          borderRadius: 6,
-          padding: '6px 10px',
-          color: '#ffffff',
-          background: 'rgba(255,255,255,0.08)',
-        }}
-      >
-        {label}
-      </strong>
-    </div>
     <div style={{position: 'absolute', inset: '34px 20px 8px'}}>{children}</div>
   </div>
 );
@@ -148,6 +121,7 @@ const CardFrame: React.FC<{
       textTransform: 'uppercase',
       textAlign: 'center',
       transition: 'none',
+      zIndex: 2,
       ...style,
     }}
   >
@@ -308,7 +282,7 @@ export const StepRail: React.FC<{items: string[]; activeIndex: number; x?: numbe
   y = 456,
   w = 1268,
 }) => (
-  <div style={{position: 'absolute', left: x, top: y, width: w, display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 12}}>
+  <div style={{position: 'absolute', left: x, top: y, zIndex: 3, width: w, display: 'grid', gridTemplateColumns: `repeat(${items.length}, 1fr)`, gap: 12}}>
     {items.map((item, index) => (
       <div
         key={item}
@@ -334,8 +308,8 @@ export const StepRail: React.FC<{items: string[]; activeIndex: number; x?: numbe
   </div>
 );
 
-export const ChecklistRows: React.FC<{rows: Array<[string, string, IconComponent]>; activeIndex: number}> = ({rows, activeIndex}) => (
-  <div style={{position: 'absolute', left: 180, right: 180, top: 66, display: 'grid', gap: 12}}>
+export const ChecklistRows: React.FC<{rows: Array<[string, string, IconComponent]>; activeIndex: number; top?: number}> = ({rows, activeIndex, top = 66}) => (
+  <div style={{position: 'absolute', left: 180, right: 180, top, display: 'grid', gap: 12}}>
     {rows.map(([title, detail, Icon], index) => (
       <div
         key={title}
@@ -378,6 +352,7 @@ const BigNote: React.FC<{children: React.ReactNode; x?: number; y?: number; w?: 
       color: active ? '#000000' : '#ffffff',
       boxShadow: active ? '12px 12px 0 rgba(255,255,255,0.14)' : 'none',
       padding: '18px 24px',
+      zIndex: 3,
       fontSize: 28,
       fontWeight: 950,
       lineHeight: 1,
@@ -438,87 +413,73 @@ const HtmlPacket: React.FC<{points: Point[]; progress: number}> = ({points, prog
 };
 
 const FamousNinesIntroVisual = () => (
-  <div style={boardStyle}>
-    <div style={gridStyle} />
-    <div
-      style={{
-        position: 'absolute',
-        left: 150,
-        top: 42,
-        width: 1080,
-        height: 396,
-        border: '3px solid rgba(255,255,255,0.92)',
-        borderRadius: 8,
-        background: 'rgba(0,0,0,0.66)',
-        boxShadow: '14px 14px 0 rgba(255,255,255,0.12)',
-      }}
-    />
-    <div style={{position: 'absolute', left: 150, top: 98, width: 1080, textAlign: 'center', textTransform: 'uppercase'}}>
-      <div style={{color: '#ffffff', fontSize: 18, fontWeight: 950}}>Engineering Systems</div>
-      <div style={{marginTop: 10, color: 'rgba(255,255,255,0.78)', fontSize: 28, fontWeight: 950}}>The Famous Nines</div>
-      <div style={{marginTop: 8, color: 'rgba(255,255,255,0.6)', fontSize: 16, fontWeight: 950}}>Availability Patterns #5</div>
-    </div>
-    <CardFrame x={250} y={232} w={238} h={136} active>
+  <ArchitectureStage>
+    <HtmlWire points={[{x: 488, y: 260}, {x: 574, y: 260}]} />
+    <HtmlWire points={[{x: 812, y: 260}, {x: 898, y: 260}]} />
+    <BigNote active x={260} y={18} w={860}>
+      Availability Patterns #5: The Famous Nines
+    </BigNote>
+    <CardFrame x={250} y={192} w={238} h={136} active>
       <Activity size={38} strokeWidth={3} />
       <strong style={{fontSize: 25, fontWeight: 950, lineHeight: 0.95}}>Targets</strong>
       <span style={{fontSize: 14, fontWeight: 900, opacity: 0.72}}>measure uptime</span>
     </CardFrame>
-    <div style={{position: 'absolute', left: 512, top: 288, width: 56, color: '#ffffff', fontSize: 25, fontWeight: 950, textAlign: 'center'}}>-&gt;</div>
-    <CardFrame x={574} y={232} w={238} h={136} active>
+    <CardFrame x={574} y={192} w={238} h={136} active>
       <LineChart size={38} strokeWidth={3} />
       <strong style={{fontSize: 25, fontWeight: 950, lineHeight: 0.95}}>Nines</strong>
       <span style={{fontSize: 14, fontWeight: 900, opacity: 0.72}}>99.999%</span>
     </CardFrame>
-    <div style={{position: 'absolute', left: 836, top: 288, width: 56, color: '#ffffff', fontSize: 25, fontWeight: 950, textAlign: 'center'}}>-&gt;</div>
-    <CardFrame x={898} y={232} w={238} h={136} active>
+    <CardFrame x={898} y={192} w={238} h={136} active>
       <Clock size={38} strokeWidth={3} />
       <strong style={{fontSize: 25, fontWeight: 950, lineHeight: 0.95}}>Budget</strong>
       <span style={{fontSize: 14, fontWeight: 900, opacity: 0.72}}>days to minutes</span>
     </CardFrame>
-  </div>
+    <StepRail items={['targets', 'nines', 'budget']} activeIndex={2} y={462} />
+  </ArchitectureStage>
 );
 
-const StakeholderVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
+const StakeholderVisual = ({beat}: {beat: LessonBeat}) => {
   const n = beatNumber(beat);
   const exact = n >= 7;
+  const customerPath = [{x: 368, y: 172}, {x: 430, y: 172}, {x: 430, y: 222}, {x: 492, y: 222}];
+  const restaurantPath = [{x: 388, y: 365}, {x: 430, y: 365}, {x: 430, y: 274}, {x: 492, y: 274}];
+  const investorPath = [{x: 996, y: 172}, {x: 940, y: 172}, {x: 940, y: 222}, {x: 888, y: 222}];
+  const targetPath = [{x: 974, y: 365}, {x: 930, y: 365}, {x: 930, y: 274}, {x: 888, y: 274}];
+  const railIndex = n >= 8 ? 2 : exact ? 1 : n >= 4 ? 0 : -1;
 
   return (
-    <ArchitectureStage label="stakeholder pressure">
-      <CardFrame x={492} y={144} w={396} h={194} active>
+    <ArchitectureStage>
+      <HtmlWire points={customerPath} active={n >= 4} />
+      <HtmlWire points={restaurantPath} active={n >= 5} />
+      <HtmlWire points={investorPath} active={n >= 6} />
+      <HtmlWire points={targetPath} active={exact} />
+      <CardFrame x={492} y={160} w={396} h={182} active>
         <Scale size={52} strokeWidth={3} />
         <strong style={{fontSize: 42, fontWeight: 950, lineHeight: 0.95}}>FoodDash CTO</strong>
         <span style={{fontSize: 20, fontWeight: 900}}>Own the reliability answer</span>
       </CardFrame>
-      <CardFrame x={56} y={74} w={312} h={118} active={n >= 4} muted={n < 4}>
+      <CardFrame x={56} y={118} w={312} h={108} active={n >= 4} muted={n < 4}>
         <ShoppingCart size={34} />
         <strong style={{fontSize: 25}}>Customer</strong>
         <span style={{fontSize: 16, fontWeight: 900}}>Order whenever?</span>
       </CardFrame>
-      <CardFrame x={58} y={322} w={330} h={126} active={n >= 5} muted={n < 5}>
+      <CardFrame x={58} y={306} w={330} h={118} active={n >= 5} muted={n < 5}>
         <PackageCheck size={36} />
         <strong style={{fontSize: 25}}>Restaurant</strong>
         <span style={{fontSize: 16, fontWeight: 900}}>Friday rush keeps flowing?</span>
       </CardFrame>
-      <CardFrame x={996} y={78} w={322} h={124} active={n >= 6} muted={n < 6}>
+      <CardFrame x={996} y={118} w={322} h={108} active={n >= 6} muted={n < 6}>
         <LineChart size={36} />
         <strong style={{fontSize: 25}}>Investors</strong>
         <span style={{fontSize: 16, fontWeight: 900}}>Exactly how reliable?</span>
       </CardFrame>
-      <CardFrame x={974} y={330} w={348} h={122} active={exact} muted={!exact}>
+      <CardFrame x={974} y={306} w={348} h={118} active={exact} muted={!exact}>
         {exact ? <CheckCircle2 size={38} /> : <XCircle size={38} />}
         <strong style={{fontSize: 28}}>{exact ? 'Exact Number' : 'Mostly Available'}</strong>
         <span style={{fontSize: 16, fontWeight: 900}}>{exact ? 'Availability target' : 'Not good enough'}</span>
       </CardFrame>
-      <ConnectorLayer>
-        <Connector from={{x: 368, y: 133}} to={{x: 492, y: 213}} active={n >= 4} />
-        <Connector from={{x: 388, y: 385}} to={{x: 492, y: 262}} active={n >= 5} />
-        <Connector from={{x: 996, y: 140}} to={{x: 888, y: 214}} active={n >= 6} />
-        <Connector from={{x: 974, y: 390}} to={{x: 888, y: 274}} active={n >= 7} />
-        {n >= 4 ? <Packet from={{x: 368, y: 133}} to={{x: 492, y: 213}} progress={(currentTime * 0.32) % 1} /> : null}
-        {n >= 5 ? <Packet from={{x: 388, y: 385}} to={{x: 492, y: 262}} progress={(currentTime * 0.28 + 0.4) % 1} /> : null}
-        {n >= 6 ? <Packet from={{x: 996, y: 140}} to={{x: 888, y: 214}} progress={(currentTime * 0.3 + 0.2) % 1} /> : null}
-      </ConnectorLayer>
-      <BigNote active x={300} y={472} w={780}>
+      <StepRail items={['stakeholders', 'target', 'downtime budget']} activeIndex={railIndex} y={462} />
+      <BigNote active x={300} y={18} w={780}>
         {n >= 8 ? 'How much downtime is actually acceptable?' : exact ? 'Reliability needs a number' : 'Three audiences, one reliability promise'}
       </BigNote>
     </ArchitectureStage>
@@ -535,43 +496,57 @@ const FoodDashArchitecture = ({beat, currentTime}: {beat: LessonBeat; currentTim
     target: n >= 11 && n < 51,
   };
   const traffic = (currentTime * 0.42) % 1;
+  const usersToBalancer = [{x: 184, y: 266}, {x: 290, y: 266}];
+  const balancerToServerA = [{x: 470, y: 264}, {x: 532, y: 264}, {x: 532, y: 152}, {x: 590, y: 152}];
+  const balancerToServerB = [{x: 470, y: 264}, {x: 590, y: 262}];
+  const balancerToServerC = [{x: 470, y: 264}, {x: 532, y: 264}, {x: 532, y: 372}, {x: 590, y: 372}];
+  const serverAToDb = [{x: 770, y: 152}, {x: 842, y: 152}, {x: 842, y: 205}, {x: 900, y: 205}];
+  const serverBToDb = [{x: 770, y: 262}, {x: 842, y: 262}, {x: 842, y: 205}, {x: 900, y: 205}];
+  const serverCToReplica = [{x: 770, y: 372}, {x: 842, y: 372}, {x: 842, y: 345}, {x: 900, y: 345}];
+  const dbToHealth = [{x: 1090, y: 205}, {x: 1125, y: 205}, {x: 1125, y: 172}, {x: 1160, y: 172}];
+  const replicaToFailover = [{x: 1090, y: 345}, {x: 1125, y: 345}, {x: 1125, y: 374}, {x: 1160, y: 374}];
+  const normalRailIndex = n >= 12 ? 4 : n >= 11 ? 4 : n >= 10 ? 3 : 0;
+  const nextRailIndex = n >= 55 ? 4 : n >= 54 ? 3 : n >= 53 ? 2 : n >= 52 ? 1 : 0;
 
   return (
-    <ArchitectureStage label={n >= 51 ? 'next pattern bridge' : 'resilient architecture'}>
-      <ConnectorLayer>
-        <Connector from={{x: 194, y: 246}} to={{x: 290, y: 246}} active />
-        <Connector from={{x: 470, y: 246}} to={{x: 562, y: 146}} active={active.servers} />
-        <Connector from={{x: 470, y: 246}} to={{x: 562, y: 246}} active={active.servers} />
-        <Connector from={{x: 470, y: 246}} to={{x: 562, y: 346}} active={active.servers} />
-        <Connector from={{x: 748, y: 146}} to={{x: 884, y: 206}} active={active.db} />
-        <Connector from={{x: 748, y: 246}} to={{x: 884, y: 254}} active={active.db} />
-        <Connector from={{x: 748, y: 346}} to={{x: 884, y: 302}} active={active.db} />
-        <Connector from={{x: 1074, y: 236}} to={{x: 1160, y: 184}} active={active.checks} />
-        <Connector from={{x: 1074, y: 296}} to={{x: 1160, y: 358}} active={active.checks} />
-        <Packet from={{x: 194, y: 246}} to={{x: 290, y: 246}} progress={traffic} />
-        {n >= 52 ? <Packet from={{x: 470, y: 246}} to={{x: 562, y: 146}} progress={(traffic + 0.12) % 1} /> : null}
-        {n >= 53 ? <Packet from={{x: 470, y: 246}} to={{x: 562, y: 246}} progress={(traffic + 0.48) % 1} /> : null}
-        {n >= 54 ? <Packet from={{x: 470, y: 246}} to={{x: 562, y: 346}} progress={(traffic + 0.78) % 1} /> : null}
-      </ConnectorLayer>
-      <ArchitectureNode label="Users" sub="orders" icon={User} x={54} y={190} w={140} h={112} active />
-      <ArchitectureNode label="Load Balancer" sub={n >= 52 ? 'distribution' : 'routing'} icon={GitBranch} x={290} y={174} w={180} h={144} active={n >= 52 || active.lb} />
-      <ServiceNode label="Server A" sub="healthy" x={562} y={90} w={186} h={112} active={active.servers || n >= 53} />
-      <ServiceNode label="Server B" sub={n >= 54 ? 'busy' : 'healthy'} x={562} y={190} w={186} h={112} active={active.servers || n >= 53} badge={n >= 54 ? 'watch' : undefined} />
-      <ServiceNode label="Server C" sub={n >= 54 ? 'idle capacity' : 'healthy'} x={562} y={290} w={186} h={112} active={active.servers || n >= 53} />
-      <DatabaseNode label="Primary DB" sub="replicated" x={884} y={170} w={190} h={118} active={active.db} />
-      <DatabaseNode label="Replica DB" sub="ready" x={884} y={290} w={190} h={118} active={active.db} />
-      <ArchitectureNode label="Health Checks" sub="detect" icon={Activity} x={1160} y={120} w={166} h={112} active={active.checks} />
-      <ArchitectureNode label="Failover" sub="recover" icon={RefreshCw} x={1160} y={306} w={166} h={112} active={active.checks} />
+    <ArchitectureStage>
+      <HtmlWire points={usersToBalancer} />
+      <HtmlWire points={balancerToServerA} active={active.servers} />
+      <HtmlWire points={balancerToServerB} active={active.servers} />
+      <HtmlWire points={balancerToServerC} active={active.servers} />
+      <HtmlWire points={serverAToDb} active={active.db} />
+      <HtmlWire points={serverBToDb} active={active.db} />
+      <HtmlWire points={serverCToReplica} active={active.db} />
+      <HtmlWire points={dbToHealth} active={active.checks} />
+      <HtmlWire points={replicaToFailover} active={active.checks} />
+      <HtmlPacket points={usersToBalancer} progress={traffic} />
+      {n >= 52 ? <HtmlPacket points={balancerToServerA} progress={(traffic + 0.12) % 1} /> : null}
+      {n >= 53 ? <HtmlPacket points={balancerToServerB} progress={(traffic + 0.48) % 1} /> : null}
+      {n >= 54 ? <HtmlPacket points={balancerToServerC} progress={(traffic + 0.78) % 1} /> : null}
+      <ArchitectureNode label="Users" sub="orders" icon={User} x={52} y={210} w={132} h={112} active />
+      <ArchitectureNode label="Load Balancer" sub={n >= 52 ? 'distribution' : 'routing'} icon={GitBranch} x={290} y={200} w={180} h={128} active={n >= 52 || active.lb} />
+      <ServiceNode label="Server A" sub="healthy" x={590} y={100} w={180} h={104} active={active.servers || n >= 53} />
+      <ServiceNode label="Server B" sub={n >= 54 ? 'busy' : 'healthy'} x={590} y={210} w={180} h={104} active={active.servers || n >= 53} badge={n >= 54 ? 'watch' : undefined} />
+      <ServiceNode label="Server C" sub={n >= 54 ? 'idle capacity' : 'healthy'} x={590} y={320} w={180} h={104} active={active.servers || n >= 53} />
+      <DatabaseNode label="Primary DB" sub="replicated" x={900} y={146} w={190} h={118} active={active.db} />
+      <DatabaseNode label="Replica DB" sub="ready" x={900} y={286} w={190} h={118} active={active.db} />
+      <ArchitectureNode label="Health Checks" sub="detect" icon={Activity} x={1160} y={116} w={166} h={112} active={active.checks} />
+      <ArchitectureNode label="Failover" sub="recover" icon={RefreshCw} x={1160} y={318} w={166} h={112} active={active.checks} />
+      <StepRail
+        items={n >= 51 ? ['targets', 'healthy', 'route', 'spread', 'next'] : ['foundation', 'redundant', 'replicated', 'checks', 'target']}
+        activeIndex={n >= 51 ? nextRailIndex : normalRailIndex}
+        y={462}
+      />
       {n >= 51 ? (
-        <BigNote active x={248} y={430} w={884}>
+        <BigNote active x={248} y={18} w={884}>
           {n >= 55 ? 'Next up: load balancing' : n >= 54 ? 'Spread load before one server melts down' : n >= 53 ? 'Choose the next healthy server' : 'Distribute traffic across healthy capacity'}
         </BigNote>
       ) : active.target ? (
-        <BigNote active x={248} y={430} w={884}>
+        <BigNote active x={248} y={18} w={884}>
           Put a hard number on what reliability means
         </BigNote>
       ) : (
-        <BigNote x={250} y={430} w={880}>
+        <BigNote x={250} y={18} w={880}>
           {n >= 10 ? 'Redundancy + replication + health checks + failover' : 'Reorient around the FoodDash setup'}
         </BigNote>
       )}
@@ -599,23 +574,33 @@ const visibleNineIndex = (currentTime: number) => {
 const NinesLadderVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: number}) => {
   const n = beatNumber(beat);
   const activeIndex = Math.max(0, visibleNineIndex(currentTime));
+  const nodes = [
+    {x: 70, y: 126, w: 280, h: 190},
+    {x: 390, y: 126, w: 280, h: 190},
+    {x: 710, y: 126, w: 280, h: 190},
+    {x: 1030, y: 126, w: 280, h: 190},
+  ];
+  const wireY = 221;
 
   return (
-    <ArchitectureStage label="the famous nines">
-      <div style={{position: 'absolute', left: 70, right: 70, top: 70, display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20}}>
-        {nines.map((tier, index) => {
-          const visible = n >= 18 || index <= activeIndex;
-          const active = index === activeIndex || (n >= 18 && index === 3);
-          return (
-            <CardFrame key={tier.label} h={235} active={visible && active} muted={!visible}>
-              <strong style={{fontSize: index === 3 ? 50 : 56, fontWeight: 950, lineHeight: 0.95}}>{tier.label}</strong>
-              <span style={{fontSize: 22, fontWeight: 950}}>{visible || n >= 18 ? tier.downtime : 'hidden budget'}</span>
-              <span style={{fontSize: 16, fontWeight: 900, opacity: 0.65}}>tier {index + 1}</span>
-            </CardFrame>
-          );
-        })}
-      </div>
-      <div style={{position: 'absolute', left: 152, right: 152, top: 352}}>
+    <ArchitectureStage>
+      {nodes.slice(0, -1).map((node, index) => {
+        const next = nodes[index + 1];
+        return <HtmlWire key={`${node.x}-${next.x}`} points={[{x: node.x + node.w, y: wireY}, {x: next.x, y: wireY}]} active={n >= 18 || index < activeIndex} />;
+      })}
+      {nines.map((tier, index) => {
+        const visible = n >= 18 || index <= activeIndex;
+        const active = index === activeIndex || (n >= 18 && index === 3);
+        const node = nodes[index];
+        return (
+          <CardFrame key={tier.label} x={node.x} y={node.y} w={node.w} h={node.h} active={visible && active} muted={!visible}>
+            <strong style={{fontSize: index === 3 ? 50 : 56, fontWeight: 950, lineHeight: 0.95}}>{tier.label}</strong>
+            <span style={{fontSize: 22, fontWeight: 950}}>{visible || n >= 18 ? tier.downtime : 'hidden budget'}</span>
+            <span style={{fontSize: 16, fontWeight: 900, opacity: 0.65}}>tier {index + 1}</span>
+          </CardFrame>
+        );
+      })}
+      <div style={{position: 'absolute', left: 152, right: 152, top: 354, zIndex: 2}}>
         <div style={{height: 18, border: '3px solid rgba(255,255,255,0.72)', borderRadius: 999, overflow: 'hidden'}}>
           <div
             style={{
@@ -630,7 +615,8 @@ const NinesLadderVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: 
           <span>tiny downtime budget</span>
         </div>
       </div>
-      <BigNote active={n >= 19} x={270} y={430} w={840}>
+      <StepRail items={['99%', '99.9%', '99.99%', '99.999%']} activeIndex={activeIndex} y={462} />
+      <BigNote active={n >= 19} x={270} y={18} w={840}>
         {n >= 19 ? 'These close-looking numbers hide massive downtime differences' : n >= 13 ? 'Stacking nines means shrinking the failure budget' : 'Availability target = operational time percentage'}
       </BigNote>
     </ArchitectureStage>
@@ -648,14 +634,14 @@ const DowntimeCollapseVisual = ({beat, currentTime}: {beat: LessonBeat; currentT
   ];
 
   return (
-    <ArchitectureStage label="downtime budget collapse">
-      <div style={{position: 'absolute', left: 92, right: 92, top: 62, display: 'grid', gap: 16}}>
+    <ArchitectureStage>
+      <div style={{position: 'absolute', left: 92, right: 92, top: 102, display: 'grid', gap: 14}}>
         {values.map((item, index) => (
           <div key={item.label} style={{display: 'grid', gridTemplateColumns: '190px 1fr 220px', alignItems: 'center', gap: 22, opacity: index <= activeIndex ? 1 : 0.32}}>
             <CardFrame h={76} active={index === activeIndex} style={{minWidth: 0}}>
               <strong style={{fontSize: 30, fontWeight: 950}}>{item.label}</strong>
             </CardFrame>
-            <div style={{height: 38, border: '3px solid rgba(255,255,255,0.42)', borderRadius: 8, padding: 5}}>
+            <div style={{height: 38, border: '3px solid rgba(255,255,255,0.42)', borderRadius: 8, padding: 5, background: 'rgba(0,0,0,0.68)', boxShadow: index === activeIndex ? '8px 8px 0 rgba(255,255,255,0.08)' : 'none'}}>
               <div style={{width: `${item.width}%`, height: '100%', background: '#ffffff', borderRadius: 4}} />
             </div>
             <CardFrame h={76} active={index === activeIndex}>
@@ -664,7 +650,8 @@ const DowntimeCollapseVisual = ({beat, currentTime}: {beat: LessonBeat; currentT
           </div>
         ))}
       </div>
-      <BigNote active x={244} y={448} w={892}>
+      <StepRail items={['days', 'hours', 'minutes', 'tiny margin']} activeIndex={activeIndex} y={462} />
+      <BigNote active x={244} y={18} w={892}>
         {n >= 28 ? 'Days become hours, then minutes' : n >= 26 ? 'Every extra nine steepens the drop' : 'Translate the percentage into physical time'}
       </BigNote>
     </ArchitectureStage>
@@ -683,7 +670,7 @@ const ComplexityVisual = ({beat, currentTime}: {beat: LessonBeat; currentTime: n
   const serverCToDb = [{x: 842, y: 382}, {x: 842, y: 250}];
 
   return (
-    <ArchitectureStage label="cost of perfection">
+    <ArchitectureStage>
       <HtmlWire points={[{x: 184, y: 246}, {x: 320, y: 246}]} />
       <HtmlWire points={[{x: 490, y: 246}, ...toServerA, {x: 600, y: 162}]} active={phase >= 1} />
       <HtmlWire points={[{x: 490, y: 246}, ...toServerB, {x: 600, y: 272}]} active={phase >= 1} />
@@ -736,41 +723,50 @@ const BusinessTradeoffVisual = ({beat}: {beat: LessonBeat}) => {
   const n = beatNumber(beat);
   const activeLow = n >= 42 && n <= 43;
   const activeHigh = n >= 44 && n <= 45;
+  const railIndex = n >= 46 ? 3 : n >= 44 ? 2 : n >= 42 ? 1 : n >= 40 ? 0 : -1;
 
   return (
-    <ArchitectureStage label="business trade-off">
-      <div style={{position: 'absolute', left: 72, right: 72, top: 62, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 28}}>
-        <CardFrame h={346} active={activeLow} muted={n < 42}>
-          <Clock size={50} />
-          <strong style={{fontSize: 42, fontWeight: 950}}>Low Stakes</strong>
-          <span style={{fontSize: 22, fontWeight: 900}}>Internal dashboard / wiki</span>
-          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, width: '86%', marginTop: 12}}>
-            <CardFrame h={68} active={activeLow}>
-              <strong style={{fontSize: 22}}>99%</strong>
-            </CardFrame>
-            <CardFrame h={68} failed={n >= 43} muted={n < 43}>
-              <strong style={{fontSize: 18}}>Multi-region</strong>
-            </CardFrame>
-          </div>
+    <ArchitectureStage>
+      <RegionGroup label="low stakes" x={62} y={104} w={590} h={326} active={activeLow}>
+        <HtmlWire points={[{x: 226, y: 114}, {x: 294, y: 114}]} active={activeLow} />
+        <HtmlWire points={[{x: 399, y: 170}, {x: 399, y: 220}]} active={activeLow} />
+        <HtmlWire points={[{x: 399, y: 170}, {x: 456, y: 170}, {x: 456, y: 220}]} active={n >= 43} />
+        <CardFrame x={36} y={58} w={190} h={112} active={activeLow || n >= 42} muted={n < 42}>
+          <Clock size={36} />
+          <strong style={{fontSize: 25}}>Wiki</strong>
+          <span style={{fontSize: 15, fontWeight: 900}}>internal</span>
         </CardFrame>
-        <CardFrame h={346} active={activeHigh} muted={n < 44}>
-          <CreditCard size={50} />
-          <strong style={{fontSize: 42, fontWeight: 950}}>High Stakes</strong>
-          <span style={{fontSize: 22, fontWeight: 900}}>Payments / emergency / core orders</span>
-          <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, width: '92%', marginTop: 12}}>
-            <CardFrame h={70} active={activeHigh}>
-              <strong style={{fontSize: 17}}>Revenue</strong>
-            </CardFrame>
-            <CardFrame h={70} active={activeHigh}>
-              <strong style={{fontSize: 17}}>Safety</strong>
-            </CardFrame>
-            <CardFrame h={70} active={activeHigh}>
-              <strong style={{fontSize: 17}}>Five nines</strong>
-            </CardFrame>
-          </div>
+        <ArchitectureNode label="Single Region" sub="simple ops" icon={Server} x={294} y={58} w={210} h={112} active={activeLow || n >= 42} muted={n < 42} />
+        <CardFrame x={170} y={220} w={210} h={90} active={activeLow || n >= 42} muted={n < 42}>
+          <strong style={{fontSize: 34}}>99%</strong>
+          <span style={{fontSize: 14, fontWeight: 900}}>enough</span>
         </CardFrame>
-      </div>
-      <BigNote active={n >= 46} x={240} y={436} w={900}>
+        <CardFrame x={330} y={220} w={220} h={90} failed={n >= 43} muted={n < 43}>
+          <Globe size={30} />
+          <strong style={{fontSize: 19}}>Multi-region</strong>
+        </CardFrame>
+      </RegionGroup>
+      <RegionGroup label="high stakes" x={728} y={104} w={590} h={326} active={activeHigh}>
+        <HtmlWire points={[{x: 204, y: 114}, {x: 236, y: 114}]} active={activeHigh || n >= 44} />
+        <HtmlWire points={[{x: 426, y: 114}, {x: 470, y: 114}, {x: 470, y: 220}]} active={activeHigh || n >= 44} />
+        <HtmlWire points={[{x: 204, y: 114}, {x: 204, y: 220}, {x: 118, y: 220}]} active={activeHigh || n >= 45} />
+        <CardFrame x={34} y={58} w={170} h={112} active={activeHigh || n >= 44} muted={n < 44}>
+          <CreditCard size={36} />
+          <strong style={{fontSize: 25}}>Payments</strong>
+          <span style={{fontSize: 15, fontWeight: 900}}>money path</span>
+        </CardFrame>
+        <ArchitectureNode label="Core Orders" sub="customer impact" icon={ShoppingCart} x={236} y={58} w={190} h={112} active={activeHigh || n >= 44} muted={n < 44} />
+        <CardFrame x={118} y={220} w={190} h={90} active={activeHigh || n >= 45} muted={n < 45}>
+          <strong style={{fontSize: 21}}>Revenue</strong>
+          <span style={{fontSize: 14, fontWeight: 900}}>safety</span>
+        </CardFrame>
+        <CardFrame x={334} y={220} w={190} h={90} active={activeHigh || n >= 45} muted={n < 45}>
+          <strong style={{fontSize: 24}}>Five Nines</strong>
+          <span style={{fontSize: 14, fontWeight: 900}}>justified</span>
+        </CardFrame>
+      </RegionGroup>
+      <StepRail items={['stakes', 'target', 'cost', 'justify']} activeIndex={railIndex} y={462} />
+      <BigNote active={n >= 46} x={240} y={18} w={900}>
         {n >= 46 ? 'The right target is a business trade-off' : n >= 44 ? 'Critical workflows justify extreme reliability' : n >= 42 ? 'Do not overbuild low-stake systems' : 'Move from engineering math to business reality'}
       </BigNote>
     </ArchitectureStage>
@@ -782,9 +778,13 @@ const RecapVisual = ({beat}: {beat: LessonBeat}) => {
   const activeIndex = n <= 47 ? 0 : n <= 48 ? 1 : n <= 49 ? 2 : 3;
 
   return (
-    <ArchitectureStage label="recap">
+    <ArchitectureStage>
+      <BigNote active x={260} y={18} w={860}>
+        {n >= 50 ? 'Balance the engineering math with the business reality' : 'The nines convert reliability into an outage budget'}
+      </BigNote>
       <ChecklistRows
         activeIndex={activeIndex}
+        top={104}
         rows={[
           ['Availability targets', 'Measure operational time percentage', Activity],
           ['Extra nines', 'Shrink downtime from days to minutes', Clock],
@@ -792,9 +792,7 @@ const RecapVisual = ({beat}: {beat: LessonBeat}) => {
           ['Business reality', 'Choose the target the product justifies', Scale],
         ]}
       />
-      <BigNote active x={260} y={446} w={860}>
-        {n >= 50 ? 'Balance the engineering math with the business reality' : 'The nines convert reliability into an outage budget'}
-      </BigNote>
+      <StepRail items={['target', 'budget', 'cost', 'business']} activeIndex={activeIndex} y={462} />
     </ArchitectureStage>
   );
 };
@@ -806,7 +804,7 @@ export const FamousNinesVisual: React.FC<FamousNinesVisualProps> = ({beat, curre
     return <FamousNinesIntroVisual />;
   }
   if (n <= 8) {
-    return <StakeholderVisual beat={beat} currentTime={currentTime} />;
+    return <StakeholderVisual beat={beat} />;
   }
   if (n <= 12 || n >= 51) {
     return <FoodDashArchitecture beat={beat} currentTime={currentTime} />;

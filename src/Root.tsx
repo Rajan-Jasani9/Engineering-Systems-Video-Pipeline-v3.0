@@ -3,6 +3,7 @@ import {Composition} from 'remotion';
 import {getAudioDurationInSeconds} from '@remotion/media-utils';
 import {MainVideo} from './MainVideo';
 import {Thumbnail} from './Thumbnail';
+import {ArchitectureDiagramLibraryPreview} from './ArchitectureDiagramLibraryPreview';
 import {VisualLayoutPreview} from './VisualLayoutPreview';
 import type {LayoutKind} from './components/visual-library';
 import {getLastWordEnd} from './utils/chunker';
@@ -58,7 +59,7 @@ const visualPreviewCompositions: Array<{
 
 const thumbnailCompositions: Array<{
   id: string;
-  topic: 'consistency' | 'availability';
+  topic: 'consistency' | 'availability' | 'famous-nines';
 }> = [
   {
     id: 'ThumbnailConsistencyInPractice',
@@ -67,6 +68,10 @@ const thumbnailCompositions: Array<{
   {
     id: 'ThumbnailAvailabilityPatternsWhatIsAvailability',
     topic: 'availability',
+  },
+  {
+    id: 'ThumbnailTheFamousNines',
+    topic: 'famous-nines',
   },
 ];
 
@@ -118,6 +123,14 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={{topic: thumbnail.topic}}
         />
       ))}
+      <Composition
+        id="ArchitectureDiagramLibraryPreview"
+        component={ArchitectureDiagramLibraryPreview}
+        width={WIDTH}
+        height={HEIGHT}
+        fps={FPS}
+        durationInFrames={90}
+      />
     </>
   );
 };
