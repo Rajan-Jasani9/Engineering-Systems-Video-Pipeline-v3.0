@@ -88,7 +88,7 @@ export const ArchitectureStage: React.FC<{children: React.ReactNode}> = ({childr
   </div>
 );
 
-const CardFrame: React.FC<{
+export const CardFrame: React.FC<{
   children: React.ReactNode;
   x?: number;
   y?: number;
@@ -339,7 +339,7 @@ export const ChecklistRows: React.FC<{rows: Array<[string, string, IconComponent
   </div>
 );
 
-const BigNote: React.FC<{children: React.ReactNode; x?: number; y?: number; w?: number; active?: boolean}> = ({children, x = 270, y = 390, w = 840, active}) => (
+export const BigNote: React.FC<{children: React.ReactNode; x?: number; y?: number; w?: number; active?: boolean}> = ({children, x = 270, y = 390, w = 840, active}) => (
   <div
     style={{
       position: 'absolute',
@@ -364,7 +364,7 @@ const BigNote: React.FC<{children: React.ReactNode; x?: number; y?: number; w?: 
   </div>
 );
 
-const HtmlWire: React.FC<{points: Point[]; active?: boolean}> = ({points, active = true}) => (
+export const HtmlWire: React.FC<{points: Point[]; active?: boolean}> = ({points, active = true}) => (
   <div style={{position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none'}}>
     {points.slice(1).map((point, index) => {
       const from = points[index];
@@ -392,7 +392,7 @@ const HtmlWire: React.FC<{points: Point[]; active?: boolean}> = ({points, active
   </div>
 );
 
-const HtmlPacket: React.FC<{points: Point[]; progress: number}> = ({points, progress}) => {
+export const HtmlPacket: React.FC<{points: Point[]; progress: number}> = ({points, progress}) => {
   const point = pointOnPolyline(points, progress);
   return (
     <div

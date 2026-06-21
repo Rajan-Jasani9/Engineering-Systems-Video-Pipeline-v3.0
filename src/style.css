@@ -9098,6 +9098,139 @@ body {
   line-height: 0.95;
 }
 
+.thumbnail-split-series-parallel {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+.thumbnail-series-copy h1 {
+  font-size: 116px;
+}
+
+.thumbnail-series-board {
+  position: relative;
+  min-height: 700px;
+}
+
+.thumbnail-series-board::before {
+  content: "";
+  position: absolute;
+  inset: 34px 26px 40px;
+  border: 4px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+}
+
+.thumbnail-series-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.thumbnail-series-lines path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.thumbnail-series-lines path.parallel {
+  stroke: #ffffff;
+  stroke-dasharray: 24 18;
+}
+
+.thumbnail-series-card,
+.thumbnail-series-result {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #ffffff;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 14px 14px 0 rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.thumbnail-series-card {
+  width: 218px;
+  height: 146px;
+  gap: 8px;
+}
+
+.thumbnail-series-card strong,
+.thumbnail-series-result strong {
+  color: inherit;
+  font-size: 31px;
+  font-weight: 950;
+  line-height: 0.96;
+}
+
+.thumbnail-series-card span {
+  color: inherit;
+  font-size: 22px;
+  font-weight: 950;
+  opacity: 0.78;
+}
+
+.thumbnail-series-card.failed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.thumbnail-series-card.active,
+.thumbnail-series-result.active {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 18px 18px 0 rgba(255, 255, 255, 0.18);
+}
+
+.thumbnail-series-card.series-a {
+  left: 154px;
+  top: 118px;
+  transform: rotate(-2deg);
+}
+
+.thumbnail-series-card.series-b {
+  left: 418px;
+  top: 118px;
+  transform: rotate(2deg);
+}
+
+.thumbnail-series-card.parallel-a {
+  left: 370px;
+  top: 332px;
+  transform: rotate(-2deg);
+}
+
+.thumbnail-series-card.parallel-b {
+  left: 370px;
+  bottom: 70px;
+  transform: rotate(2deg);
+}
+
+.thumbnail-series-result {
+  right: 48px;
+  width: 224px;
+  height: 130px;
+  gap: 8px;
+}
+
+.thumbnail-series-result.failed {
+  top: 126px;
+  opacity: 0.58;
+}
+
+.thumbnail-series-result.active {
+  bottom: 190px;
+}
+
 /* HC2 Scene Stage - SVG-based monitoring dashboard */
 
 .hc2-stage {

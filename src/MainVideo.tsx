@@ -28,7 +28,7 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
   const chunks = useMemo(() => chunkWords(words), [words]);
   const activeBeat = getActiveBeat(lessonPlan, currentTime);
   const activeChunk = chunks.find((chunk) => currentTime >= chunk.start && currentTime <= chunk.end);
-  const captionsDisabled = slug === 'health-checks-and-failover' || slug === 'the-famous-nines';
+  const captionsDisabled = slug === 'health-checks-and-failover' || slug === 'the-famous-nines' || slug === 'series-vs-parallel-availability';
   const showCaptions = !captionsDisabled && activeBeat.kind !== 'closing';
   const footerLabels = lessonPlan.some((beat) => beat.kind.startsWith('spof-'))
     ? ['Availability', 'SPOFs', 'FoodDash', 'High availability']

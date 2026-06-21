@@ -11,6 +11,8 @@ import {lessonPlan as healthChecksLessonPlan} from './health-checks-and-failover
 import healthChecksWords from './health-checks-and-failover/words.json';
 import {lessonPlan as famousNinesLessonPlan} from './the-famous-nines/lessonPlan';
 import famousNinesWords from './the-famous-nines/words.json';
+import {lessonPlan as seriesParallelLessonPlan} from './series-vs-parallel-availability/lessonPlan';
+import seriesParallelWords from './series-vs-parallel-availability/words.json';
 import type {VideoDefinition, WordTiming} from '../types';
 
 export const videos: VideoDefinition[] = [
@@ -67,6 +69,15 @@ export const videos: VideoDefinition[] = [
     audioSrc: staticFile('audio/the-famous-nines.mp3'),
     words: famousNinesWords as WordTiming[],
     lessonPlan: famousNinesLessonPlan,
+  },
+  {
+    id: 'SeriesVsParallelAvailability',
+    slug: 'series-vs-parallel-availability',
+    title: 'Series vs Parallel Availability',
+    subtitle: 'Availability Patterns #6',
+    audioSrc: staticFile('audio/series-vs-parallel-availability.mp3'),
+    words: seriesParallelWords as WordTiming[],
+    lessonPlan: seriesParallelLessonPlan,
   },
 ];
 

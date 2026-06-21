@@ -3,6 +3,7 @@ import {Activity, AlertTriangle, Bell, BookOpen, CheckCircle2, Clock, Cloud, Cod
 import {interpolate, spring} from 'remotion';
 import type {LessonBeat} from '../types';
 import {FamousNinesVisual} from '../videos/the-famous-nines/visuals';
+import {SeriesParallelAvailabilityVisual} from '../videos/series-vs-parallel-availability/visuals';
 
 type LessonVisualsProps = {
   beat: LessonBeat;
@@ -4804,6 +4805,8 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
       return <RRScreenVisual beat={beat} currentTime={currentTime} />;
     case 'fn-screen':
       return <FamousNinesVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
+    case 'sap-screen':
+      return <SeriesParallelAvailabilityVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'availability-intro':
       return <AvailabilityIntroVisual />;
     case 'availability-series-shift':
@@ -4893,7 +4896,7 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
 };
 
 export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, frame, fps}) => {
-  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen';
+  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen' || beat.kind === 'sap-screen';
   const showTakeaway = beat.id !== 'fn-01';
   const localFrame = Math.max(0, frame - Math.round(beat.start * fps));
   const entrance = spring({

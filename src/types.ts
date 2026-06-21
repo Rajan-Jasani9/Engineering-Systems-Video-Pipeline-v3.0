@@ -113,6 +113,7 @@ export type VisualKind =
   | 'spof-final-question'
   | 'rr-screen'
   | 'fn-screen'
+  | 'sap-screen'
   | 'availability-series-shift'
   | 'availability-pillar'
   | 'availability-roadmap'

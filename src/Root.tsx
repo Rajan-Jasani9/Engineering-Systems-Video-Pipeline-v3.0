@@ -59,7 +59,7 @@ const visualPreviewCompositions: Array<{
 
 const thumbnailCompositions: Array<{
   id: string;
-  topic: 'consistency' | 'availability' | 'famous-nines';
+  topic: 'consistency' | 'availability' | 'famous-nines' | 'series-parallel';
 }> = [
   {
     id: 'ThumbnailConsistencyInPractice',
@@ -72,6 +72,10 @@ const thumbnailCompositions: Array<{
   {
     id: 'ThumbnailTheFamousNines',
     topic: 'famous-nines',
+  },
+  {
+    id: 'ThumbnailSeriesVsParallelAvailability',
+    topic: 'series-parallel',
   },
 ];
 
