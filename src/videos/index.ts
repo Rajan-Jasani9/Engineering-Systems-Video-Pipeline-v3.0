@@ -13,6 +13,8 @@ import {lessonPlan as famousNinesLessonPlan} from './the-famous-nines/lessonPlan
 import famousNinesWords from './the-famous-nines/words.json';
 import {lessonPlan as seriesParallelLessonPlan} from './series-vs-parallel-availability/lessonPlan';
 import seriesParallelWords from './series-vs-parallel-availability/words.json';
+import {lessonPlan as loadBalancingLessonPlan} from './load-balancing/lessonPlan';
+import loadBalancingWords from './load-balancing/words.json';
 import type {VideoDefinition, WordTiming} from '../types';
 
 export const videos: VideoDefinition[] = [
@@ -78,6 +80,15 @@ export const videos: VideoDefinition[] = [
     audioSrc: staticFile('audio/series-vs-parallel-availability.mp3'),
     words: seriesParallelWords as WordTiming[],
     lessonPlan: seriesParallelLessonPlan,
+  },
+  {
+    id: 'LoadBalancing',
+    slug: 'load-balancing',
+    title: 'Load Balancing',
+    subtitle: 'Availability Patterns #7',
+    audioSrc: staticFile('audio/load-balancing.mp3'),
+    words: loadBalancingWords as WordTiming[],
+    lessonPlan: loadBalancingLessonPlan,
   },
 ];
 

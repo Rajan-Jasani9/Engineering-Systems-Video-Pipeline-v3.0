@@ -117,7 +117,7 @@ export const CardFrame: React.FC<{
       color: active ? '#000000' : '#ffffff',
       boxShadow: active ? '12px 12px 0 rgba(255,255,255,0.14)' : '8px 8px 0 rgba(255,255,255,0.08)',
       opacity: muted ? 0.42 : 1,
-      textDecoration: failed ? 'line-through' : 'none',
+      textDecoration: 'none',
       textTransform: 'uppercase',
       textAlign: 'center',
       transition: 'none',
@@ -129,10 +129,16 @@ export const CardFrame: React.FC<{
       <div
         style={{
           position: 'absolute',
-          inset: 18,
-          borderTop: '5px solid currentColor',
-          transform: 'rotate(-18deg)',
+          left: '10%',
+          right: '10%',
+          top: '50%',
+          height: 6,
+          borderRadius: 999,
+          background: 'currentColor',
+          transform: 'translateY(-50%) rotate(-12deg)',
           opacity: 0.9,
+          zIndex: 5,
+          pointerEvents: 'none',
         }}
       />
     ) : null}

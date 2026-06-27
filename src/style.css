@@ -995,7 +995,7 @@ body {
 
 .spof-appliance.failed {
   opacity: 0.38;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .spof-home-board.tripped .spof-breaker {
@@ -1896,7 +1896,7 @@ body {
 
 .spof-heuristic-node.broken {
   opacity: 0.42;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .spof-heuristic-question {
@@ -3103,7 +3103,7 @@ body {
 
 .stock-buyers .blocked {
   opacity: 0.38;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .inventory-race-board {
@@ -3838,7 +3838,7 @@ body {
 .request-line.broken span,
 .request-line.broken strong {
   opacity: 0.62;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .nines-board {
@@ -4183,7 +4183,7 @@ body {
 
 .single-server-board.crashed span {
   opacity: 0.35;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .user-impact-board .inverted-card h2,
@@ -4321,7 +4321,7 @@ body {
   background: rgba(0, 0, 0, 0.84);
   color: #ffffff;
   opacity: 0.62;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-db-node.empty,
@@ -5067,7 +5067,7 @@ body {
 
 .food-card.dim {
   opacity: 0.42;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .food-card strong,
@@ -5107,7 +5107,7 @@ body {
 .app-status.failed {
   background: rgba(0, 0, 0, 0.88);
   color: #ffffff;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .app-status strong,
@@ -5283,7 +5283,7 @@ body {
   border-color: #ffffff;
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-investigation-board,
@@ -5488,7 +5488,7 @@ body {
 .rr-single-db.failed {
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-single-db span {
@@ -5622,7 +5622,7 @@ body {
   background: #ffffff;
   color: #000000;
   transform: scale(1.04);
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-blast-service.blast-1 {
@@ -5798,7 +5798,7 @@ body {
 .rr-redundancy-field.failed-one .rr-redundant-node.primary {
   background: #ffffff;
   color: #000000;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-survival-lines {
@@ -6260,7 +6260,7 @@ body {
 }
 
 .rr-network-node.main.fail {
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-network-node.alt {
@@ -6294,7 +6294,7 @@ body {
   top: 210px;
   width: 580px;
   opacity: 0.34;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-network-line.alt-line {
@@ -6757,7 +6757,7 @@ body {
 .rr-empty-failover.primary-fails .rr-failover-db.primary {
   background: rgba(0, 0, 0, 0.9);
   color: #ffffff;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .rr-failover-route {
@@ -8895,7 +8895,7 @@ body {
   background: rgba(0, 0, 0, 0.86);
   color: #ffffff;
   opacity: 0.54;
-  text-decoration: line-through;
+  text-decoration: none;
   transform: translateY(48px) rotate(-5deg);
 }
 
@@ -9181,7 +9181,7 @@ body {
 
 .thumbnail-series-card.failed {
   opacity: 0.5;
-  text-decoration: line-through;
+  text-decoration: none;
 }
 
 .thumbnail-series-card.active,
@@ -9311,4 +9311,72 @@ body {
   font-size: 58px;
   font-weight: 950;
   line-height: 0.95;
+}
+
+.stock-buyers .blocked,
+.request-line.broken span,
+.request-line.broken strong,
+.rr-flow-node.fail,
+.rr-db-node.fail,
+.food-card.dim,
+.app-status.failed,
+.rr-chip-row span.bad,
+.rr-record-stream span.bad {
+  position: relative;
+}
+
+.spof-appliance.failed,
+.spof-heuristic-node.broken,
+.stock-buyers .blocked,
+.request-line.broken span,
+.request-line.broken strong,
+.single-server-board.crashed span,
+.rr-flow-node.fail,
+.rr-db-node.fail,
+.food-card.dim,
+.app-status.failed,
+.rr-chip-row span.bad,
+.rr-record-stream span.bad,
+.rr-single-db.failed,
+.rr-blast-service.failed,
+.rr-redundancy-field.failed-one .rr-redundant-node.primary,
+.rr-network-node.main.fail,
+.rr-empty-failover.primary-fails .rr-failover-db.primary,
+.thumbnail-server.failed,
+.thumbnail-series-card.failed {
+  overflow: hidden;
+}
+
+.spof-appliance.failed::after,
+.spof-heuristic-node.broken::after,
+.stock-buyers .blocked::after,
+.request-line.broken span::after,
+.request-line.broken strong::after,
+.single-server-board.crashed span::after,
+.rr-flow-node.fail::after,
+.rr-db-node.fail::after,
+.food-card.dim::after,
+.app-status.failed::after,
+.rr-chip-row span.bad::after,
+.rr-record-stream span.bad::after,
+.rr-single-db.failed::after,
+.rr-blast-service.failed::after,
+.rr-redundancy-field.failed-one .rr-redundant-node.primary::after,
+.rr-network-node.main.fail::after,
+.rr-empty-failover.primary-fails .rr-failover-db.primary::after,
+.thumbnail-server.failed::after,
+.thumbnail-series-card.failed::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.9;
+  pointer-events: none;
+  transform: translateY(-50%) rotate(-12deg);
+  transform-origin: center;
+  z-index: 5;
 }

@@ -4,6 +4,7 @@ import {interpolate, spring} from 'remotion';
 import type {LessonBeat} from '../types';
 import {FamousNinesVisual} from '../videos/the-famous-nines/visuals';
 import {SeriesParallelAvailabilityVisual} from '../videos/series-vs-parallel-availability/visuals';
+import {LoadBalancingVisual} from '../videos/load-balancing/visuals';
 
 type LessonVisualsProps = {
   beat: LessonBeat;
@@ -4807,6 +4808,8 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
       return <FamousNinesVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'sap-screen':
       return <SeriesParallelAvailabilityVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
+    case 'lb-screen':
+      return <LoadBalancingVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'availability-intro':
       return <AvailabilityIntroVisual />;
     case 'availability-series-shift':
@@ -4896,8 +4899,9 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
 };
 
 export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, frame, fps}) => {
-  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen' || beat.kind === 'sap-screen';
+  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen' || beat.kind === 'sap-screen' || beat.kind === 'lb-screen';
   const showTakeaway = beat.id !== 'fn-01';
+  const suppressChrome = beat.id === 'lb-55' || (beat.id === 'lb-54' && currentTime >= 440.99);
   const localFrame = Math.max(0, frame - Math.round(beat.start * fps));
   const entrance = spring({
     frame: localFrame,
@@ -4924,9 +4928,9 @@ export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, 
         transform,
       }}
     >
-      <BeatHeader beat={beat} />
+      {!suppressChrome ? <BeatHeader beat={beat} /> : null}
       <div className="lesson-body">{renderVisual(beat, currentTime, frame, fps)}</div>
-      {showTakeaway ? (
+      {showTakeaway && !suppressChrome ? (
         <div className="takeaway-strip">
           <strong>{beat.takeaway}</strong>
         </div>

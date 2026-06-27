@@ -114,6 +114,7 @@ export type VisualKind =
   | 'rr-screen'
   | 'fn-screen'
   | 'sap-screen'
+  | 'lb-screen'
   | 'availability-series-shift'
   | 'availability-pillar'
   | 'availability-roadmap'

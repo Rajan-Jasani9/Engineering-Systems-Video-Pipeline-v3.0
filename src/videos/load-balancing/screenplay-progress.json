@@ -1,0 +1,46 @@
+{
+  "episode": "Load Balancing",
+  "source_audio": "Transcripts&Audios/load balancer v1 (mp3cut.net).mp3",
+  "source_transcript": "Transcripts&Audios/load balancer v1 (mp3cut.net).srt",
+  "audio_duration": "00:07:24.790",
+  "total_sentences": 121,
+  "total_chunks": 31,
+  "completed_chunks": 31,
+  "last_completed_sentence": 121,
+  "last_completed_timestamp": "00:07:24.790",
+  "current_chapter": "Complete",
+  "status": "complete",
+  "continuity_flags": [
+    "Opening and vertical-scaling chapters keep exactly one application server; early redundancy and failover are confined to the database tier.",
+    "Server A stays top, Server B middle, Server C bottom.",
+    "The original single application server becomes middle Server B, preserving the legacy api.fooddash.com destination used in the 300-request counterexample.",
+    "Server B is the server that fails in the health-aware routing chapter.",
+    "Load balancer remains between users and server pool after its introduction.",
+    "Capacity blocks, active load meters, and queue tokens are separate visual metrics.",
+    "The generic forwarding demo uses B-A-C; A-B-C repetition begins only after round robin is named.",
+    "Traffic packets and health probes use visually distinct motion languages.",
+    "Health failure detection includes a missed probe and completed timeout before route withdrawal.",
+    "Bottom 120-140px remains clear for the existing caption layer.",
+    "On-screen product name is normalized to FoodDash."
+  ],
+  "unresolved_visual_decisions": [],
+  "final_review": {
+    "missing_narration": 0,
+    "duplicate_narration_ranges": 0,
+    "scene_count": 55,
+    "max_planned_scene_duration_seconds": 11.8,
+    "timings_estimated": false,
+    "implementation_performed": false
+  },
+  "reference_review": {
+    "the_famous_nines": "reviewed",
+    "series_vs_parallel_availability": "reviewed"
+  },
+  "audit_revision": {
+    "status": "applied",
+    "critical_findings_addressed": 5,
+    "quality_improvements_addressed": 4,
+    "technical_cautions_addressed": 3,
+    "core_reusable_component_count": 10
+  }
+}
