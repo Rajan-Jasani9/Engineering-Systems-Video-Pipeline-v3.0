@@ -1,0 +1,39 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+Welcome back to Engineering Systems! In our last episode, FoodDash learned that simply having a load balancer isn't enough. The way it distributes traffic can dramatically affect both performance and reliability. By choosing the right algorithm, the engineers finally managed to spread requests evenly across their servers and everything seemed to be running smoothly.
+
+Until the product team walked in with a new requirement. FoodDash was growing fast. Customers were using the main app, restaurants wanted their own dashboard, delivery drivers needed a dedicated portal, and administrators needed a separate management console.
+
+The engineering team planned to build each of these as independent services. Sounds simple enough. After all, they already had a load balancer.
+
+But then someone asked a surprisingly simple question. How does the load balancer know which service should receive each request? That question introduces two very different approaches to load balancing, named after layers in the OSI networking model, Layer 4 and Layer 7. Let's start with Layer 4, the transport layer of the OSI model. A Layer 4 load balancer makes its decisions using only network information like IP addresses, ports, and TCP or UDP connections.
+
+It doesn't look inside the HTTP request. It doesn't know the URL. It doesn't know whether the request is for a customer, a restaurant, or a delivery driver.
+
+Think of it like a courier sorting packages using only the shipping label. It knows where the package came from and where it's going, but it never opens the box to see what's inside. Because it performs very little inspection.
+
+Layer 4 load balancing is extremely fast. If all your backend servers perform the same job, this approach is often exactly what you need. If you're enjoying watching Foodash evolve from a fragile startup into a production-scale distributed system, consider subscribing.
+
+Every episode builds on the last one. And we're only getting started. Now let's make our load balancer a bit smarter.
+
+Imagine a customer opens foodash.com. A restaurant owner visits foodash.com slash restaurant. A delivery driver opens foodash.com slash driver. Even though they're all using the same domain, they should reach completely different backend services.
+
+A Layer 4 load balancer can't make that decision because it never looks inside the request. This is where Layer 7 load balancing comes in. A Layer 7 load balancer works at the application layer of the OSI model.
+
+It understands the application itself. It can inspect URLs, HTTP headers, cookies, host names, even request methods like GET and POST. Now it can route slash restaurant to the restaurant service, slash driver to the driver platform, and API requests to an entirely different backend cluster.
+
+To the user, everything still looks like one application. Behind the scenes, the load balancer is intelligently routing every request to exactly the right service. So does that mean Layer 7 is always the better choice? Not at all.
+
+Layer 4 is faster because it does less work. Layer 7 is more flexible because it understands more about every request. That extra intelligence comes with extra processing and additional complexity.
+
+Neither approach is universally better. They're simply solving different engineering problems. That's one of the most important lessons in distributed systems.
+
+Good engineering isn't about choosing the most advanced solution. It's about choosing the right solution for the problem you're trying to solve. At this point, FoodDash has become remarkably resilient.
+
+It has redundant servers, health checks, automatic failover, load balancing, and now intelligent request routing. Everything seems to be working fine. But even the smartest Layer 7 load balancer has a limit.
+
+It can reroute traffic around a failed server. What happens when an entire data center goes offline? That's exactly what we'll explore in the next episode, as FoodDash expands beyond a single location and enters the world of multi-AZ architectures. I'll see you in the next one.
+
+Thanks for watching the episode. If you learned something today, make sure to subscribe for more such explainers on system design. Keep learning.
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

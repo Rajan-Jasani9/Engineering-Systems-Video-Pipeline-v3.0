@@ -5,6 +5,8 @@ import type {LessonBeat} from '../types';
 import {FamousNinesVisual} from '../videos/the-famous-nines/visuals';
 import {SeriesParallelAvailabilityVisual} from '../videos/series-vs-parallel-availability/visuals';
 import {LoadBalancingVisual} from '../videos/load-balancing/visuals';
+import {LoadBalancingAlgorithmsVisual} from '../videos/load-balancing-algorithms/visuals';
+import {Layer4Layer7Visual} from '../videos/layer-4-vs-layer-7-load-balancing/visuals';
 
 type LessonVisualsProps = {
   beat: LessonBeat;
@@ -4810,6 +4812,10 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
       return <SeriesParallelAvailabilityVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'lb-screen':
       return <LoadBalancingVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
+    case 'lba-screen':
+      return <LoadBalancingAlgorithmsVisual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
+    case 'l47-screen':
+      return <Layer4Layer7Visual beat={beat} currentTime={currentTime} frame={frame} fps={fps} />;
     case 'availability-intro':
       return <AvailabilityIntroVisual />;
     case 'availability-series-shift':
@@ -4899,9 +4905,15 @@ const renderVisual = (beat: LessonBeat, currentTime: number, frame: number, fps:
 };
 
 export const LessonVisuals: React.FC<LessonVisualsProps> = ({beat, currentTime, frame, fps}) => {
-  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen' || beat.kind === 'sap-screen' || beat.kind === 'lb-screen';
+  const keepSceneStable = beat.kind === 'hc-screen' || beat.kind === 'fn-screen' || beat.kind === 'sap-screen' || beat.kind === 'lb-screen' || beat.kind === 'lba-screen' || beat.kind === 'l47-screen';
   const showTakeaway = beat.id !== 'fn-01';
-  const suppressChrome = beat.id === 'lb-55' || (beat.id === 'lb-54' && currentTime >= 440.99);
+  const suppressChrome =
+    beat.kind === 'lba-screen' ||
+    beat.kind === 'l47-screen' ||
+    beat.id === 'lb-55' ||
+    (beat.id === 'lb-54' && currentTime >= 440.99) ||
+    beat.id === 'lba-55' ||
+    beat.id === 'lba-56';
   const localFrame = Math.max(0, frame - Math.round(beat.start * fps));
   const entrance = spring({
     frame: localFrame,

@@ -25,10 +25,17 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const currentTime = frame / fps;
+  const audioVolume = slug === 'layer-4-vs-layer-7-load-balancing' && currentTime >= 32 && currentTime < 33.2 ? 0 : 1;
   const chunks = useMemo(() => chunkWords(words), [words]);
   const activeBeat = getActiveBeat(lessonPlan, currentTime);
   const activeChunk = chunks.find((chunk) => currentTime >= chunk.start && currentTime <= chunk.end);
-  const captionsDisabled = slug === 'health-checks-and-failover' || slug === 'the-famous-nines' || slug === 'series-vs-parallel-availability' || slug === 'load-balancing';
+  const captionsDisabled =
+    slug === 'health-checks-and-failover' ||
+    slug === 'the-famous-nines' ||
+    slug === 'series-vs-parallel-availability' ||
+    slug === 'load-balancing' ||
+    slug === 'load-balancing-algorithms' ||
+    slug === 'layer-4-vs-layer-7-load-balancing';
   const showCaptions = !captionsDisabled && activeBeat.kind !== 'closing';
   const footerLabels = lessonPlan.some((beat) => beat.kind.startsWith('spof-'))
     ? ['Availability', 'SPOFs', 'FoodDash', 'High availability']
@@ -36,7 +43,7 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
 
   return (
     <AbsoluteFill className={captionsDisabled ? 'video-root video-root-no-captions' : 'video-root'}>
-      <Audio src={audioSrc || staticFile('audio/consistency-in-practice.mp3')} />
+      <Audio src={audioSrc || staticFile('audio/consistency-in-practice.mp3')} volume={audioVolume} />
 
       <AbsoluteFill className="drifting-stage">
         <DoodleBackground currentTime={0} />

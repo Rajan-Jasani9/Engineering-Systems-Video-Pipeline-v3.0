@@ -15,6 +15,10 @@ import {lessonPlan as seriesParallelLessonPlan} from './series-vs-parallel-avail
 import seriesParallelWords from './series-vs-parallel-availability/words.json';
 import {lessonPlan as loadBalancingLessonPlan} from './load-balancing/lessonPlan';
 import loadBalancingWords from './load-balancing/words.json';
+import {lessonPlan as loadBalancingAlgorithmsLessonPlan} from './load-balancing-algorithms/lessonPlan';
+import loadBalancingAlgorithmsWords from './load-balancing-algorithms/words.json';
+import {lessonPlan as layer4Layer7LessonPlan} from './layer-4-vs-layer-7-load-balancing/lessonPlan';
+import layer4Layer7Words from './layer-4-vs-layer-7-load-balancing/words.json';
 import type {VideoDefinition, WordTiming} from '../types';
 
 export const videos: VideoDefinition[] = [
@@ -90,6 +94,25 @@ export const videos: VideoDefinition[] = [
     words: loadBalancingWords as WordTiming[],
     lessonPlan: loadBalancingLessonPlan,
   },
+  {
+    id: 'LoadBalancingAlgorithms',
+    slug: 'load-balancing-algorithms',
+    title: 'Load Balancing Algorithms',
+    subtitle: 'Availability Patterns #8',
+    audioSrc: staticFile('audio/load-balancing-algorithms.mp3'),
+    words: loadBalancingAlgorithmsWords as WordTiming[],
+    lessonPlan: loadBalancingAlgorithmsLessonPlan,
+  },
+  {
+    id: 'Layer4VsLayer7LoadBalancing',
+    slug: 'layer-4-vs-layer-7-load-balancing',
+    title: "Layer 4 vs Layer 7 Load Balancing: What's the Difference?",
+    subtitle: 'Availability Patterns #9',
+    audioSrc: staticFile('audio/layer-4-vs-layer-7-load-balancing.wav'),
+    words: layer4Layer7Words as WordTiming[],
+    lessonPlan: layer4Layer7LessonPlan,
+  },
 ];
 
 export const defaultVideo = videos[0];
+

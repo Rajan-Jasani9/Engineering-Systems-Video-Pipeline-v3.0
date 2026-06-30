@@ -1,0 +1,63 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+Welcome back to Engineering Systems. In our last episode, FoodDash solved a major scaling problem by placing a load balancer in front of multiple servers. Requests arrived, the load balancer distributed them, and everything seemed to be running perfectly. 
+
+Or so they thought. A few weeks later, the FoodDash engineering team is reviewing their monitoring dashboards when something strange catches their attention. Server A is running at nearly 80% CPU utilization, and server B isn't far behind, but server C seems to be living a completely different life.
+
+While the other servers are working hard, server C is sitting at around 15% utilization and wondering whether it accidentally showed up on its day off. The engineers are confused. They have three servers, a load balancer, and traffic is clearly being distributed.
+
+So why are some servers overloaded while another is barely breaking a sweat? That's when they discover an important lesson. Installing a load balancer is only half the story. The other half is deciding how that load balancer actually chooses where to send traffic.
+
+Think about it. Every second, thousands of FoodDash requests arrive and every one of those requests reaches the load balancer first. And for every incoming request, the load balancer has to answer a surprisingly important question. 
+
+Which server should handle this request? As it turns out, there isn't a single correct answer. There are several ways to make that decision, and each one optimizes for a different goal. Let's start with the simplest and most common approach.
+
+Round Robin. So in our FoodDash example, the first request goes to A, the second goes to B, the third goes to C, and then the cycle starts all over again. A, B, C, A, B, C, A, B, C. It's simple, predictable, and easy to understand. 
+
+Every server gets an equal share of incoming traffic without any complicated calculations, monitoring systems, or decision making. For many systems, that's actually good enough. But there's a hidden assumption. 
+
+Round Robin quietly assumes every server is exactly the same. Same hardware, same CPU, same memory, and the same performance characteristics. Unfortunately, production environments have a habit of ignoring our assumptions. 
+
+Suppose FoodDash upgrades server A and gives it twice the computing power of the other two servers. Should all three servers receive exactly the same amount of traffic? Probably not. This leads us to weighted Round Robin.
+
+Instead of treating every server equally, we assign weights. If server A is twice as powerful, it might receive twice as many requests as server B and server C. Now the traffic pattern looks more like A, A, B, C, then A, A, B, C. Again, the stronger server carries more of the workload while the smaller servers handle less. The result is a distribution strategy that better reflects the actual capacity of the infrastructure. 
+
+Sounds great, right? Well, FoodDash soon discovers another problem. Not all requests are created equal. Some requests finish almost instantly, while others take significantly longer.
+
+Two servers may receive the same number of requests, but end up doing very different amounts of work. Imagine server A currently has 200 active users connected, server B has 30, server C has 20. If another request arrives, should we still blindly follow Round Robin? Probably not. 
+
+Server A is already busy enough. This is where Least Connections comes in. Instead of looking at how many requests arrived previously, the load balancer looks at how many active connections each server is handling right now. 
+
+The next request gets sent to the least busy server. If server C has 20 active connections and server A has 200 active connections, the decision becomes pretty obvious. Least Connections is simple, practical, and often works much better when requests have very different lifetimes.
+
+But even this approach has a solid blind spot. Connection count doesn't always tell the full story. Imagine three servers with roughly the same number of active connections. 
+
+Server A responds in 50 milliseconds, server B responds in 40 milliseconds, server C responds in 300 milliseconds. So clearly something is wrong with server C. Maybe it's overloaded, maybe it's struggling with hardware issues, maybe one of its dependencies is responding slowly. Whatever the cause, users are feeling the impact. 
+
+This is where Least Response Time comes into play. Instead of focusing on request counts or connection counts, the load balancer looks at actual performance and favors the servers responding the fastest. In many modern systems, response time is one of the strongest indicators of health. 
+
+After all, users don't care how many connections a server has. They care how quickly they get their food menu loaded. Now let's look at something that sounds almost ridiculous. 
+
+Random selection. Imagine the load balancer simply picks a server at random. No tracking, no calculations, and no monitoring. 
+
+Just pure randomness. At first, this sounds like something an engineer would suggest five minutes before being politely removed from the meeting. But surprisingly, random load balancing performs much better than most people expect. 
+
+With enough traffic, randomness naturally spreads requests across servers, and unlike more sophisticated algorithms, it introduces almost no overhead. Sometimes the solution wins. Finally, let's look at one of the most interesting approaches. 
+
+Hash-based routing. Imagine a food-customer logs in, browses restaurants, adds items to a cart, checks order history, and places an order. Wouldn't it be useful if all of those requests consistently reached the same server? Hash-based routing makes that possible.
+
+The load balancer takes something unique, such as a user ID, session ID, or IP address, and uses it to determine which server should handle the request. The same user consistently lands on the same server. This can improve caching efficiency, reduce repeated work, and create a more predictable system overall.
+
+So, which algorithm is best? That's actually the wrong question. Every algorithm optimizes for something different. Round-Robin optimizes for simplicity. 
+
+Weighted Round-Robin optimizes for unequal hardware. Least Connections optimizes for workload distribution. Least Response Time optimizes for performance. 
+
+Random optimizes for low overhead. Hash-based routing optimizes for consistency. The best choice depends entirely on the system you're building, and that's one of the most important lessons in engineering. 
+
+There are very few universal solutions. There are only trade-offs. But now the food-engineers have a new question. 
+
+So far, the load balancer has been making decisions based on servers, traffic levels, and performance metrics. What if the load balancer could look beyond traffic metrics and inspect the request itself? By analyzing URLs, routes, headers, and cookies, it could make far more intelligent routing decisions. But how smart should a load balancer really be? And how much should it understand before routing traffic? That is exactly what we are going to explore in the next episode when we dive into Layer 4 versus Layer 7 load balancing. 
+
+We'll pick it up from there in the next episode.
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

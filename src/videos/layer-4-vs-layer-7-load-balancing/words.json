@@ -1,0 +1,4052 @@
+[
+  {
+    "i": 0,
+    "text": "(Transcribed",
+    "start": 0.07,
+    "end": 0.134
+  },
+  {
+    "i": 1,
+    "text": "by",
+    "start": 0.134,
+    "end": 0.198
+  },
+  {
+    "i": 2,
+    "text": "TurboScribe.",
+    "start": 0.198,
+    "end": 0.262
+  },
+  {
+    "i": 3,
+    "text": "Go",
+    "start": 0.262,
+    "end": 0.326
+  },
+  {
+    "i": 4,
+    "text": "Unlimited",
+    "start": 0.326,
+    "end": 0.39
+  },
+  {
+    "i": 5,
+    "text": "to",
+    "start": 0.39,
+    "end": 0.454
+  },
+  {
+    "i": 6,
+    "text": "remove",
+    "start": 0.454,
+    "end": 0.518
+  },
+  {
+    "i": 7,
+    "text": "this",
+    "start": 0.518,
+    "end": 0.582
+  },
+  {
+    "i": 8,
+    "text": "message.)",
+    "start": 0.582,
+    "end": 0.646
+  },
+  {
+    "i": 9,
+    "text": "Welcome",
+    "start": 0.646,
+    "end": 0.71
+  },
+  {
+    "i": 10,
+    "text": "back",
+    "start": 0.71,
+    "end": 1.09
+  },
+  {
+    "i": 11,
+    "text": "to",
+    "start": 1.09,
+    "end": 1.27
+  },
+  {
+    "i": 12,
+    "text": "Engineering",
+    "start": 1.27,
+    "end": 1.67
+  },
+  {
+    "i": 13,
+    "text": "Systems!",
+    "start": 1.67,
+    "end": 2.17
+  },
+  {
+    "i": 14,
+    "text": "In",
+    "start": 3.25,
+    "end": 3.53
+  },
+  {
+    "i": 15,
+    "text": "our",
+    "start": 3.53,
+    "end": 3.65
+  },
+  {
+    "i": 16,
+    "text": "last",
+    "start": 3.65,
+    "end": 3.95
+  },
+  {
+    "i": 17,
+    "text": "episode,",
+    "start": 3.95,
+    "end": 4.43
+  },
+  {
+    "i": 18,
+    "text": "FoodDash",
+    "start": 4.95,
+    "end": 5.45
+  },
+  {
+    "i": 19,
+    "text": "learned",
+    "start": 5.45,
+    "end": 5.75
+  },
+  {
+    "i": 20,
+    "text": "that",
+    "start": 5.75,
+    "end": 5.99
+  },
+  {
+    "i": 21,
+    "text": "simply",
+    "start": 5.99,
+    "end": 6.29
+  },
+  {
+    "i": 22,
+    "text": "having",
+    "start": 6.29,
+    "end": 6.65
+  },
+  {
+    "i": 23,
+    "text": "a",
+    "start": 6.65,
+    "end": 6.93
+  },
+  {
+    "i": 24,
+    "text": "load",
+    "start": 6.93,
+    "end": 7.109
+  },
+  {
+    "i": 25,
+    "text": "balancer",
+    "start": 7.109,
+    "end": 7.61
+  },
+  {
+    "i": 26,
+    "text": "isn't",
+    "start": 7.61,
+    "end": 7.99
+  },
+  {
+    "i": 27,
+    "text": "enough.",
+    "start": 7.99,
+    "end": 8.37
+  },
+  {
+    "i": 28,
+    "text": "The",
+    "start": 8.83,
+    "end": 8.93
+  },
+  {
+    "i": 29,
+    "text": "way",
+    "start": 8.93,
+    "end": 9.09
+  },
+  {
+    "i": 30,
+    "text": "it",
+    "start": 9.09,
+    "end": 9.25
+  },
+  {
+    "i": 31,
+    "text": "distributes",
+    "start": 9.25,
+    "end": 9.71
+  },
+  {
+    "i": 32,
+    "text": "traffic",
+    "start": 9.71,
+    "end": 10.11
+  },
+  {
+    "i": 33,
+    "text": "can",
+    "start": 10.11,
+    "end": 10.43
+  },
+  {
+    "i": 34,
+    "text": "dramatically",
+    "start": 10.43,
+    "end": 10.89
+  },
+  {
+    "i": 35,
+    "text": "affect",
+    "start": 10.89,
+    "end": 11.35
+  },
+  {
+    "i": 36,
+    "text": "both",
+    "start": 11.35,
+    "end": 11.71
+  },
+  {
+    "i": 37,
+    "text": "performance",
+    "start": 11.71,
+    "end": 12.25
+  },
+  {
+    "i": 38,
+    "text": "and",
+    "start": 12.25,
+    "end": 12.81
+  },
+  {
+    "i": 39,
+    "text": "reliability.",
+    "start": 12.81,
+    "end": 13.37
+  },
+  {
+    "i": 40,
+    "text": "By",
+    "start": 14.07,
+    "end": 14.73
+  },
+  {
+    "i": 41,
+    "text": "choosing",
+    "start": 14.73,
+    "end": 15.149
+  },
+  {
+    "i": 42,
+    "text": "the",
+    "start": 15.149,
+    "end": 15.41
+  },
+  {
+    "i": 43,
+    "text": "right",
+    "start": 15.41,
+    "end": 15.67
+  },
+  {
+    "i": 44,
+    "text": "algorithm,",
+    "start": 15.67,
+    "end": 16.25
+  },
+  {
+    "i": 45,
+    "text": "the",
+    "start": 16.75,
+    "end": 16.89
+  },
+  {
+    "i": 46,
+    "text": "engineers",
+    "start": 16.89,
+    "end": 17.41
+  },
+  {
+    "i": 47,
+    "text": "finally",
+    "start": 17.41,
+    "end": 18.13
+  },
+  {
+    "i": 48,
+    "text": "managed",
+    "start": 18.13,
+    "end": 18.65
+  },
+  {
+    "i": 49,
+    "text": "to",
+    "start": 18.65,
+    "end": 18.87
+  },
+  {
+    "i": 50,
+    "text": "spread",
+    "start": 18.87,
+    "end": 19.13
+  },
+  {
+    "i": 51,
+    "text": "requests",
+    "start": 19.13,
+    "end": 19.69
+  },
+  {
+    "i": 52,
+    "text": "evenly",
+    "start": 19.69,
+    "end": 20.17
+  },
+  {
+    "i": 53,
+    "text": "across",
+    "start": 20.17,
+    "end": 20.63
+  },
+  {
+    "i": 54,
+    "text": "their",
+    "start": 20.63,
+    "end": 20.87
+  },
+  {
+    "i": 55,
+    "text": "servers",
+    "start": 20.87,
+    "end": 21.25
+  },
+  {
+    "i": 56,
+    "text": "and",
+    "start": 21.25,
+    "end": 21.77
+  },
+  {
+    "i": 57,
+    "text": "everything",
+    "start": 21.77,
+    "end": 22.17
+  },
+  {
+    "i": 58,
+    "text": "seemed",
+    "start": 22.17,
+    "end": 22.61
+  },
+  {
+    "i": 59,
+    "text": "to",
+    "start": 22.61,
+    "end": 22.75
+  },
+  {
+    "i": 60,
+    "text": "be",
+    "start": 22.75,
+    "end": 22.89
+  },
+  {
+    "i": 61,
+    "text": "running",
+    "start": 22.89,
+    "end": 23.15
+  },
+  {
+    "i": 62,
+    "text": "smoothly.",
+    "start": 23.15,
+    "end": 23.61
+  },
+  {
+    "i": 63,
+    "text": "Until",
+    "start": 24.65,
+    "end": 25.41
+  },
+  {
+    "i": 64,
+    "text": "the",
+    "start": 25.41,
+    "end": 25.65
+  },
+  {
+    "i": 65,
+    "text": "product",
+    "start": 25.65,
+    "end": 25.99
+  },
+  {
+    "i": 66,
+    "text": "team",
+    "start": 25.99,
+    "end": 26.27
+  },
+  {
+    "i": 67,
+    "text": "walked",
+    "start": 26.27,
+    "end": 26.63
+  },
+  {
+    "i": 68,
+    "text": "in",
+    "start": 26.63,
+    "end": 26.81
+  },
+  {
+    "i": 69,
+    "text": "with",
+    "start": 26.81,
+    "end": 26.97
+  },
+  {
+    "i": 70,
+    "text": "a",
+    "start": 26.97,
+    "end": 27.17
+  },
+  {
+    "i": 71,
+    "text": "new",
+    "start": 27.17,
+    "end": 27.39
+  },
+  {
+    "i": 72,
+    "text": "requirement.",
+    "start": 27.39,
+    "end": 28.07
+  },
+  {
+    "i": 73,
+    "text": "FoodDash",
+    "start": 29.89,
+    "end": 30.61
+  },
+  {
+    "i": 74,
+    "text": "was",
+    "start": 30.61,
+    "end": 30.79
+  },
+  {
+    "i": 75,
+    "text": "growing",
+    "start": 30.79,
+    "end": 31.229
+  },
+  {
+    "i": 76,
+    "text": "fast.",
+    "start": 31.229,
+    "end": 31.59
+  },
+  {
+    "i": 77,
+    "text": "Customers",
+    "start": 33.75,
+    "end": 34.47
+  },
+  {
+    "i": 78,
+    "text": "were",
+    "start": 34.47,
+    "end": 34.67
+  },
+  {
+    "i": 79,
+    "text": "using",
+    "start": 34.67,
+    "end": 34.95
+  },
+  {
+    "i": 80,
+    "text": "the",
+    "start": 34.95,
+    "end": 35.15
+  },
+  {
+    "i": 81,
+    "text": "main",
+    "start": 35.15,
+    "end": 35.37
+  },
+  {
+    "i": 82,
+    "text": "app,",
+    "start": 35.37,
+    "end": 35.69
+  },
+  {
+    "i": 83,
+    "text": "restaurants",
+    "start": 36.11,
+    "end": 36.61
+  },
+  {
+    "i": 84,
+    "text": "wanted",
+    "start": 36.61,
+    "end": 37.01
+  },
+  {
+    "i": 85,
+    "text": "their",
+    "start": 37.01,
+    "end": 37.21
+  },
+  {
+    "i": 86,
+    "text": "own",
+    "start": 37.21,
+    "end": 37.53
+  },
+  {
+    "i": 87,
+    "text": "dashboard,",
+    "start": 37.53,
+    "end": 37.99
+  },
+  {
+    "i": 88,
+    "text": "delivery",
+    "start": 38.45,
+    "end": 38.75
+  },
+  {
+    "i": 89,
+    "text": "drivers",
+    "start": 38.75,
+    "end": 39.23
+  },
+  {
+    "i": 90,
+    "text": "needed",
+    "start": 39.23,
+    "end": 39.51
+  },
+  {
+    "i": 91,
+    "text": "a",
+    "start": 39.51,
+    "end": 39.71
+  },
+  {
+    "i": 92,
+    "text": "dedicated",
+    "start": 39.71,
+    "end": 40.09
+  },
+  {
+    "i": 93,
+    "text": "portal,",
+    "start": 40.09,
+    "end": 40.51
+  },
+  {
+    "i": 94,
+    "text": "and",
+    "start": 40.87,
+    "end": 40.99
+  },
+  {
+    "i": 95,
+    "text": "administrators",
+    "start": 40.99,
+    "end": 41.47
+  },
+  {
+    "i": 96,
+    "text": "needed",
+    "start": 41.47,
+    "end": 41.95
+  },
+  {
+    "i": 97,
+    "text": "a",
+    "start": 41.95,
+    "end": 42.19
+  },
+  {
+    "i": 98,
+    "text": "separate",
+    "start": 42.19,
+    "end": 42.45
+  },
+  {
+    "i": 99,
+    "text": "management",
+    "start": 42.45,
+    "end": 42.91
+  },
+  {
+    "i": 100,
+    "text": "console.",
+    "start": 42.91,
+    "end": 43.43
+  },
+  {
+    "i": 101,
+    "text": "The",
+    "start": 44.09,
+    "end": 44.73
+  },
+  {
+    "i": 102,
+    "text": "engineering",
+    "start": 44.73,
+    "end": 45.21
+  },
+  {
+    "i": 103,
+    "text": "team",
+    "start": 45.21,
+    "end": 45.55
+  },
+  {
+    "i": 104,
+    "text": "planned",
+    "start": 45.55,
+    "end": 45.91
+  },
+  {
+    "i": 105,
+    "text": "to",
+    "start": 45.91,
+    "end": 46.09
+  },
+  {
+    "i": 106,
+    "text": "build",
+    "start": 46.09,
+    "end": 46.33
+  },
+  {
+    "i": 107,
+    "text": "each",
+    "start": 46.33,
+    "end": 46.59
+  },
+  {
+    "i": 108,
+    "text": "of",
+    "start": 46.59,
+    "end": 46.73
+  },
+  {
+    "i": 109,
+    "text": "these",
+    "start": 46.73,
+    "end": 46.97
+  },
+  {
+    "i": 110,
+    "text": "as",
+    "start": 46.97,
+    "end": 47.25
+  },
+  {
+    "i": 111,
+    "text": "independent",
+    "start": 47.25,
+    "end": 47.79
+  },
+  {
+    "i": 112,
+    "text": "services.",
+    "start": 47.79,
+    "end": 48.33
+  },
+  {
+    "i": 113,
+    "text": "Sounds",
+    "start": 48.87,
+    "end": 49.15
+  },
+  {
+    "i": 114,
+    "text": "simple",
+    "start": 49.15,
+    "end": 49.43
+  },
+  {
+    "i": 115,
+    "text": "enough.",
+    "start": 49.43,
+    "end": 49.69
+  },
+  {
+    "i": 116,
+    "text": "After",
+    "start": 50.03,
+    "end": 50.27
+  },
+  {
+    "i": 117,
+    "text": "all,",
+    "start": 50.27,
+    "end": 50.53
+  },
+  {
+    "i": 118,
+    "text": "they",
+    "start": 50.67,
+    "end": 50.97
+  },
+  {
+    "i": 119,
+    "text": "already",
+    "start": 50.97,
+    "end": 51.39
+  },
+  {
+    "i": 120,
+    "text": "had",
+    "start": 51.39,
+    "end": 51.67
+  },
+  {
+    "i": 121,
+    "text": "a",
+    "start": 51.67,
+    "end": 51.81
+  },
+  {
+    "i": 122,
+    "text": "load",
+    "start": 51.81,
+    "end": 51.97
+  },
+  {
+    "i": 123,
+    "text": "balancer.",
+    "start": 51.97,
+    "end": 52.37
+  },
+  {
+    "i": 124,
+    "text": "But",
+    "start": 53.35,
+    "end": 54.05
+  },
+  {
+    "i": 125,
+    "text": "then",
+    "start": 54.05,
+    "end": 54.51
+  },
+  {
+    "i": 126,
+    "text": "someone",
+    "start": 54.51,
+    "end": 54.87
+  },
+  {
+    "i": 127,
+    "text": "asked",
+    "start": 54.87,
+    "end": 55.21
+  },
+  {
+    "i": 128,
+    "text": "a",
+    "start": 55.21,
+    "end": 55.37
+  },
+  {
+    "i": 129,
+    "text": "surprisingly",
+    "start": 55.37,
+    "end": 55.87
+  },
+  {
+    "i": 130,
+    "text": "simple",
+    "start": 55.87,
+    "end": 56.61
+  },
+  {
+    "i": 131,
+    "text": "question.",
+    "start": 56.61,
+    "end": 57.03
+  },
+  {
+    "i": 132,
+    "text": "How",
+    "start": 57.91,
+    "end": 58.53
+  },
+  {
+    "i": 133,
+    "text": "does",
+    "start": 58.53,
+    "end": 58.91
+  },
+  {
+    "i": 134,
+    "text": "the",
+    "start": 58.91,
+    "end": 59.13
+  },
+  {
+    "i": 135,
+    "text": "load",
+    "start": 59.13,
+    "end": 59.33
+  },
+  {
+    "i": 136,
+    "text": "balancer",
+    "start": 59.33,
+    "end": 59.71
+  },
+  {
+    "i": 137,
+    "text": "know",
+    "start": 59.71,
+    "end": 60.03
+  },
+  {
+    "i": 138,
+    "text": "which",
+    "start": 60.03,
+    "end": 60.31
+  },
+  {
+    "i": 139,
+    "text": "service",
+    "start": 60.31,
+    "end": 60.83
+  },
+  {
+    "i": 140,
+    "text": "should",
+    "start": 60.83,
+    "end": 61.11
+  },
+  {
+    "i": 141,
+    "text": "receive",
+    "start": 61.11,
+    "end": 61.63
+  },
+  {
+    "i": 142,
+    "text": "each",
+    "start": 61.63,
+    "end": 61.95
+  },
+  {
+    "i": 143,
+    "text": "request?",
+    "start": 61.95,
+    "end": 62.41
+  },
+  {
+    "i": 144,
+    "text": "That",
+    "start": 63.849,
+    "end": 64.09
+  },
+  {
+    "i": 145,
+    "text": "question",
+    "start": 64.09,
+    "end": 64.489
+  },
+  {
+    "i": 146,
+    "text": "introduces",
+    "start": 64.489,
+    "end": 65.01
+  },
+  {
+    "i": 147,
+    "text": "two",
+    "start": 65.01,
+    "end": 65.37
+  },
+  {
+    "i": 148,
+    "text": "very",
+    "start": 65.37,
+    "end": 65.87
+  },
+  {
+    "i": 149,
+    "text": "different",
+    "start": 65.87,
+    "end": 66.33
+  },
+  {
+    "i": 150,
+    "text": "approaches",
+    "start": 66.33,
+    "end": 66.79
+  },
+  {
+    "i": 151,
+    "text": "to",
+    "start": 66.79,
+    "end": 67.09
+  },
+  {
+    "i": 152,
+    "text": "load",
+    "start": 67.09,
+    "end": 67.27
+  },
+  {
+    "i": 153,
+    "text": "balancing,",
+    "start": 67.27,
+    "end": 67.71
+  },
+  {
+    "i": 154,
+    "text": "named",
+    "start": 68.23,
+    "end": 68.41
+  },
+  {
+    "i": 155,
+    "text": "after",
+    "start": 68.41,
+    "end": 68.71
+  },
+  {
+    "i": 156,
+    "text": "layers",
+    "start": 68.71,
+    "end": 69.11
+  },
+  {
+    "i": 157,
+    "text": "in",
+    "start": 69.11,
+    "end": 69.31
+  },
+  {
+    "i": 158,
+    "text": "the",
+    "start": 69.31,
+    "end": 69.43
+  },
+  {
+    "i": 159,
+    "text": "OSI",
+    "start": 69.43,
+    "end": 69.87
+  },
+  {
+    "i": 160,
+    "text": "networking",
+    "start": 69.87,
+    "end": 70.27
+  },
+  {
+    "i": 161,
+    "text": "model,",
+    "start": 70.27,
+    "end": 70.65
+  },
+  {
+    "i": 162,
+    "text": "Layer",
+    "start": 71.03,
+    "end": 71.17
+  },
+  {
+    "i": 163,
+    "text": "4",
+    "start": 71.17,
+    "end": 71.55
+  },
+  {
+    "i": 164,
+    "text": "and",
+    "start": 71.55,
+    "end": 72.35
+  },
+  {
+    "i": 165,
+    "text": "Layer",
+    "start": 72.35,
+    "end": 72.79
+  },
+  {
+    "i": 166,
+    "text": "7.",
+    "start": 72.79,
+    "end": 73.25
+  },
+  {
+    "i": 167,
+    "text": "Let's",
+    "start": 74.69,
+    "end": 74.95
+  },
+  {
+    "i": 168,
+    "text": "start",
+    "start": 74.95,
+    "end": 75.15
+  },
+  {
+    "i": 169,
+    "text": "with",
+    "start": 75.15,
+    "end": 75.27
+  },
+  {
+    "i": 170,
+    "text": "Layer",
+    "start": 75.27,
+    "end": 75.47
+  },
+  {
+    "i": 171,
+    "text": "4,",
+    "start": 75.47,
+    "end": 75.83
+  },
+  {
+    "i": 172,
+    "text": "the",
+    "start": 76.15,
+    "end": 76.43
+  },
+  {
+    "i": 173,
+    "text": "transport",
+    "start": 76.43,
+    "end": 76.79
+  },
+  {
+    "i": 174,
+    "text": "layer",
+    "start": 76.79,
+    "end": 77.09
+  },
+  {
+    "i": 175,
+    "text": "of",
+    "start": 77.09,
+    "end": 77.25
+  },
+  {
+    "i": 176,
+    "text": "the",
+    "start": 77.25,
+    "end": 77.37
+  },
+  {
+    "i": 177,
+    "text": "OSI",
+    "start": 77.37,
+    "end": 77.77
+  },
+  {
+    "i": 178,
+    "text": "model.",
+    "start": 77.77,
+    "end": 78.07
+  },
+  {
+    "i": 179,
+    "text": "A",
+    "start": 78.91,
+    "end": 79.35
+  },
+  {
+    "i": 180,
+    "text": "Layer",
+    "start": 79.35,
+    "end": 79.57
+  },
+  {
+    "i": 181,
+    "text": "4",
+    "start": 79.57,
+    "end": 80.01
+  },
+  {
+    "i": 182,
+    "text": "load",
+    "start": 80.01,
+    "end": 80.37
+  },
+  {
+    "i": 183,
+    "text": "balancer",
+    "start": 80.37,
+    "end": 80.77
+  },
+  {
+    "i": 184,
+    "text": "makes",
+    "start": 80.77,
+    "end": 81.29
+  },
+  {
+    "i": 185,
+    "text": "its",
+    "start": 81.29,
+    "end": 81.47
+  },
+  {
+    "i": 186,
+    "text": "decisions",
+    "start": 81.47,
+    "end": 81.93
+  },
+  {
+    "i": 187,
+    "text": "using",
+    "start": 81.93,
+    "end": 82.31
+  },
+  {
+    "i": 188,
+    "text": "only",
+    "start": 82.31,
+    "end": 82.69
+  },
+  {
+    "i": 189,
+    "text": "network",
+    "start": 82.69,
+    "end": 83.13
+  },
+  {
+    "i": 190,
+    "text": "information",
+    "start": 83.13,
+    "end": 83.65
+  },
+  {
+    "i": 191,
+    "text": "like",
+    "start": 83.65,
+    "end": 83.97
+  },
+  {
+    "i": 192,
+    "text": "IP",
+    "start": 83.97,
+    "end": 84.35
+  },
+  {
+    "i": 193,
+    "text": "addresses,",
+    "start": 84.35,
+    "end": 84.89
+  },
+  {
+    "i": 194,
+    "text": "ports,",
+    "start": 84.89,
+    "end": 85.31
+  },
+  {
+    "i": 195,
+    "text": "and",
+    "start": 85.65,
+    "end": 85.81
+  },
+  {
+    "i": 196,
+    "text": "TCP",
+    "start": 85.81,
+    "end": 86.27
+  },
+  {
+    "i": 197,
+    "text": "or",
+    "start": 86.27,
+    "end": 86.93
+  },
+  {
+    "i": 198,
+    "text": "UDP",
+    "start": 86.93,
+    "end": 87.41
+  },
+  {
+    "i": 199,
+    "text": "connections.",
+    "start": 87.41,
+    "end": 88.07
+  },
+  {
+    "i": 200,
+    "text": "It",
+    "start": 88.99,
+    "end": 89.33
+  },
+  {
+    "i": 201,
+    "text": "doesn't",
+    "start": 89.33,
+    "end": 89.67
+  },
+  {
+    "i": 202,
+    "text": "look",
+    "start": 89.67,
+    "end": 89.87
+  },
+  {
+    "i": 203,
+    "text": "inside",
+    "start": 89.87,
+    "end": 90.23
+  },
+  {
+    "i": 204,
+    "text": "the",
+    "start": 90.23,
+    "end": 90.39
+  },
+  {
+    "i": 205,
+    "text": "HTTP",
+    "start": 90.39,
+    "end": 90.81
+  },
+  {
+    "i": 206,
+    "text": "request.",
+    "start": 90.81,
+    "end": 91.41
+  },
+  {
+    "i": 207,
+    "text": "It",
+    "start": 92.03,
+    "end": 92.21
+  },
+  {
+    "i": 208,
+    "text": "doesn't",
+    "start": 92.21,
+    "end": 92.57
+  },
+  {
+    "i": 209,
+    "text": "know",
+    "start": 92.57,
+    "end": 92.77
+  },
+  {
+    "i": 210,
+    "text": "the",
+    "start": 92.77,
+    "end": 92.95
+  },
+  {
+    "i": 211,
+    "text": "URL.",
+    "start": 92.95,
+    "end": 93.31
+  },
+  {
+    "i": 212,
+    "text": "It",
+    "start": 93.95,
+    "end": 94.13
+  },
+  {
+    "i": 213,
+    "text": "doesn't",
+    "start": 94.13,
+    "end": 94.47
+  },
+  {
+    "i": 214,
+    "text": "know",
+    "start": 94.47,
+    "end": 94.83
+  },
+  {
+    "i": 215,
+    "text": "whether",
+    "start": 94.83,
+    "end": 95.09
+  },
+  {
+    "i": 216,
+    "text": "the",
+    "start": 95.09,
+    "end": 95.27
+  },
+  {
+    "i": 217,
+    "text": "request",
+    "start": 95.27,
+    "end": 95.61
+  },
+  {
+    "i": 218,
+    "text": "is",
+    "start": 95.61,
+    "end": 95.83
+  },
+  {
+    "i": 219,
+    "text": "for",
+    "start": 95.83,
+    "end": 95.99
+  },
+  {
+    "i": 220,
+    "text": "a",
+    "start": 95.99,
+    "end": 96.17
+  },
+  {
+    "i": 221,
+    "text": "customer,",
+    "start": 96.17,
+    "end": 96.47
+  },
+  {
+    "i": 222,
+    "text": "a",
+    "start": 96.63,
+    "end": 96.73
+  },
+  {
+    "i": 223,
+    "text": "restaurant,",
+    "start": 96.73,
+    "end": 97.05
+  },
+  {
+    "i": 224,
+    "text": "or",
+    "start": 97.39,
+    "end": 97.69
+  },
+  {
+    "i": 225,
+    "text": "a",
+    "start": 97.69,
+    "end": 97.83
+  },
+  {
+    "i": 226,
+    "text": "delivery",
+    "start": 97.83,
+    "end": 98.09
+  },
+  {
+    "i": 227,
+    "text": "driver.",
+    "start": 98.09,
+    "end": 98.53
+  },
+  {
+    "i": 228,
+    "text": "Think",
+    "start": 99.63,
+    "end": 99.87
+  },
+  {
+    "i": 229,
+    "text": "of",
+    "start": 99.87,
+    "end": 99.97
+  },
+  {
+    "i": 230,
+    "text": "it",
+    "start": 99.97,
+    "end": 100.09
+  },
+  {
+    "i": 231,
+    "text": "like",
+    "start": 100.09,
+    "end": 100.27
+  },
+  {
+    "i": 232,
+    "text": "a",
+    "start": 100.27,
+    "end": 100.45
+  },
+  {
+    "i": 233,
+    "text": "courier",
+    "start": 100.45,
+    "end": 100.73
+  },
+  {
+    "i": 234,
+    "text": "sorting",
+    "start": 100.73,
+    "end": 101.17
+  },
+  {
+    "i": 235,
+    "text": "packages",
+    "start": 101.17,
+    "end": 101.67
+  },
+  {
+    "i": 236,
+    "text": "using",
+    "start": 101.67,
+    "end": 102.07
+  },
+  {
+    "i": 237,
+    "text": "only",
+    "start": 102.07,
+    "end": 102.35
+  },
+  {
+    "i": 238,
+    "text": "the",
+    "start": 102.35,
+    "end": 102.55
+  },
+  {
+    "i": 239,
+    "text": "shipping",
+    "start": 102.55,
+    "end": 102.73
+  },
+  {
+    "i": 240,
+    "text": "label.",
+    "start": 102.73,
+    "end": 103.09
+  },
+  {
+    "i": 241,
+    "text": "It",
+    "start": 103.53,
+    "end": 103.69
+  },
+  {
+    "i": 242,
+    "text": "knows",
+    "start": 103.69,
+    "end": 103.97
+  },
+  {
+    "i": 243,
+    "text": "where",
+    "start": 103.97,
+    "end": 104.15
+  },
+  {
+    "i": 244,
+    "text": "the",
+    "start": 104.15,
+    "end": 104.31
+  },
+  {
+    "i": 245,
+    "text": "package",
+    "start": 104.31,
+    "end": 104.67
+  },
+  {
+    "i": 246,
+    "text": "came",
+    "start": 104.67,
+    "end": 105.03
+  },
+  {
+    "i": 247,
+    "text": "from",
+    "start": 105.03,
+    "end": 105.37
+  },
+  {
+    "i": 248,
+    "text": "and",
+    "start": 105.37,
+    "end": 105.69
+  },
+  {
+    "i": 249,
+    "text": "where",
+    "start": 105.69,
+    "end": 105.89
+  },
+  {
+    "i": 250,
+    "text": "it's",
+    "start": 105.89,
+    "end": 106.07
+  },
+  {
+    "i": 251,
+    "text": "going,",
+    "start": 106.07,
+    "end": 106.41
+  },
+  {
+    "i": 252,
+    "text": "but",
+    "start": 106.71,
+    "end": 106.89
+  },
+  {
+    "i": 253,
+    "text": "it",
+    "start": 106.89,
+    "end": 107.01
+  },
+  {
+    "i": 254,
+    "text": "never",
+    "start": 107.01,
+    "end": 107.27
+  },
+  {
+    "i": 255,
+    "text": "opens",
+    "start": 107.27,
+    "end": 107.67
+  },
+  {
+    "i": 256,
+    "text": "the",
+    "start": 107.67,
+    "end": 107.89
+  },
+  {
+    "i": 257,
+    "text": "box",
+    "start": 107.89,
+    "end": 108.19
+  },
+  {
+    "i": 258,
+    "text": "to",
+    "start": 108.19,
+    "end": 108.37
+  },
+  {
+    "i": 259,
+    "text": "see",
+    "start": 108.37,
+    "end": 108.51
+  },
+  {
+    "i": 260,
+    "text": "what's",
+    "start": 108.51,
+    "end": 108.75
+  },
+  {
+    "i": 261,
+    "text": "inside.",
+    "start": 108.75,
+    "end": 109.17
+  },
+  {
+    "i": 262,
+    "text": "Because",
+    "start": 109.93,
+    "end": 110.57
+  },
+  {
+    "i": 263,
+    "text": "it",
+    "start": 110.57,
+    "end": 110.81
+  },
+  {
+    "i": 264,
+    "text": "performs",
+    "start": 110.81,
+    "end": 111.43
+  },
+  {
+    "i": 265,
+    "text": "very",
+    "start": 111.43,
+    "end": 111.99
+  },
+  {
+    "i": 266,
+    "text": "little",
+    "start": 111.99,
+    "end": 112.57
+  },
+  {
+    "i": 267,
+    "text": "inspection.",
+    "start": 112.57,
+    "end": 113.25
+  },
+  {
+    "i": 268,
+    "text": "Layer",
+    "start": 113.85,
+    "end": 114.03
+  },
+  {
+    "i": 269,
+    "text": "4",
+    "start": 114.03,
+    "end": 114.29
+  },
+  {
+    "i": 270,
+    "text": "load",
+    "start": 114.29,
+    "end": 114.57
+  },
+  {
+    "i": 271,
+    "text": "balancing",
+    "start": 114.57,
+    "end": 114.97
+  },
+  {
+    "i": 272,
+    "text": "is",
+    "start": 114.97,
+    "end": 115.29
+  },
+  {
+    "i": 273,
+    "text": "extremely",
+    "start": 115.29,
+    "end": 115.91
+  },
+  {
+    "i": 274,
+    "text": "fast.",
+    "start": 115.91,
+    "end": 116.41
+  },
+  {
+    "i": 275,
+    "text": "If",
+    "start": 116.81,
+    "end": 116.91
+  },
+  {
+    "i": 276,
+    "text": "all",
+    "start": 116.91,
+    "end": 117.11
+  },
+  {
+    "i": 277,
+    "text": "your",
+    "start": 117.11,
+    "end": 117.25
+  },
+  {
+    "i": 278,
+    "text": "backend",
+    "start": 117.25,
+    "end": 117.57
+  },
+  {
+    "i": 279,
+    "text": "servers",
+    "start": 117.57,
+    "end": 117.97
+  },
+  {
+    "i": 280,
+    "text": "perform",
+    "start": 117.97,
+    "end": 118.35
+  },
+  {
+    "i": 281,
+    "text": "the",
+    "start": 118.35,
+    "end": 118.53
+  },
+  {
+    "i": 282,
+    "text": "same",
+    "start": 118.53,
+    "end": 118.75
+  },
+  {
+    "i": 283,
+    "text": "job,",
+    "start": 118.75,
+    "end": 119.15
+  },
+  {
+    "i": 284,
+    "text": "this",
+    "start": 119.37,
+    "end": 119.55
+  },
+  {
+    "i": 285,
+    "text": "approach",
+    "start": 119.55,
+    "end": 120.01
+  },
+  {
+    "i": 286,
+    "text": "is",
+    "start": 120.01,
+    "end": 120.25
+  },
+  {
+    "i": 287,
+    "text": "often",
+    "start": 120.25,
+    "end": 120.59
+  },
+  {
+    "i": 288,
+    "text": "exactly",
+    "start": 120.59,
+    "end": 121.15
+  },
+  {
+    "i": 289,
+    "text": "what",
+    "start": 121.15,
+    "end": 121.41
+  },
+  {
+    "i": 290,
+    "text": "you",
+    "start": 121.41,
+    "end": 121.57
+  },
+  {
+    "i": 291,
+    "text": "need.",
+    "start": 121.57,
+    "end": 121.91
+  },
+  {
+    "i": 292,
+    "text": "If",
+    "start": 122.67,
+    "end": 123.31
+  },
+  {
+    "i": 293,
+    "text": "you're",
+    "start": 123.31,
+    "end": 123.47
+  },
+  {
+    "i": 294,
+    "text": "enjoying",
+    "start": 123.47,
+    "end": 123.85
+  },
+  {
+    "i": 295,
+    "text": "watching",
+    "start": 123.85,
+    "end": 124.21
+  },
+  {
+    "i": 296,
+    "text": "Foodash",
+    "start": 124.21,
+    "end": 124.71
+  },
+  {
+    "i": 297,
+    "text": "evolve",
+    "start": 124.71,
+    "end": 125.13
+  },
+  {
+    "i": 298,
+    "text": "from",
+    "start": 125.13,
+    "end": 125.37
+  },
+  {
+    "i": 299,
+    "text": "a",
+    "start": 125.37,
+    "end": 125.53
+  },
+  {
+    "i": 300,
+    "text": "fragile",
+    "start": 125.53,
+    "end": 125.81
+  },
+  {
+    "i": 301,
+    "text": "startup",
+    "start": 125.81,
+    "end": 126.17
+  },
+  {
+    "i": 302,
+    "text": "into",
+    "start": 126.17,
+    "end": 126.47
+  },
+  {
+    "i": 303,
+    "text": "a",
+    "start": 126.47,
+    "end": 126.65
+  },
+  {
+    "i": 304,
+    "text": "production-scale",
+    "start": 126.65,
+    "end": 127.27
+  },
+  {
+    "i": 305,
+    "text": "distributed",
+    "start": 127.27,
+    "end": 127.729
+  },
+  {
+    "i": 306,
+    "text": "system,",
+    "start": 127.729,
+    "end": 128.25
+  },
+  {
+    "i": 307,
+    "text": "consider",
+    "start": 128.63,
+    "end": 128.91
+  },
+  {
+    "i": 308,
+    "text": "subscribing.",
+    "start": 128.91,
+    "end": 129.47
+  },
+  {
+    "i": 309,
+    "text": "Every",
+    "start": 129.99,
+    "end": 130.23
+  },
+  {
+    "i": 310,
+    "text": "episode",
+    "start": 130.23,
+    "end": 130.59
+  },
+  {
+    "i": 311,
+    "text": "builds",
+    "start": 130.59,
+    "end": 131.03
+  },
+  {
+    "i": 312,
+    "text": "on",
+    "start": 131.03,
+    "end": 131.25
+  },
+  {
+    "i": 313,
+    "text": "the",
+    "start": 131.25,
+    "end": 131.37
+  },
+  {
+    "i": 314,
+    "text": "last",
+    "start": 131.37,
+    "end": 131.65
+  },
+  {
+    "i": 315,
+    "text": "one.",
+    "start": 131.65,
+    "end": 131.89
+  },
+  {
+    "i": 316,
+    "text": "And",
+    "start": 132.25,
+    "end": 132.57
+  },
+  {
+    "i": 317,
+    "text": "we're",
+    "start": 132.57,
+    "end": 132.77
+  },
+  {
+    "i": 318,
+    "text": "only",
+    "start": 132.77,
+    "end": 133.03
+  },
+  {
+    "i": 319,
+    "text": "getting",
+    "start": 133.03,
+    "end": 133.25
+  },
+  {
+    "i": 320,
+    "text": "started.",
+    "start": 133.25,
+    "end": 133.63
+  },
+  {
+    "i": 321,
+    "text": "Now",
+    "start": 135.29,
+    "end": 135.93
+  },
+  {
+    "i": 322,
+    "text": "let's",
+    "start": 135.93,
+    "end": 136.19
+  },
+  {
+    "i": 323,
+    "text": "make",
+    "start": 136.19,
+    "end": 136.39
+  },
+  {
+    "i": 324,
+    "text": "our",
+    "start": 136.39,
+    "end": 136.53
+  },
+  {
+    "i": 325,
+    "text": "load",
+    "start": 136.53,
+    "end": 136.79
+  },
+  {
+    "i": 326,
+    "text": "balancer",
+    "start": 136.79,
+    "end": 137.23
+  },
+  {
+    "i": 327,
+    "text": "a",
+    "start": 137.23,
+    "end": 137.47
+  },
+  {
+    "i": 328,
+    "text": "bit",
+    "start": 137.47,
+    "end": 137.57
+  },
+  {
+    "i": 329,
+    "text": "smarter.",
+    "start": 137.57,
+    "end": 137.87
+  },
+  {
+    "i": 330,
+    "text": "Imagine",
+    "start": 139.17,
+    "end": 139.65
+  },
+  {
+    "i": 331,
+    "text": "a",
+    "start": 139.65,
+    "end": 139.85
+  },
+  {
+    "i": 332,
+    "text": "customer",
+    "start": 139.85,
+    "end": 140.17
+  },
+  {
+    "i": 333,
+    "text": "opens",
+    "start": 140.17,
+    "end": 140.65
+  },
+  {
+    "i": 334,
+    "text": "foodash",
+    "start": 140.65,
+    "end": 141.29
+  },
+  {
+    "i": 335,
+    "text": ".com.",
+    "start": 141.29,
+    "end": 141.83
+  },
+  {
+    "i": 336,
+    "text": "A",
+    "start": 142.15,
+    "end": 142.35
+  },
+  {
+    "i": 337,
+    "text": "restaurant",
+    "start": 142.35,
+    "end": 142.71
+  },
+  {
+    "i": 338,
+    "text": "owner",
+    "start": 142.71,
+    "end": 143.11
+  },
+  {
+    "i": 339,
+    "text": "visits",
+    "start": 143.11,
+    "end": 143.53
+  },
+  {
+    "i": 340,
+    "text": "foodash",
+    "start": 143.53,
+    "end": 144.11
+  },
+  {
+    "i": 341,
+    "text": ".com",
+    "start": 144.11,
+    "end": 144.69
+  },
+  {
+    "i": 342,
+    "text": "slash",
+    "start": 144.69,
+    "end": 145.05
+  },
+  {
+    "i": 343,
+    "text": "restaurant.",
+    "start": 145.05,
+    "end": 145.71
+  },
+  {
+    "i": 344,
+    "text": "A",
+    "start": 146.03,
+    "end": 146.27
+  },
+  {
+    "i": 345,
+    "text": "delivery",
+    "start": 146.27,
+    "end": 146.61
+  },
+  {
+    "i": 346,
+    "text": "driver",
+    "start": 146.61,
+    "end": 147.13
+  },
+  {
+    "i": 347,
+    "text": "opens",
+    "start": 147.13,
+    "end": 147.59
+  },
+  {
+    "i": 348,
+    "text": "foodash",
+    "start": 147.59,
+    "end": 148.19
+  },
+  {
+    "i": 349,
+    "text": ".com",
+    "start": 148.19,
+    "end": 148.77
+  },
+  {
+    "i": 350,
+    "text": "slash",
+    "start": 148.77,
+    "end": 149.53
+  },
+  {
+    "i": 351,
+    "text": "driver.",
+    "start": 149.53,
+    "end": 150.39
+  },
+  {
+    "i": 352,
+    "text": "Even",
+    "start": 151.17,
+    "end": 151.81
+  },
+  {
+    "i": 353,
+    "text": "though",
+    "start": 151.81,
+    "end": 151.97
+  },
+  {
+    "i": 354,
+    "text": "they're",
+    "start": 151.97,
+    "end": 152.15
+  },
+  {
+    "i": 355,
+    "text": "all",
+    "start": 152.15,
+    "end": 152.35
+  },
+  {
+    "i": 356,
+    "text": "using",
+    "start": 152.35,
+    "end": 152.63
+  },
+  {
+    "i": 357,
+    "text": "the",
+    "start": 152.63,
+    "end": 152.83
+  },
+  {
+    "i": 358,
+    "text": "same",
+    "start": 152.83,
+    "end": 153.03
+  },
+  {
+    "i": 359,
+    "text": "domain,",
+    "start": 153.03,
+    "end": 153.45
+  },
+  {
+    "i": 360,
+    "text": "they",
+    "start": 153.77,
+    "end": 153.95
+  },
+  {
+    "i": 361,
+    "text": "should",
+    "start": 153.95,
+    "end": 154.13
+  },
+  {
+    "i": 362,
+    "text": "reach",
+    "start": 154.13,
+    "end": 154.35
+  },
+  {
+    "i": 363,
+    "text": "completely",
+    "start": 154.35,
+    "end": 154.77
+  },
+  {
+    "i": 364,
+    "text": "different",
+    "start": 154.77,
+    "end": 155.13
+  },
+  {
+    "i": 365,
+    "text": "backend",
+    "start": 155.13,
+    "end": 155.49
+  },
+  {
+    "i": 366,
+    "text": "services.",
+    "start": 155.49,
+    "end": 155.95
+  },
+  {
+    "i": 367,
+    "text": "A",
+    "start": 157.15,
+    "end": 157.33
+  },
+  {
+    "i": 368,
+    "text": "Layer",
+    "start": 157.33,
+    "end": 157.49
+  },
+  {
+    "i": 369,
+    "text": "4",
+    "start": 157.49,
+    "end": 157.75
+  },
+  {
+    "i": 370,
+    "text": "load",
+    "start": 157.75,
+    "end": 157.99
+  },
+  {
+    "i": 371,
+    "text": "balancer",
+    "start": 157.99,
+    "end": 158.29
+  },
+  {
+    "i": 372,
+    "text": "can't",
+    "start": 158.29,
+    "end": 158.69
+  },
+  {
+    "i": 373,
+    "text": "make",
+    "start": 158.69,
+    "end": 158.89
+  },
+  {
+    "i": 374,
+    "text": "that",
+    "start": 158.89,
+    "end": 159.07
+  },
+  {
+    "i": 375,
+    "text": "decision",
+    "start": 159.07,
+    "end": 159.39
+  },
+  {
+    "i": 376,
+    "text": "because",
+    "start": 159.39,
+    "end": 159.65
+  },
+  {
+    "i": 377,
+    "text": "it",
+    "start": 159.65,
+    "end": 159.81
+  },
+  {
+    "i": 378,
+    "text": "never",
+    "start": 159.81,
+    "end": 160.03
+  },
+  {
+    "i": 379,
+    "text": "looks",
+    "start": 160.03,
+    "end": 160.27
+  },
+  {
+    "i": 380,
+    "text": "inside",
+    "start": 160.27,
+    "end": 160.57
+  },
+  {
+    "i": 381,
+    "text": "the",
+    "start": 160.57,
+    "end": 160.71
+  },
+  {
+    "i": 382,
+    "text": "request.",
+    "start": 160.71,
+    "end": 161.03
+  },
+  {
+    "i": 383,
+    "text": "This",
+    "start": 161.47,
+    "end": 161.61
+  },
+  {
+    "i": 384,
+    "text": "is",
+    "start": 161.61,
+    "end": 161.71
+  },
+  {
+    "i": 385,
+    "text": "where",
+    "start": 161.71,
+    "end": 161.83
+  },
+  {
+    "i": 386,
+    "text": "Layer",
+    "start": 161.83,
+    "end": 162.07
+  },
+  {
+    "i": 387,
+    "text": "7",
+    "start": 162.07,
+    "end": 162.41
+  },
+  {
+    "i": 388,
+    "text": "load",
+    "start": 162.41,
+    "end": 162.71
+  },
+  {
+    "i": 389,
+    "text": "balancing",
+    "start": 162.71,
+    "end": 163.13
+  },
+  {
+    "i": 390,
+    "text": "comes",
+    "start": 163.13,
+    "end": 163.49
+  },
+  {
+    "i": 391,
+    "text": "in.",
+    "start": 163.49,
+    "end": 163.79
+  },
+  {
+    "i": 392,
+    "text": "A",
+    "start": 165.11,
+    "end": 165.33
+  },
+  {
+    "i": 393,
+    "text": "Layer",
+    "start": 165.33,
+    "end": 165.55
+  },
+  {
+    "i": 394,
+    "text": "7",
+    "start": 165.55,
+    "end": 165.91
+  },
+  {
+    "i": 395,
+    "text": "load",
+    "start": 165.91,
+    "end": 166.19
+  },
+  {
+    "i": 396,
+    "text": "balancer",
+    "start": 166.19,
+    "end": 166.53
+  },
+  {
+    "i": 397,
+    "text": "works",
+    "start": 166.53,
+    "end": 166.87
+  },
+  {
+    "i": 398,
+    "text": "at",
+    "start": 166.87,
+    "end": 166.99
+  },
+  {
+    "i": 399,
+    "text": "the",
+    "start": 166.99,
+    "end": 167.11
+  },
+  {
+    "i": 400,
+    "text": "application",
+    "start": 167.11,
+    "end": 167.55
+  },
+  {
+    "i": 401,
+    "text": "layer",
+    "start": 167.55,
+    "end": 167.83
+  },
+  {
+    "i": 402,
+    "text": "of",
+    "start": 167.83,
+    "end": 167.95
+  },
+  {
+    "i": 403,
+    "text": "the",
+    "start": 167.95,
+    "end": 168.07
+  },
+  {
+    "i": 404,
+    "text": "OSI",
+    "start": 168.07,
+    "end": 168.49
+  },
+  {
+    "i": 405,
+    "text": "model.",
+    "start": 168.49,
+    "end": 168.79
+  },
+  {
+    "i": 406,
+    "text": "It",
+    "start": 168.79,
+    "end": 169.37
+  },
+  {
+    "i": 407,
+    "text": "understands",
+    "start": 169.37,
+    "end": 169.63
+  },
+  {
+    "i": 408,
+    "text": "the",
+    "start": 169.63,
+    "end": 170.11
+  },
+  {
+    "i": 409,
+    "text": "application",
+    "start": 170.11,
+    "end": 170.61
+  },
+  {
+    "i": 410,
+    "text": "itself.",
+    "start": 170.61,
+    "end": 171.17
+  },
+  {
+    "i": 411,
+    "text": "It",
+    "start": 172.47,
+    "end": 172.65
+  },
+  {
+    "i": 412,
+    "text": "can",
+    "start": 172.65,
+    "end": 172.81
+  },
+  {
+    "i": 413,
+    "text": "inspect",
+    "start": 172.81,
+    "end": 173.27
+  },
+  {
+    "i": 414,
+    "text": "URLs,",
+    "start": 173.27,
+    "end": 173.93
+  },
+  {
+    "i": 415,
+    "text": "HTTP",
+    "start": 174.35,
+    "end": 174.77
+  },
+  {
+    "i": 416,
+    "text": "headers,",
+    "start": 174.77,
+    "end": 175.41
+  },
+  {
+    "i": 417,
+    "text": "cookies,",
+    "start": 175.89,
+    "end": 176.33
+  },
+  {
+    "i": 418,
+    "text": "host",
+    "start": 176.77,
+    "end": 177.03
+  },
+  {
+    "i": 419,
+    "text": "names,",
+    "start": 177.03,
+    "end": 177.35
+  },
+  {
+    "i": 420,
+    "text": "even",
+    "start": 178.03,
+    "end": 178.29
+  },
+  {
+    "i": 421,
+    "text": "request",
+    "start": 178.29,
+    "end": 178.71
+  },
+  {
+    "i": 422,
+    "text": "methods",
+    "start": 178.71,
+    "end": 179.13
+  },
+  {
+    "i": 423,
+    "text": "like",
+    "start": 179.13,
+    "end": 179.37
+  },
+  {
+    "i": 424,
+    "text": "GET",
+    "start": 179.37,
+    "end": 179.61
+  },
+  {
+    "i": 425,
+    "text": "and",
+    "start": 179.61,
+    "end": 179.85
+  },
+  {
+    "i": 426,
+    "text": "POST.",
+    "start": 179.85,
+    "end": 180.25
+  },
+  {
+    "i": 427,
+    "text": "Now",
+    "start": 181.13,
+    "end": 181.71
+  },
+  {
+    "i": 428,
+    "text": "it",
+    "start": 181.71,
+    "end": 181.95
+  },
+  {
+    "i": 429,
+    "text": "can",
+    "start": 181.95,
+    "end": 182.13
+  },
+  {
+    "i": 430,
+    "text": "route",
+    "start": 182.13,
+    "end": 182.37
+  },
+  {
+    "i": 431,
+    "text": "slash",
+    "start": 182.37,
+    "end": 182.75
+  },
+  {
+    "i": 432,
+    "text": "restaurant",
+    "start": 182.75,
+    "end": 183.21
+  },
+  {
+    "i": 433,
+    "text": "to",
+    "start": 183.21,
+    "end": 183.45
+  },
+  {
+    "i": 434,
+    "text": "the",
+    "start": 183.45,
+    "end": 183.57
+  },
+  {
+    "i": 435,
+    "text": "restaurant",
+    "start": 183.57,
+    "end": 183.91
+  },
+  {
+    "i": 436,
+    "text": "service,",
+    "start": 183.91,
+    "end": 184.35
+  },
+  {
+    "i": 437,
+    "text": "slash",
+    "start": 184.71,
+    "end": 184.99
+  },
+  {
+    "i": 438,
+    "text": "driver",
+    "start": 184.99,
+    "end": 185.37
+  },
+  {
+    "i": 439,
+    "text": "to",
+    "start": 185.37,
+    "end": 185.57
+  },
+  {
+    "i": 440,
+    "text": "the",
+    "start": 185.57,
+    "end": 185.69
+  },
+  {
+    "i": 441,
+    "text": "driver",
+    "start": 185.69,
+    "end": 185.93
+  },
+  {
+    "i": 442,
+    "text": "platform,",
+    "start": 185.93,
+    "end": 186.43
+  },
+  {
+    "i": 443,
+    "text": "and",
+    "start": 186.87,
+    "end": 187.21
+  },
+  {
+    "i": 444,
+    "text": "API",
+    "start": 187.21,
+    "end": 187.67
+  },
+  {
+    "i": 445,
+    "text": "requests",
+    "start": 187.67,
+    "end": 188.29
+  },
+  {
+    "i": 446,
+    "text": "to",
+    "start": 188.29,
+    "end": 188.61
+  },
+  {
+    "i": 447,
+    "text": "an",
+    "start": 188.61,
+    "end": 188.75
+  },
+  {
+    "i": 448,
+    "text": "entirely",
+    "start": 188.75,
+    "end": 189.25
+  },
+  {
+    "i": 449,
+    "text": "different",
+    "start": 189.25,
+    "end": 189.81
+  },
+  {
+    "i": 450,
+    "text": "backend",
+    "start": 189.81,
+    "end": 190.17
+  },
+  {
+    "i": 451,
+    "text": "cluster.",
+    "start": 190.17,
+    "end": 190.63
+  },
+  {
+    "i": 452,
+    "text": "To",
+    "start": 191.41,
+    "end": 192.01
+  },
+  {
+    "i": 453,
+    "text": "the",
+    "start": 192.01,
+    "end": 192.15
+  },
+  {
+    "i": 454,
+    "text": "user,",
+    "start": 192.15,
+    "end": 192.47
+  },
+  {
+    "i": 455,
+    "text": "everything",
+    "start": 192.89,
+    "end": 193.23
+  },
+  {
+    "i": 456,
+    "text": "still",
+    "start": 193.23,
+    "end": 193.67
+  },
+  {
+    "i": 457,
+    "text": "looks",
+    "start": 193.67,
+    "end": 193.91
+  },
+  {
+    "i": 458,
+    "text": "like",
+    "start": 193.91,
+    "end": 194.09
+  },
+  {
+    "i": 459,
+    "text": "one",
+    "start": 194.09,
+    "end": 194.33
+  },
+  {
+    "i": 460,
+    "text": "application.",
+    "start": 194.33,
+    "end": 194.81
+  },
+  {
+    "i": 461,
+    "text": "Behind",
+    "start": 194.81,
+    "end": 195.41
+  },
+  {
+    "i": 462,
+    "text": "the",
+    "start": 195.41,
+    "end": 195.65
+  },
+  {
+    "i": 463,
+    "text": "scenes,",
+    "start": 195.65,
+    "end": 195.93
+  },
+  {
+    "i": 464,
+    "text": "the",
+    "start": 196.07,
+    "end": 196.19
+  },
+  {
+    "i": 465,
+    "text": "load",
+    "start": 196.19,
+    "end": 196.43
+  },
+  {
+    "i": 466,
+    "text": "balancer",
+    "start": 196.43,
+    "end": 196.81
+  },
+  {
+    "i": 467,
+    "text": "is",
+    "start": 196.81,
+    "end": 197.11
+  },
+  {
+    "i": 468,
+    "text": "intelligently",
+    "start": 197.11,
+    "end": 197.71
+  },
+  {
+    "i": 469,
+    "text": "routing",
+    "start": 197.71,
+    "end": 198.17
+  },
+  {
+    "i": 470,
+    "text": "every",
+    "start": 198.17,
+    "end": 198.53
+  },
+  {
+    "i": 471,
+    "text": "request",
+    "start": 198.53,
+    "end": 198.91
+  },
+  {
+    "i": 472,
+    "text": "to",
+    "start": 198.91,
+    "end": 199.07
+  },
+  {
+    "i": 473,
+    "text": "exactly",
+    "start": 199.07,
+    "end": 199.43
+  },
+  {
+    "i": 474,
+    "text": "the",
+    "start": 199.43,
+    "end": 199.59
+  },
+  {
+    "i": 475,
+    "text": "right",
+    "start": 199.59,
+    "end": 199.77
+  },
+  {
+    "i": 476,
+    "text": "service.",
+    "start": 199.77,
+    "end": 200.19
+  },
+  {
+    "i": 477,
+    "text": "So",
+    "start": 201.23,
+    "end": 201.91
+  },
+  {
+    "i": 478,
+    "text": "does",
+    "start": 201.91,
+    "end": 202.45
+  },
+  {
+    "i": 479,
+    "text": "that",
+    "start": 202.45,
+    "end": 202.65
+  },
+  {
+    "i": 480,
+    "text": "mean",
+    "start": 202.65,
+    "end": 202.89
+  },
+  {
+    "i": 481,
+    "text": "Layer",
+    "start": 202.89,
+    "end": 203.17
+  },
+  {
+    "i": 482,
+    "text": "7",
+    "start": 203.17,
+    "end": 203.47
+  },
+  {
+    "i": 483,
+    "text": "is",
+    "start": 203.47,
+    "end": 203.79
+  },
+  {
+    "i": 484,
+    "text": "always",
+    "start": 203.79,
+    "end": 204.17
+  },
+  {
+    "i": 485,
+    "text": "the",
+    "start": 204.17,
+    "end": 204.39
+  },
+  {
+    "i": 486,
+    "text": "better",
+    "start": 204.39,
+    "end": 204.59
+  },
+  {
+    "i": 487,
+    "text": "choice?",
+    "start": 204.59,
+    "end": 205.03
+  },
+  {
+    "i": 488,
+    "text": "Not",
+    "start": 205.53,
+    "end": 205.95
+  },
+  {
+    "i": 489,
+    "text": "at",
+    "start": 205.95,
+    "end": 206.17
+  },
+  {
+    "i": 490,
+    "text": "all.",
+    "start": 206.17,
+    "end": 206.43
+  },
+  {
+    "i": 491,
+    "text": "Layer",
+    "start": 207.67,
+    "end": 207.91
+  },
+  {
+    "i": 492,
+    "text": "4",
+    "start": 207.91,
+    "end": 208.19
+  },
+  {
+    "i": 493,
+    "text": "is",
+    "start": 208.19,
+    "end": 208.39
+  },
+  {
+    "i": 494,
+    "text": "faster",
+    "start": 208.39,
+    "end": 208.77
+  },
+  {
+    "i": 495,
+    "text": "because",
+    "start": 208.77,
+    "end": 209.25
+  },
+  {
+    "i": 496,
+    "text": "it",
+    "start": 209.25,
+    "end": 209.43
+  },
+  {
+    "i": 497,
+    "text": "does",
+    "start": 209.43,
+    "end": 209.67
+  },
+  {
+    "i": 498,
+    "text": "less",
+    "start": 209.67,
+    "end": 209.99
+  },
+  {
+    "i": 499,
+    "text": "work.",
+    "start": 209.99,
+    "end": 210.33
+  },
+  {
+    "i": 500,
+    "text": "Layer",
+    "start": 210.83,
+    "end": 210.97
+  },
+  {
+    "i": 501,
+    "text": "7",
+    "start": 210.97,
+    "end": 211.37
+  },
+  {
+    "i": 502,
+    "text": "is",
+    "start": 211.37,
+    "end": 211.71
+  },
+  {
+    "i": 503,
+    "text": "more",
+    "start": 211.71,
+    "end": 211.93
+  },
+  {
+    "i": 504,
+    "text": "flexible",
+    "start": 211.93,
+    "end": 212.35
+  },
+  {
+    "i": 505,
+    "text": "because",
+    "start": 212.35,
+    "end": 212.93
+  },
+  {
+    "i": 506,
+    "text": "it",
+    "start": 212.93,
+    "end": 213.13
+  },
+  {
+    "i": 507,
+    "text": "understands",
+    "start": 213.13,
+    "end": 213.63
+  },
+  {
+    "i": 508,
+    "text": "more",
+    "start": 213.63,
+    "end": 213.97
+  },
+  {
+    "i": 509,
+    "text": "about",
+    "start": 213.97,
+    "end": 214.27
+  },
+  {
+    "i": 510,
+    "text": "every",
+    "start": 214.27,
+    "end": 214.65
+  },
+  {
+    "i": 511,
+    "text": "request.",
+    "start": 214.65,
+    "end": 215.11
+  },
+  {
+    "i": 512,
+    "text": "That",
+    "start": 215.97,
+    "end": 216.51
+  },
+  {
+    "i": 513,
+    "text": "extra",
+    "start": 216.51,
+    "end": 216.91
+  },
+  {
+    "i": 514,
+    "text": "intelligence",
+    "start": 216.91,
+    "end": 217.39
+  },
+  {
+    "i": 515,
+    "text": "comes",
+    "start": 217.39,
+    "end": 217.81
+  },
+  {
+    "i": 516,
+    "text": "with",
+    "start": 217.81,
+    "end": 217.99
+  },
+  {
+    "i": 517,
+    "text": "extra",
+    "start": 217.99,
+    "end": 218.35
+  },
+  {
+    "i": 518,
+    "text": "processing",
+    "start": 218.35,
+    "end": 218.93
+  },
+  {
+    "i": 519,
+    "text": "and",
+    "start": 218.93,
+    "end": 219.21
+  },
+  {
+    "i": 520,
+    "text": "additional",
+    "start": 219.21,
+    "end": 219.59
+  },
+  {
+    "i": 521,
+    "text": "complexity.",
+    "start": 219.59,
+    "end": 220.09
+  },
+  {
+    "i": 522,
+    "text": "Neither",
+    "start": 220.63,
+    "end": 220.79
+  },
+  {
+    "i": 523,
+    "text": "approach",
+    "start": 220.79,
+    "end": 221.23
+  },
+  {
+    "i": 524,
+    "text": "is",
+    "start": 221.23,
+    "end": 221.37
+  },
+  {
+    "i": 525,
+    "text": "universally",
+    "start": 221.37,
+    "end": 221.77
+  },
+  {
+    "i": 526,
+    "text": "better.",
+    "start": 221.77,
+    "end": 222.11
+  },
+  {
+    "i": 527,
+    "text": "They're",
+    "start": 222.43,
+    "end": 222.59
+  },
+  {
+    "i": 528,
+    "text": "simply",
+    "start": 222.59,
+    "end": 222.85
+  },
+  {
+    "i": 529,
+    "text": "solving",
+    "start": 222.85,
+    "end": 223.19
+  },
+  {
+    "i": 530,
+    "text": "different",
+    "start": 223.19,
+    "end": 223.59
+  },
+  {
+    "i": 531,
+    "text": "engineering",
+    "start": 223.59,
+    "end": 223.97
+  },
+  {
+    "i": 532,
+    "text": "problems.",
+    "start": 223.97,
+    "end": 224.39
+  },
+  {
+    "i": 533,
+    "text": "That's",
+    "start": 225.45,
+    "end": 226.13
+  },
+  {
+    "i": 534,
+    "text": "one",
+    "start": 226.13,
+    "end": 226.25
+  },
+  {
+    "i": 535,
+    "text": "of",
+    "start": 226.25,
+    "end": 226.35
+  },
+  {
+    "i": 536,
+    "text": "the",
+    "start": 226.35,
+    "end": 226.45
+  },
+  {
+    "i": 537,
+    "text": "most",
+    "start": 226.45,
+    "end": 226.59
+  },
+  {
+    "i": 538,
+    "text": "important",
+    "start": 226.59,
+    "end": 226.91
+  },
+  {
+    "i": 539,
+    "text": "lessons",
+    "start": 226.91,
+    "end": 227.29
+  },
+  {
+    "i": 540,
+    "text": "in",
+    "start": 227.29,
+    "end": 227.47
+  },
+  {
+    "i": 541,
+    "text": "distributed",
+    "start": 227.47,
+    "end": 227.83
+  },
+  {
+    "i": 542,
+    "text": "systems.",
+    "start": 227.83,
+    "end": 228.39
+  },
+  {
+    "i": 543,
+    "text": "Good",
+    "start": 229.31,
+    "end": 229.99
+  },
+  {
+    "i": 544,
+    "text": "engineering",
+    "start": 229.99,
+    "end": 230.63
+  },
+  {
+    "i": 545,
+    "text": "isn't",
+    "start": 230.63,
+    "end": 230.97
+  },
+  {
+    "i": 546,
+    "text": "about",
+    "start": 230.97,
+    "end": 231.21
+  },
+  {
+    "i": 547,
+    "text": "choosing",
+    "start": 231.21,
+    "end": 231.49
+  },
+  {
+    "i": 548,
+    "text": "the",
+    "start": 231.49,
+    "end": 231.65
+  },
+  {
+    "i": 549,
+    "text": "most",
+    "start": 231.65,
+    "end": 231.83
+  },
+  {
+    "i": 550,
+    "text": "advanced",
+    "start": 231.83,
+    "end": 232.15
+  },
+  {
+    "i": 551,
+    "text": "solution.",
+    "start": 232.15,
+    "end": 232.55
+  },
+  {
+    "i": 552,
+    "text": "It's",
+    "start": 233.03,
+    "end": 233.21
+  },
+  {
+    "i": 553,
+    "text": "about",
+    "start": 233.21,
+    "end": 233.43
+  },
+  {
+    "i": 554,
+    "text": "choosing",
+    "start": 233.43,
+    "end": 233.75
+  },
+  {
+    "i": 555,
+    "text": "the",
+    "start": 233.75,
+    "end": 233.97
+  },
+  {
+    "i": 556,
+    "text": "right",
+    "start": 233.97,
+    "end": 234.21
+  },
+  {
+    "i": 557,
+    "text": "solution",
+    "start": 234.21,
+    "end": 234.57
+  },
+  {
+    "i": 558,
+    "text": "for",
+    "start": 234.57,
+    "end": 234.75
+  },
+  {
+    "i": 559,
+    "text": "the",
+    "start": 234.75,
+    "end": 234.87
+  },
+  {
+    "i": 560,
+    "text": "problem",
+    "start": 234.87,
+    "end": 235.17
+  },
+  {
+    "i": 561,
+    "text": "you're",
+    "start": 235.17,
+    "end": 235.39
+  },
+  {
+    "i": 562,
+    "text": "trying",
+    "start": 235.39,
+    "end": 235.57
+  },
+  {
+    "i": 563,
+    "text": "to",
+    "start": 235.57,
+    "end": 235.73
+  },
+  {
+    "i": 564,
+    "text": "solve.",
+    "start": 235.73,
+    "end": 235.99
+  },
+  {
+    "i": 565,
+    "text": "At",
+    "start": 237.41,
+    "end": 238.09
+  },
+  {
+    "i": 566,
+    "text": "this",
+    "start": 238.09,
+    "end": 238.77
+  },
+  {
+    "i": 567,
+    "text": "point,",
+    "start": 238.77,
+    "end": 239.01
+  },
+  {
+    "i": 568,
+    "text": "FoodDash",
+    "start": 239.19,
+    "end": 239.59
+  },
+  {
+    "i": 569,
+    "text": "has",
+    "start": 239.59,
+    "end": 239.73
+  },
+  {
+    "i": 570,
+    "text": "become",
+    "start": 239.73,
+    "end": 240.07
+  },
+  {
+    "i": 571,
+    "text": "remarkably",
+    "start": 240.07,
+    "end": 240.85
+  },
+  {
+    "i": 572,
+    "text": "resilient.",
+    "start": 240.85,
+    "end": 241.35
+  },
+  {
+    "i": 573,
+    "text": "It",
+    "start": 242.49,
+    "end": 242.65
+  },
+  {
+    "i": 574,
+    "text": "has",
+    "start": 242.65,
+    "end": 242.81
+  },
+  {
+    "i": 575,
+    "text": "redundant",
+    "start": 242.81,
+    "end": 243.17
+  },
+  {
+    "i": 576,
+    "text": "servers,",
+    "start": 243.17,
+    "end": 243.65
+  },
+  {
+    "i": 577,
+    "text": "health",
+    "start": 244.23,
+    "end": 244.45
+  },
+  {
+    "i": 578,
+    "text": "checks,",
+    "start": 244.45,
+    "end": 244.79
+  },
+  {
+    "i": 579,
+    "text": "automatic",
+    "start": 245.19,
+    "end": 245.51
+  },
+  {
+    "i": 580,
+    "text": "failover,",
+    "start": 245.51,
+    "end": 246.03
+  },
+  {
+    "i": 581,
+    "text": "load",
+    "start": 246.51,
+    "end": 246.69
+  },
+  {
+    "i": 582,
+    "text": "balancing,",
+    "start": 246.69,
+    "end": 247.13
+  },
+  {
+    "i": 583,
+    "text": "and",
+    "start": 247.53,
+    "end": 247.79
+  },
+  {
+    "i": 584,
+    "text": "now",
+    "start": 247.79,
+    "end": 248.17
+  },
+  {
+    "i": 585,
+    "text": "intelligent",
+    "start": 248.17,
+    "end": 248.95
+  },
+  {
+    "i": 586,
+    "text": "request",
+    "start": 248.95,
+    "end": 249.43
+  },
+  {
+    "i": 587,
+    "text": "routing.",
+    "start": 249.43,
+    "end": 249.83
+  },
+  {
+    "i": 588,
+    "text": "Everything",
+    "start": 250.95,
+    "end": 251.63
+  },
+  {
+    "i": 589,
+    "text": "seems",
+    "start": 251.63,
+    "end": 252.09
+  },
+  {
+    "i": 590,
+    "text": "to",
+    "start": 252.09,
+    "end": 252.23
+  },
+  {
+    "i": 591,
+    "text": "be",
+    "start": 252.23,
+    "end": 252.37
+  },
+  {
+    "i": 592,
+    "text": "working",
+    "start": 252.37,
+    "end": 252.67
+  },
+  {
+    "i": 593,
+    "text": "fine.",
+    "start": 252.67,
+    "end": 253.27
+  },
+  {
+    "i": 594,
+    "text": "But",
+    "start": 254.81,
+    "end": 254.99
+  },
+  {
+    "i": 595,
+    "text": "even",
+    "start": 254.99,
+    "end": 255.149
+  },
+  {
+    "i": 596,
+    "text": "the",
+    "start": 255.149,
+    "end": 255.35
+  },
+  {
+    "i": 597,
+    "text": "smartest",
+    "start": 255.35,
+    "end": 255.69
+  },
+  {
+    "i": 598,
+    "text": "Layer",
+    "start": 255.69,
+    "end": 255.99
+  },
+  {
+    "i": 599,
+    "text": "7",
+    "start": 255.99,
+    "end": 256.329
+  },
+  {
+    "i": 600,
+    "text": "load",
+    "start": 256.329,
+    "end": 256.589
+  },
+  {
+    "i": 601,
+    "text": "balancer",
+    "start": 256.589,
+    "end": 256.95
+  },
+  {
+    "i": 602,
+    "text": "has",
+    "start": 256.95,
+    "end": 257.25
+  },
+  {
+    "i": 603,
+    "text": "a",
+    "start": 257.25,
+    "end": 257.39
+  },
+  {
+    "i": 604,
+    "text": "limit.",
+    "start": 257.39,
+    "end": 257.63
+  },
+  {
+    "i": 605,
+    "text": "It",
+    "start": 258.01,
+    "end": 258.17
+  },
+  {
+    "i": 606,
+    "text": "can",
+    "start": 258.17,
+    "end": 258.329
+  },
+  {
+    "i": 607,
+    "text": "reroute",
+    "start": 258.329,
+    "end": 258.709
+  },
+  {
+    "i": 608,
+    "text": "traffic",
+    "start": 258.709,
+    "end": 259.089
+  },
+  {
+    "i": 609,
+    "text": "around",
+    "start": 259.089,
+    "end": 259.41
+  },
+  {
+    "i": 610,
+    "text": "a",
+    "start": 259.41,
+    "end": 259.63
+  },
+  {
+    "i": 611,
+    "text": "failed",
+    "start": 259.63,
+    "end": 259.91
+  },
+  {
+    "i": 612,
+    "text": "server.",
+    "start": 259.91,
+    "end": 260.329
+  },
+  {
+    "i": 613,
+    "text": "What",
+    "start": 261.67,
+    "end": 261.95
+  },
+  {
+    "i": 614,
+    "text": "happens",
+    "start": 261.95,
+    "end": 262.31
+  },
+  {
+    "i": 615,
+    "text": "when",
+    "start": 262.31,
+    "end": 262.49
+  },
+  {
+    "i": 616,
+    "text": "an",
+    "start": 262.49,
+    "end": 262.61
+  },
+  {
+    "i": 617,
+    "text": "entire",
+    "start": 262.61,
+    "end": 262.99
+  },
+  {
+    "i": 618,
+    "text": "data",
+    "start": 262.99,
+    "end": 263.35
+  },
+  {
+    "i": 619,
+    "text": "center",
+    "start": 263.35,
+    "end": 263.65
+  },
+  {
+    "i": 620,
+    "text": "goes",
+    "start": 263.65,
+    "end": 263.95
+  },
+  {
+    "i": 621,
+    "text": "offline?",
+    "start": 263.95,
+    "end": 264.31
+  },
+  {
+    "i": 622,
+    "text": "That's",
+    "start": 265.71,
+    "end": 266.23
+  },
+  {
+    "i": 623,
+    "text": "exactly",
+    "start": 266.23,
+    "end": 266.59
+  },
+  {
+    "i": 624,
+    "text": "what",
+    "start": 266.59,
+    "end": 266.81
+  },
+  {
+    "i": 625,
+    "text": "we'll",
+    "start": 266.81,
+    "end": 266.99
+  },
+  {
+    "i": 626,
+    "text": "explore",
+    "start": 266.99,
+    "end": 267.29
+  },
+  {
+    "i": 627,
+    "text": "in",
+    "start": 267.29,
+    "end": 267.47
+  },
+  {
+    "i": 628,
+    "text": "the",
+    "start": 267.47,
+    "end": 267.57
+  },
+  {
+    "i": 629,
+    "text": "next",
+    "start": 267.57,
+    "end": 267.77
+  },
+  {
+    "i": 630,
+    "text": "episode,",
+    "start": 267.77,
+    "end": 268.19
+  },
+  {
+    "i": 631,
+    "text": "as",
+    "start": 268.43,
+    "end": 268.73
+  },
+  {
+    "i": 632,
+    "text": "FoodDash",
+    "start": 268.73,
+    "end": 269.17
+  },
+  {
+    "i": 633,
+    "text": "expands",
+    "start": 269.17,
+    "end": 269.65
+  },
+  {
+    "i": 634,
+    "text": "beyond",
+    "start": 269.65,
+    "end": 269.95
+  },
+  {
+    "i": 635,
+    "text": "a",
+    "start": 269.95,
+    "end": 270.13
+  },
+  {
+    "i": 636,
+    "text": "single",
+    "start": 270.13,
+    "end": 270.35
+  },
+  {
+    "i": 637,
+    "text": "location",
+    "start": 270.35,
+    "end": 270.87
+  },
+  {
+    "i": 638,
+    "text": "and",
+    "start": 270.87,
+    "end": 271.31
+  },
+  {
+    "i": 639,
+    "text": "enters",
+    "start": 271.31,
+    "end": 271.63
+  },
+  {
+    "i": 640,
+    "text": "the",
+    "start": 271.63,
+    "end": 271.83
+  },
+  {
+    "i": 641,
+    "text": "world",
+    "start": 271.83,
+    "end": 272.07
+  },
+  {
+    "i": 642,
+    "text": "of",
+    "start": 272.07,
+    "end": 272.29
+  },
+  {
+    "i": 643,
+    "text": "multi-AZ",
+    "start": 272.29,
+    "end": 272.99
+  },
+  {
+    "i": 644,
+    "text": "architectures.",
+    "start": 272.99,
+    "end": 273.69
+  },
+  {
+    "i": 645,
+    "text": "I'll",
+    "start": 274.67,
+    "end": 275.19
+  },
+  {
+    "i": 646,
+    "text": "see",
+    "start": 275.19,
+    "end": 275.33
+  },
+  {
+    "i": 647,
+    "text": "you",
+    "start": 275.33,
+    "end": 275.43
+  },
+  {
+    "i": 648,
+    "text": "in",
+    "start": 275.43,
+    "end": 275.53
+  },
+  {
+    "i": 649,
+    "text": "the",
+    "start": 275.53,
+    "end": 275.63
+  },
+  {
+    "i": 650,
+    "text": "next",
+    "start": 275.63,
+    "end": 275.75
+  },
+  {
+    "i": 651,
+    "text": "one.",
+    "start": 275.75,
+    "end": 275.97
+  },
+  {
+    "i": 652,
+    "text": "Thanks",
+    "start": 276.53,
+    "end": 276.77
+  },
+  {
+    "i": 653,
+    "text": "for",
+    "start": 276.77,
+    "end": 276.93
+  },
+  {
+    "i": 654,
+    "text": "watching",
+    "start": 276.93,
+    "end": 277.15
+  },
+  {
+    "i": 655,
+    "text": "the",
+    "start": 277.15,
+    "end": 277.31
+  },
+  {
+    "i": 656,
+    "text": "episode.",
+    "start": 277.31,
+    "end": 277.53
+  },
+  {
+    "i": 657,
+    "text": "If",
+    "start": 278.07,
+    "end": 278.33
+  },
+  {
+    "i": 658,
+    "text": "you",
+    "start": 278.33,
+    "end": 278.43
+  },
+  {
+    "i": 659,
+    "text": "learned",
+    "start": 278.43,
+    "end": 278.61
+  },
+  {
+    "i": 660,
+    "text": "something",
+    "start": 278.61,
+    "end": 278.83
+  },
+  {
+    "i": 661,
+    "text": "today,",
+    "start": 278.83,
+    "end": 279.25
+  },
+  {
+    "i": 662,
+    "text": "make",
+    "start": 279.59,
+    "end": 279.79
+  },
+  {
+    "i": 663,
+    "text": "sure",
+    "start": 279.79,
+    "end": 279.93
+  },
+  {
+    "i": 664,
+    "text": "to",
+    "start": 279.93,
+    "end": 280.07
+  },
+  {
+    "i": 665,
+    "text": "subscribe",
+    "start": 280.07,
+    "end": 280.33
+  },
+  {
+    "i": 666,
+    "text": "for",
+    "start": 280.33,
+    "end": 280.59
+  },
+  {
+    "i": 667,
+    "text": "more",
+    "start": 280.59,
+    "end": 280.79
+  },
+  {
+    "i": 668,
+    "text": "such",
+    "start": 280.79,
+    "end": 281.01
+  },
+  {
+    "i": 669,
+    "text": "explainers",
+    "start": 281.01,
+    "end": 281.59
+  },
+  {
+    "i": 670,
+    "text": "on",
+    "start": 281.59,
+    "end": 281.81
+  },
+  {
+    "i": 671,
+    "text": "system",
+    "start": 281.81,
+    "end": 282.09
+  },
+  {
+    "i": 672,
+    "text": "design.",
+    "start": 282.09,
+    "end": 282.49
+  },
+  {
+    "i": 673,
+    "text": "Keep",
+    "start": 283.01,
+    "end": 283.21
+  },
+  {
+    "i": 674,
+    "text": "learning.",
+    "start": 283.21,
+    "end": 283.45
+  }
+]
