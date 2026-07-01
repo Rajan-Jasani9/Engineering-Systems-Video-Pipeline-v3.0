@@ -1,0 +1,51 @@
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)
+
+FoodDash has three application servers. It has a load balancer distributing traffic between them. And if any individual server fails, the other two can continue handling requests.
+
+So FoodDash is highly available now, right? Not necessarily, because all three servers might be sitting inside the same building. And if that entire location goes offline, the load balancer may suddenly have nowhere left to send traffic. So how do large systems survive the failure of an entire data center location? That is where Multi-AZ Architecture comes in.
+
+Welcome back to Engineering Systems, where we explore how real-world software systems become scalable, reliable, and resilient. Today, we are going to understand what an availability zone is, why placing multiple servers behind a load balancer may still not be enough, and how Multi-AZ Architecture helps a system survive location-level failures. Before we redesign FoodDash, let us first understand an important cloud concept.
+
+Cloud providers divide their infrastructure into geographical areas known as regions. For example, a cloud provider might operate regions in Mumbai, Singapore, and Northern Virginia. Each region is then divided into multiple isolated infrastructure locations called availability zones. 
+
+An availability zone, usually shortened to AZ, has independent infrastructure such as power, networking, and cooling. Depending on the cloud provider, one availability zone may consist of one or more physically separate data centers. The important idea is isolation. 
+
+A failure inside one availability zone should be less likely to bring down another availability zone in the same region. Now, let us return to the FoodDash architecture from our previous episodes. FoodDash receives thousands of incoming requests.
+
+All of these requests first arrive at a load balancer. The load balancer then distributes those requests between three application servers, namely Server A, Server B, and Server C. We also explored how different load-balancing algorithms choose between these servers and how Layer 4 and Layer 7 load balancers make routing decisions at different layers of the network. If you have not watched those episodes yet, check out the other system design videos available on the Engineering Systems channel. 
+
+They will help you understand how FoodDash reached its current architecture. At first glance, this architecture looks resilient. If Server A crashes, the load balancer can send traffic to Server B and Server C. If Server B becomes overloaded, the load balancer can distribute more requests toward the other available servers. 
+
+FoodDash no longer depends on one application server, but there is still a hidden problem. Let us say that Server A, Server B, and Server C are all deployed inside Availability Zone A of the Mumbai region. The load balancer distributes traffic across three different machines.
+
+But physically, all three machines still depend on the same Availability Zone. This is what we call a Single AZ architecture. FoodDash has server-level redundancy, but it does not yet have location-level redundancy. 
+
+Now imagine that Availability Zone A experiences a major infrastructure failure. The load balancer is still capable of routing traffic. But there are no healthy servers available to receive it.
+
+Even though FoodDash had three servers and a load balancer, the entire system has gone offline. This highlights a key lesson in the system design. Redundancy only protects you when redundant components do not share the same failure boundary. 
+
+Three servers inside one Availability Zone can protect FoodDash from one server crashing. But they cannot protect FoodDash from the entire Availability Zone becoming unavailable. So, the FoodDash engineers redesign the system. 
+
+They continue using the Mumbai region, but instead of placing all three servers inside one zone, they distribute them across three Availability Zones. Server A is deployed inside Availability Zone A. Similarly, Server B is deployed inside Availability Zone B. And Server C is deployed inside Availability Zone C. The load balancer can now distribute incoming requests across servers located in different zones. This is a multi-AZ architecture. 
+
+During normal operation, all three Availability Zones can serve traffic. A request might be sent to Server A in Zone A. The next request might be sent to Server B in Zone B. Another request might go to Server C in Zone C. But now, imagine that Availability Zone A goes offline. As a result, Server A becomes unavailable.
+
+The load balancer detects that Server A is unhealthy and removes it from rotation. Traffic is then distributed between Server B and Server C in Zone B and Zone C, respectively. FoodDash may temporarily have less total capacity. 
+
+The remaining servers may experience higher traffic. But the important thing is service can continue operating. Instead of a complete outage, FoodDash experiences a partial infrastructure failure that the architecture was designed to survive. 
+
+However, distributing application servers is only one part of the solution. Now imagine that FoodDash places its only database inside Zone A. If Zone A fails, Servers B and C will still be running properly. But they would not be able to access the database. 
+
+FoodDash would still become unavailable. The same problem can happen with caches, message brokers, storage systems, or any other critical dependency. A truly resilient multi-AZ architecture must consider the complete request path.
+
+Application servers must be distributed. The data must be replicated appropriately. The critical dependencies must support failover. 
+
+And health checks must ensure that traffic is sent only toward resources that can actually serve requests. Multi-AZ is not simply about spreading machines across a diagram. It is about ensuring that the system can lose one availability zone without losing the complete service. 
+
+So let us summarize the difference. Multiple servers inside one availability zone protect against individual server failures. Multiple availability zones inside one region protect against the failure of an entire infrastructure location. 
+
+But FoodDash is still operating only inside the Mumbai region. And that raises the next question. What would happen if the whole Mumbai region become unavailable? Could FoodDash operate from another region such as Singapore? Or perhaps Northern Virginia? And how would users be routed between regions located thousands of kilometers apart? That is exactly what we will explore in the next episode when FoodDash enters the world of multi-region architecture. 
+
+If this video helped you understand multi-AZ architecture, subscribe to Engineering Systems and explore the other system design videos on the channel. We are building FoodDash step by step, turning a simple application into a scalable and resilient real-world system. See you in the next episode! Keep learning!
+
+(Transcribed by TurboScribe. Go Unlimited to remove this message.)

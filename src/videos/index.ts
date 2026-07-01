@@ -19,6 +19,8 @@ import {lessonPlan as loadBalancingAlgorithmsLessonPlan} from './load-balancing-
 import loadBalancingAlgorithmsWords from './load-balancing-algorithms/words.json';
 import {lessonPlan as layer4Layer7LessonPlan} from './layer-4-vs-layer-7-load-balancing/lessonPlan';
 import layer4Layer7Words from './layer-4-vs-layer-7-load-balancing/words.json';
+import {lessonPlan as multiAzLessonPlan} from './multi-az-architecture/lessonPlan';
+import multiAzWords from './multi-az-architecture/words.json';
 import type {VideoDefinition, WordTiming} from '../types';
 
 export const videos: VideoDefinition[] = [
@@ -111,6 +113,15 @@ export const videos: VideoDefinition[] = [
     audioSrc: staticFile('audio/layer-4-vs-layer-7-load-balancing.wav'),
     words: layer4Layer7Words as WordTiming[],
     lessonPlan: layer4Layer7LessonPlan,
+  },
+  {
+    id: 'MultiAzArchitecture',
+    slug: 'multi-az-architecture',
+    title: 'Multi-AZ Architecture',
+    subtitle: 'Availability Patterns #10',
+    audioSrc: staticFile('audio/multi-az-architecture.wav'),
+    words: multiAzWords as WordTiming[],
+    lessonPlan: multiAzLessonPlan,
   },
 ];
 

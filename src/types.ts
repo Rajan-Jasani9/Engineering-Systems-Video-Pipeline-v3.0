@@ -121,6 +121,7 @@ export type VisualKind =
   | 'lb-screen'
   | 'lba-screen'
   | 'l47-screen'
+  | 'maz-screen'
   | 'spof-video-intro'
   | 'spof-recap'
   | 'spof-start-availability'

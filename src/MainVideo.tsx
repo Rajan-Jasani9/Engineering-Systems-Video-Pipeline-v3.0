@@ -35,7 +35,8 @@ export const MainVideo: React.FC<MainVideoProps> = ({audioSrc, words, lessonPlan
     slug === 'series-vs-parallel-availability' ||
     slug === 'load-balancing' ||
     slug === 'load-balancing-algorithms' ||
-    slug === 'layer-4-vs-layer-7-load-balancing';
+    slug === 'layer-4-vs-layer-7-load-balancing' ||
+    slug === 'multi-az-architecture';
   const showCaptions = !captionsDisabled && activeBeat.kind !== 'closing';
   const footerLabels = lessonPlan.some((beat) => beat.kind.startsWith('spof-'))
     ? ['Availability', 'SPOFs', 'FoodDash', 'High availability']

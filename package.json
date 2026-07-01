@@ -20,6 +20,8 @@
     "render:load-balancing:gpu": "remotion render src/index.tsx LoadBalancing out/load-balancing.mp4 --codec=h264 --audio-codec=aac --hardware-acceleration=if-possible --chrome-mode=chrome-for-testing --gl=angle --concurrency=50%",
     "render:load-balancing-algorithms": "remotion render src/index.tsx LoadBalancingAlgorithms out/load-balancing-algorithms.mp4 --codec=h264 --audio-codec=aac",
     "render:load-balancing-algorithms:gpu": "remotion render src/index.tsx LoadBalancingAlgorithms out/load-balancing-algorithms.mp4 --codec=h264 --audio-codec=aac --hardware-acceleration=if-possible --chrome-mode=chrome-for-testing --gl=angle --concurrency=50%",
+    "render:multi-az": "remotion render src/index.tsx MultiAzArchitecture out/multi-az-architecture.mp4 --codec=h264 --audio-codec=aac",
+    "render:multi-az:gpu": "remotion render src/index.tsx MultiAzArchitecture out/multi-az-architecture.mp4 --codec=h264 --audio-codec=aac --hardware-acceleration=if-possible --chrome-mode=chrome-for-testing --gl=angle --concurrency=50%",
     "extract:words": "node scripts/extract-words.mjs",
     "check:pacing": "node scripts/check-lesson-pacing.mjs",
     "typecheck": "tsc --noEmit"

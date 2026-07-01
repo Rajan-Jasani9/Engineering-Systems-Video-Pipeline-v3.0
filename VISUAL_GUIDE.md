@@ -2,6 +2,8 @@
 
 Read this before creating any new video in this project. The goal is for every topic to feel like part of the same Engineering Systems series, even when the lesson plan, examples, and diagrams change.
 
+Also read `VISUAL_UPGRADE_GUIDE.md` before planning or redesigning scenes. That guide covers the higher-level visual direction: attention control, scene staging, density budgets, motion choreography, and how to make the videos feel less generic while preserving this series identity.
+
 ## Core Identity
 
 The series is a black-and-white engineering whiteboard explainer. It should feel like a senior engineer is teaching system design on a dark chalkboard with animated diagrams, bold cards, and karaoke captions.
